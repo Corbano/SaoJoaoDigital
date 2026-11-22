@@ -41,6 +41,7 @@ const categoriasData = read('categorias.json');
 const eventosData = read('eventos.json');
 const noticiasData = read('noticias.json');
 const ofertasData = read('ofertas.json');
+const cardapiosData = read('cardapios.json');
 const EMP = empresasData.empresas;
 const CATS = categoriasData.categorias;
 const EVT = eventosData.eventos;
@@ -49,6 +50,7 @@ const catById = Object.fromEntries(CATS.map((c) => [c.id, c]));
 const empBySlug = Object.fromEntries(EMP.map((e) => [e.slug, e]));
 const TIPOS = noticiasData.tipos;
 
+const CARD = Object.fromEntries(cardapiosData.cardapios.map((c) => [c.empresa, c]));
 const urls = []; // para o sitemap
 const addUrl = (loc, lastmod, prio, freq) => urls.push({ loc, lastmod: lastmod || TODAY, prio, freq });
 
@@ -68,12 +70,12 @@ const BRAND_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" r
 const OG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1730"/><stop offset="1" stop-color="#1b4a8a"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><text x="80" y="300" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" fill="#fff">São João <tspan fill="#ffb020">Digital</tspan></text><text x="80" y="380" font-family="Arial,Helvetica,sans-serif" font-size="38" fill="#cfe0f5">Base de conhecimento local de ${CIDADE}</text></svg>`;
 
 /* ---------- layout compartilhado ---------- */
-const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['/comparador/', 'Comparador'], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/planos/', 'Para empresas']];
+const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['Serviços', [['/comparador/', 'Comparador de preços'], ['/cardapios/', 'Cardápios digitais'], ['/agendar/', 'Agendamento']]], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/planos/', 'Para empresas']];
 
 function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scripts = [], noindex = false, hero = '', image = '/assets/img/og-default.svg' }) {
   const fullTitle = p === '/' ? title : `${title} | ${SITE_NAME}`;
   const robots = NOINDEX || noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1';
-  const nav = NAV.map(([h, t]) => `<li class="nav-item"><a class="nav-link${h === '/planos/' ? ' cta' : ''}${p.startsWith(h) ? ' active' : ''}" href="${h}"${p.startsWith(h) ? ' aria-current="page"' : ''}>${t}</a></li>`).join('');
+  const nav = NAV.map(([h, t]) => Array.isArray(t) ? `<li class="nav-item dropdown"><a class="nav-link dropdown-toggle${t.some(([x]) => p.startsWith(x)) ? ' active' : ''}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">${h}</a><ul class="dropdown-menu">${t.map(([x, n]) => `<li><a class="dropdown-item${p.startsWith(x) ? ' active' : ''}" href="${x}">${n}</a></li>`).join('')}</ul></li>` : `<li class="nav-item"><a class="nav-link${h === '/planos/' ? ' cta' : ''}${p.startsWith(h) ? ' active' : ''}" href="${h}"${p.startsWith(h) ? ' aria-current="page"' : ''}>${t}</a></li>`).join('');
   const ld = jsonld.length ? `<script type="application/ld+json">${json(jsonld.length === 1 ? jsonld[0] : { '@context': 'https://schema.org', '@graph': jsonld.map((x) => { const { '@context': _c, ...r } = x; return r; }) })}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -177,6 +179,8 @@ function empresaLd(e) {
     areaServed: { '@type': 'City', name: CIDADE },
     openingHoursSpecification: (e.horario || []).map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.dow, opens: h.abre, closes: h.fecha })),
     ...(e.pagamento && e.pagamento.length && { paymentAccepted: e.pagamento.join(', ') }),
+    ...(CARD[e.slug] && { hasMenu: abs(`/cardapios/${e.slug}/`), acceptsReservations: true }),
+    ...(e.agendamento && e.agendamento.ativo && { potentialAction: { '@type': 'ReserveAction', name: 'Solicitar agendamento', target: { '@type': 'EntryPoint', urlTemplate: abs(`/agendar/${e.slug}/`) } } }),
     ...(sameAs.length && { sameAs }), ...(e.site && { sameAs: sameAs.concat(e.site) }),
     parentOrganization: { '@id': url + '#organization' }
   };
@@ -228,7 +232,7 @@ ${wa ? `<dt>WhatsApp</dt><dd><a href="${wa}" rel="noopener nofollow" target="_bl
 ${realEmail(e.email) ? `<dt>E-mail</dt><dd><a href="mailto:${esc(e.email)}">${esc(e.email)}</a></dd>` : ''}
 <dt>Horário</dt><dd>${e.horario.map((h) => `${esc(h.dias)}: ${h.abre}–${h.fecha}`).join('<br>')}${e.fechado ? `<br><small>Fechado: ${esc(e.fechado)}</small>` : ''}</dd>
 ${e.pagamento.length ? `<dt>Pagamento</dt><dd>${esc(e.pagamento.join(', '))}</dd>` : ''}</dl>
-${wa ? `<p><a class="btn btn-success" href="${wa}" rel="noopener nofollow" target="_blank">WhatsApp</a></p>` : ''}</section>
+<div class="d-grid gap-2">${wa ? `<a class="btn btn-success" href="${wa}" rel="noopener nofollow" target="_blank">WhatsApp</a>` : ''}${CARD[e.slug] ? `<a class="btn btn-warning fw-bold" href="/cardapios/${e.slug}/">🍽️ Ver cardápio e pedir</a>` : ''}${e.agendamento && e.agendamento.ativo ? `<a class="btn btn-primary" href="/agendar/${e.slug}/">📅 Agendar horário</a>` : ''}</div></section>
 ${socials ? `<section class="panel"><h2>Redes sociais</h2><ul>${socials}</ul></section>` : ''}
 ${e.ia ? `<section class="chat" id="chat-empresa" data-slug="${e.slug}" aria-label="Assistente de IA de ${esc(e.nome)}"><div class="chat-head">🤖 Assistente de ${esc(e.nome)}</div>
 <div class="chat-log" role="log" aria-live="polite"><div class="msg bot">Olá! Respondo apenas com as informações cadastradas por ${esc(e.nome)}. O que você quer saber?</div></div>
@@ -343,7 +347,7 @@ ${tabelaOfertas(p)}
 
 function build() {
   // limpa saídas anteriores geradas (apenas pastas geradas)
-  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
+  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'cardapios', 'agendar', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
 
   write('assets/img/logo.svg', BRAND_SVG);
   write('assets/img/favicon.svg', BRAND_SVG);
@@ -442,6 +446,7 @@ function build() {
   addUrl('/sobre/', TODAY, '0.5', 'monthly');
 
   const PROD = gerarComparador();
+  require('./features')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, empBySlug, catById, CORE_JS, cardapios: cardapiosData.cardapios });
 
   /* 404 */
   write('404.html', layout({ title: 'Página não encontrada', desc: 'A página procurada não existe.', path: '/404.html', noindex: true, hero: pageHero([['/', 'Início'], ['', 'Erro 404']], 'Página não encontrada', ''), body: '<div class="article"><p>Não encontramos essa página. Tente o <a href="/assistente/">assistente</a>, as <a href="/categorias/">categorias</a> ou volte ao <a href="/">início</a>.</p></div>', scripts: CORE_JS }));
@@ -469,6 +474,7 @@ function build() {
 - [categorias.json](${abs('/dados/categorias.json')}): categorias, descrições e sinônimos de busca
 - [eventos.json](${abs('/dados/eventos.json')}): agenda de eventos
 - [noticias.json](${abs('/dados/noticias.json')}): notícias, guias, novidades e conteúdos patrocinados
+- [cardapios.json](${abs('/dados/cardapios.json')}): itens e preços dos cardápios
 - [ofertas.json](${abs('/dados/ofertas.json')}): preços do comparador (preco, preco_promocional, data_inicio, data_fim)
 
 ## Páginas principais
@@ -478,6 +484,8 @@ function build() {
 - [Eventos](${abs('/eventos/')})
 - [Notícias e guias](${abs('/noticias/')})
 - [Comparador de preços](${abs('/comparador/')}): menor preço por produto/serviço entre empresas
+- [Cardápios digitais](${abs('/cardapios/')}): menus com preços e pedido pelo WhatsApp
+- [Agendamento](${abs('/agendar/')}): solicitação de horário (a confirmação é da empresa)
 - [Assistente Inteligente](${abs('/assistente/')})
 - [Como interpretar os dados](${abs('/sobre/')})
 

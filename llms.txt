@@ -17,6 +17,7 @@
 - [categorias.json](https://saojoaodigital.com.br/dados/categorias.json): categorias, descrições e sinônimos de busca
 - [eventos.json](https://saojoaodigital.com.br/dados/eventos.json): agenda de eventos
 - [noticias.json](https://saojoaodigital.com.br/dados/noticias.json): notícias, guias, novidades e conteúdos patrocinados
+- [cardapios.json](https://saojoaodigital.com.br/dados/cardapios.json): itens e preços dos cardápios
 - [ofertas.json](https://saojoaodigital.com.br/dados/ofertas.json): preços do comparador (preco, preco_promocional, data_inicio, data_fim)
 
 ## Páginas principais
@@ -26,6 +27,8 @@
 - [Eventos](https://saojoaodigital.com.br/eventos/)
 - [Notícias e guias](https://saojoaodigital.com.br/noticias/)
 - [Comparador de preços](https://saojoaodigital.com.br/comparador/): menor preço por produto/serviço entre empresas
+- [Cardápios digitais](https://saojoaodigital.com.br/cardapios/): menus com preços e pedido pelo WhatsApp
+- [Agendamento](https://saojoaodigital.com.br/agendar/): solicitação de horário (a confirmação é da empresa)
 - [Assistente Inteligente](https://saojoaodigital.com.br/assistente/)
 - [Como interpretar os dados](https://saojoaodigital.com.br/sobre/)
 
@@ -46,6 +49,7 @@
 - [Mecânica Rápida Pit Stop](https://saojoaodigital.com.br/empresas/mecanica-rapida-pit-stop/): Auto elétrica e troca de óleo. Troca de óleo, bateria e auto elétrica sem hora marcada.
 - [Super Piscina Center](https://saojoaodigital.com.br/empresas/super-piscina-center/): Loja de piscinas e lazer. Loja de produtos para piscina e lazer de verão.
 - [Depósito Constrular](https://saojoaodigital.com.br/empresas/deposito-constrular/): Depósito de materiais. Depósito de materiais básicos de construção com entrega.
+- [Marmitaria Sabor Caseiro](https://saojoaodigital.com.br/empresas/marmitaria-sabor-caseiro/): Marmitaria e lanchonete. Marmitas caseiras com cardápio diferente a cada dia e entrega no horário do almoço.
 
 ## Versão completa
 - [llms-full.txt](https://saojoaodigital.com.br/llms-full.txt): conteúdo integral em texto simples

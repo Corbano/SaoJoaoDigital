@@ -144,7 +144,20 @@
         }
       ],
       "atualizado": "2026-11-21",
-      "subcategoria_slug": "restaurantes-churrascarias"
+      "subcategoria_slug": "restaurantes-churrascarias",
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 1,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Reserva de mesa",
+            "preco": 0,
+            "duracao_min": 90
+          }
+        ]
+      }
     },
     {
       "id": "demo-auto-center-mecanica",
@@ -268,7 +281,30 @@
         }
       ],
       "atualizado": "2026-11-21",
-      "subcategoria_slug": "mecanicas"
+      "subcategoria_slug": "mecanicas",
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 2,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Revisão preventiva",
+            "preco": null,
+            "duracao_min": 120
+          },
+          {
+            "nome": "Troca de óleo e filtros",
+            "preco": 259,
+            "duracao_min": 60
+          },
+          {
+            "nome": "Alinhamento e balanceamento",
+            "preco": null,
+            "duracao_min": 60
+          }
+        ]
+      }
     },
     {
       "id": "demo-aqua-piscinas",
@@ -498,7 +534,30 @@
         }
       ],
       "atualizado": "2026-11-21",
-      "subcategoria_slug": "clinicas-medicas"
+      "subcategoria_slug": "clinicas-medicas",
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 2,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Consulta de clínica geral",
+            "preco": null,
+            "duracao_min": 30
+          },
+          {
+            "nome": "Sessão de fisioterapia",
+            "preco": null,
+            "duracao_min": 60
+          },
+          {
+            "nome": "Consulta de nutrição",
+            "preco": null,
+            "duracao_min": 60
+          }
+        ]
+      }
     },
     {
       "id": "demo-hotel-mirante-da-serra",
@@ -730,7 +789,30 @@
       "avaliacoes": [],
       "atualizacoes": [],
       "atualizado": "2026-11-21",
-      "subcategoria_slug": "pet-shops"
+      "subcategoria_slug": "pet-shops",
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 2,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Banho (porte pequeno)",
+            "preco": 55,
+            "duracao_min": 60
+          },
+          {
+            "nome": "Banho e tosa (porte médio)",
+            "preco": 75,
+            "duracao_min": 90
+          },
+          {
+            "nome": "Tosa higiênica",
+            "preco": 40,
+            "duracao_min": 30
+          }
+        ]
+      }
     },
     {
       "plano": "premium",
@@ -1012,7 +1094,30 @@
           "abre": "09:00",
           "fecha": "13:00"
         }
-      ]
+      ],
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 2,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Diagnóstico e orçamento",
+            "preco": 0,
+            "duracao_min": 30
+          },
+          {
+            "nome": "Troca de tela",
+            "preco": 189,
+            "duracao_min": 60
+          },
+          {
+            "nome": "Troca de bateria",
+            "preco": 120,
+            "duracao_min": 30
+          }
+        ]
+      }
     },
     {
       "plano": "gratuito",
@@ -1167,7 +1272,20 @@
           "abre": "08:30",
           "fecha": "17:30"
         }
-      ]
+      ],
+      "agendamento": {
+        "ativo": true,
+        "passo_min": 30,
+        "antecedencia_horas": 2,
+        "dias_a_frente": 14,
+        "servicos": [
+          {
+            "nome": "Primeira conversa (30 min)",
+            "preco": 0,
+            "duracao_min": 30
+          }
+        ]
+      }
     },
     {
       "plano": "gratuito",
@@ -1453,6 +1571,85 @@
           "fecha": "18:00"
         }
       ]
+    },
+    {
+      "id": "demo-sabor-caseiro",
+      "slug": "marmitaria-sabor-caseiro",
+      "nome": "Marmitaria Sabor Caseiro",
+      "categoria": "onde-comer",
+      "subcategoria_slug": "lanchonetes",
+      "subcategoria": "Marmitaria e lanchonete",
+      "tags": [
+        "marmita",
+        "marmitex",
+        "almoco",
+        "prato feito",
+        "lanche",
+        "delivery"
+      ],
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Marmitas caseiras com cardápio diferente a cada dia e entrega no horário do almoço.",
+      "descricao": "Marmitaria com comida caseira, prato do dia e opção de entrega para escritórios e residências na região central.",
+      "historia": "",
+      "produtos": [
+        {
+          "nome": "Marmitas P, M e G",
+          "descricao": "Prato do dia com arroz, feijão, mistura e salada.",
+          "preco": "a partir de R$ 18"
+        }
+      ],
+      "servicos": [
+        "Marmita do dia",
+        "Entrega para empresas",
+        "Lanches"
+      ],
+      "diferenciais": [
+        "Cardápio novo todo dia",
+        "Entrega até 13h"
+      ],
+      "publico": "Trabalhadores e famílias no horário do almoço.",
+      "endereco": {
+        "rua": "Rua Exemplo",
+        "numero": "88",
+        "bairro": "Centro",
+        "cidade": "São João da Boa Vista",
+        "uf": "SP",
+        "cep": "13870-800",
+        "referencia": ""
+      },
+      "telefone": "(19) 99999-0018",
+      "whatsapp": "5519999990018",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "horario": [
+        {
+          "dias": "Segunda a sexta",
+          "dow": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "abre": "10:30",
+          "fecha": "14:30"
+        }
+      ],
+      "fechado": "Sábado e domingo",
+      "pagamento": [
+        "Pix",
+        "Cartão",
+        "Dinheiro"
+      ],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-22"
     }
   ]
 }

@@ -1,0 +1,230 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-22",
+  "aviso": "Cardápios de DEMONSTRAÇÃO (itens e preços fictícios).",
+  "cardapios": [
+    {
+      "empresa": "cantina-bella-serra",
+      "tipo": "restaurante",
+      "entrega": "Entrega no centro e bairros próximos; taxa informada no WhatsApp.",
+      "demo": true,
+      "itens": [
+        {
+          "id": 1,
+          "cat": "Massas",
+          "nome": "Fettuccine ao sugo",
+          "descricao": "Massa fresca com molho de tomate italiano e manjericão.",
+          "preco": 38
+        },
+        {
+          "id": 2,
+          "cat": "Massas",
+          "nome": "Nhoque de batata",
+          "descricao": "Nhoque artesanal com molho à escolha.",
+          "preco": 42
+        },
+        {
+          "id": 3,
+          "cat": "Massas",
+          "nome": "Lasanha à bolonhesa",
+          "descricao": "Camadas de massa, molho bolonhesa e queijo gratinado.",
+          "preco": 46
+        },
+        {
+          "id": 4,
+          "cat": "Massas",
+          "nome": "Ravioli de queijo",
+          "descricao": "Ravioli recheado com molho de manteiga e sálvia.",
+          "preco": 48
+        },
+        {
+          "id": 5,
+          "cat": "Pizzas",
+          "nome": "Pizza Margherita",
+          "descricao": "Molho de tomate, mussarela de búfala e manjericão.",
+          "preco": 52
+        },
+        {
+          "id": 6,
+          "cat": "Pizzas",
+          "nome": "Pizza Calabresa",
+          "descricao": "Calabresa fatiada, cebola e azeitonas.",
+          "preco": 54,
+          "promo": true
+        },
+        {
+          "id": 7,
+          "cat": "Pizzas",
+          "nome": "Pizza Quatro Queijos",
+          "descricao": "Mussarela, provolone, gorgonzola e parmesão.",
+          "preco": 62
+        },
+        {
+          "id": 8,
+          "cat": "Bebidas",
+          "nome": "Refrigerante lata",
+          "descricao": "350 ml.",
+          "preco": 6
+        },
+        {
+          "id": 9,
+          "cat": "Bebidas",
+          "nome": "Suco natural",
+          "descricao": "Laranja ou limão, 400 ml.",
+          "preco": 9
+        },
+        {
+          "id": 10,
+          "cat": "Bebidas",
+          "nome": "Taça de vinho",
+          "descricao": "Tinto ou branco da casa.",
+          "preco": 24
+        },
+        {
+          "id": 11,
+          "cat": "Sobremesas",
+          "nome": "Tiramisù",
+          "descricao": "Receita tradicional italiana.",
+          "preco": 18
+        },
+        {
+          "id": 12,
+          "cat": "Sobremesas",
+          "nome": "Panna cotta",
+          "descricao": "Com calda de frutas vermelhas.",
+          "preco": 16
+        }
+      ]
+    },
+    {
+      "empresa": "pizzaria-forno-de-ouro",
+      "tipo": "pizzaria",
+      "entrega": "Entrega rápida na cidade; retirada no balcão sem taxa.",
+      "demo": true,
+      "itens": [
+        {
+          "id": 1,
+          "cat": "Pizzas",
+          "nome": "Mussarela",
+          "descricao": "Molho de tomate, mussarela e orégano.",
+          "preco": 48
+        },
+        {
+          "id": 2,
+          "cat": "Pizzas",
+          "nome": "Portuguesa",
+          "descricao": "Presunto, ovo, cebola, ervilha e azeitona.",
+          "preco": 55
+        },
+        {
+          "id": 3,
+          "cat": "Pizzas",
+          "nome": "Frango com catupiry",
+          "descricao": "Frango desfiado e catupiry original.",
+          "preco": 56,
+          "promo": true
+        },
+        {
+          "id": 4,
+          "cat": "Pizzas",
+          "nome": "Calabresa",
+          "descricao": "Calabresa, cebola e azeitona.",
+          "preco": 52
+        },
+        {
+          "id": 5,
+          "cat": "Doces",
+          "nome": "Pizza de chocolate",
+          "descricao": "Chocolate ao leite com granulado.",
+          "preco": 45
+        },
+        {
+          "id": 6,
+          "cat": "Bebidas",
+          "nome": "Refrigerante 2 L",
+          "descricao": "Sabores variados.",
+          "preco": 12
+        },
+        {
+          "id": 7,
+          "cat": "Bebidas",
+          "nome": "Refrigerante lata",
+          "descricao": "350 ml.",
+          "preco": 6
+        }
+      ]
+    },
+    {
+      "empresa": "marmitaria-sabor-caseiro",
+      "tipo": "marmitaria",
+      "entrega": "Entrega para escritórios e residências até 13h.",
+      "demo": true,
+      "cardapio_dia": {
+        "Monday": {
+          "prato": "Frango grelhado com purê de batata",
+          "opcao": "Omelete de legumes"
+        },
+        "Tuesday": {
+          "prato": "Bife acebolado com arroz e feijão",
+          "opcao": "Filé de peixe"
+        },
+        "Wednesday": {
+          "prato": "Feijoada completa (quarta é dia!)",
+          "opcao": "Frango assado"
+        },
+        "Thursday": {
+          "prato": "Estrogonofe de frango",
+          "opcao": "Carne de panela"
+        },
+        "Friday": {
+          "prato": "Lasanha caseira",
+          "opcao": "Peixe frito com pirão"
+        }
+      },
+      "itens": [
+        {
+          "id": 1,
+          "cat": "Marmitas",
+          "nome": "Marmita P",
+          "descricao": "Prato do dia, arroz, feijão e salada (350 g).",
+          "preco": 18
+        },
+        {
+          "id": 2,
+          "cat": "Marmitas",
+          "nome": "Marmita M",
+          "descricao": "Prato do dia, arroz, feijão e salada (500 g).",
+          "preco": 22
+        },
+        {
+          "id": 3,
+          "cat": "Marmitas",
+          "nome": "Marmita G",
+          "descricao": "Prato do dia, arroz, feijão e salada (700 g).",
+          "preco": 26
+        },
+        {
+          "id": 4,
+          "cat": "Lanches",
+          "nome": "X-Salada",
+          "descricao": "Hambúrguer, queijo, alface e tomate.",
+          "preco": 20
+        },
+        {
+          "id": 5,
+          "cat": "Bebidas",
+          "nome": "Suco de caixinha",
+          "descricao": "200 ml.",
+          "preco": 4
+        },
+        {
+          "id": 6,
+          "cat": "Bebidas",
+          "nome": "Refrigerante lata",
+          "descricao": "350 ml.",
+          "preco": 6
+        }
+      ]
+    }
+  ]
+}
