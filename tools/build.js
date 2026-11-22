@@ -387,12 +387,6 @@ function build() {
   addUrl('/empresas/', TODAY, '0.9', 'daily');
 
   /* Categorias */
-  CATS.forEach((c) => {
-    const lista = EMP.filter((e) => e.categoria === c.id);
-    const body = `<div class="container" style="padding-top:26px;padding-bottom:30px"><p>${esc(c.intro)}</p><h2 class="h5">Subcategorias</h2><ul class="list-inline subcats">${c.subcategorias.map((sc) => { const n = lista.filter((e) => e.subcategoria_slug === sc.slug).length; return `<li class="list-inline-item"><span class="badge rounded-pill ${n ? 'text-bg-primary' : 'text-bg-light border'}">${esc(sc.nome)}${n ? ' (' + n + ')' : ''}</span></li>`; }).join('')}</ul><h2 class="h5">Empresas</h2>${lista.length ? `<div class="row g-3">${lista.map(cardEmpresa).join('')}</div>` : '<p>Ainda não há empresas cadastradas nesta categoria. <a href="/planos/">Cadastre a sua gratuitamente</a>.</p>'}</div>`;
-    write(`categorias/${c.slug}/index.html`, layout({ title: `${c.nome} em ${CIDADE}`, desc: `${c.descricao} ${lista.length} ${lista.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'} em ${CIDADE} (SP).`, path: `/categorias/${c.slug}/`, hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias'], [`/categorias/${c.slug}/`, c.nome]], `${c.nome} em ${CIDADE}`, c.descricao), body, scripts: CORE_JS, jsonld: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${c.nome} em ${CIDADE}`, description: c.intro, mainEntity: { '@type': 'ItemList', itemListElement: lista.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/empresas/${e.slug}/`), name: e.nome })) } }, crumbLd([['/', 'Início'], ['/categorias/', 'Categorias'], [`/categorias/${c.slug}/`, c.nome]])] }));
-    addUrl(`/categorias/${c.slug}/`, TODAY, '0.8', 'weekly');
-  });
   write('categorias/index.html', layout({ title: `Categorias de empresas e serviços em ${CIDADE}`, desc: `Navegue pelas 12 categorias do São João Digital: ${CATS.map((c) => c.nome).join(', ')}.`, path: '/categorias/', hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias']], 'Categorias', 'Encontre empresas e serviços por tipo de atividade.'), body: `<div class="container" style="padding-top:26px;padding-bottom:30px"><div class="row g-3">${CATS.map((c) => cardCategoria(c)).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/categorias/', 'Categorias']])] }));
   addUrl('/categorias/', TODAY, '0.7', 'weekly');
 
@@ -446,6 +440,7 @@ function build() {
   addUrl('/sobre/', TODAY, '0.5', 'monthly');
 
   const PROD = gerarComparador();
+  require('./categorias')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, CIDADE, CATS, EMP, EVT, NOT, PROD, CARD, empBySlug, catById, cardEmpresa, cardEvento, cardNoticia, cardProduto, CORE_JS, TODAY });
   require('./features')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, empBySlug, catById, CORE_JS, cardapios: cardapiosData.cardapios });
 
   /* 404 */

@@ -13,8 +13,11 @@ categorias/<slug>/         12 categorias oficiais (Onde Comer, Onde Comprar, Cas
 eventos/<slug>/            Agenda (schema Event)
 noticias/<slug>/           Notícias, guias, novidades e conteúdo patrocinado identificado
 assistente/                "Assistente Inteligente São João Digital"
+comparador/<produto>/      Comparador de preços (menor preço primeiro, schema AggregateOffer)
+cardapios/<empresa>/       Cardápio digital + pedido pelo WhatsApp
+agendar/<empresa>/         Solicitação de agendamento pelo WhatsApp
 planos/  sobre/            Modelo de negócio e como interpretar os dados
-dados/                     empresas.json, categorias.json, eventos.json, noticias.json (fonte única)
+dados/                     empresas, categorias (12 + subcategorias), eventos, noticias, ofertas, cardapios (.json)
 assets/                    vendor (Bootstrap), css, js (core, ai-engine, site) e imagens SVG
 tools/build.js             Gerador das páginas a partir dos JSON (Node, só para desenvolvimento)
 robots.txt  sitemap.xml  llms.txt  llms-full.txt  .htaccess  404.html
@@ -29,6 +32,13 @@ robots.txt  sitemap.xml  llms.txt  llms-full.txt  .htaccess  404.html
 Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque `SITE_URL`, remova os registros `"demo": true`, substitua as imagens SVG ilustrativas por fotos reais e (se quiser) converta `og-default.svg` para PNG 1200×630, pois algumas redes sociais não leem SVG.
 
 > Os dados atuais são **fictícios (demonstração)**. Use `NOINDEX=1 node tools/build.js` para impedir indexação enquanto só houver dados de teste.
+
+## Recursos portados do projeto antigo (sem banco)
+
+- **Comparador:**  (, , , , , ). Produtos com o mesmo nome são agrupados; ofertas fora da vigência somem (no build e no navegador).
+- **Cardápio digital:**  (itens por categoria, cardápio do dia). O carrinho monta a mensagem e abre o WhatsApp da empresa; nada é armazenado.
+- **Agendamento:** campo  da empresa (serviços, duração, passo, antecedência). Os horários livres saem do horário de funcionamento; a solicitação vai por WhatsApp e só vale após a confirmação da empresa.
+- **Categorias:** páginas com empresas, preços, cardápios/agendamento, eventos, notícias e FAQ; subcategorias com empresas ganham página própria.
 
 ## Planos (preparado no código)
 
