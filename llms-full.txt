@@ -5,19 +5,24 @@
 Gerado em 2026-11-22.
 
 ## Categorias
-- Restaurantes: Esta categoria reúne estabelecimentos de alimentação de São João da Boa Vista (SP): restaurantes, cantinas, pizzarias, cafeterias, padarias e serviços de delivery. Cada página informa cardápio, horário, endereço e formas de contato.
-- Saúde: Profissionais e estabelecimentos de saúde e bem-estar de São João da Boa Vista (SP): clínicas, consultórios, odontologia, fisioterapia, farmácias e laboratórios. Confirme sempre horários e convênios diretamente com o estabelecimento.
-- Comércio: Lojas e comércio local de São João da Boa Vista (SP): varejo, materiais, pet shops, produtos para casa, jardim e piscina. Use as páginas para comparar produtos, horários e formas de pagamento.
-- Serviços: Prestadores de serviço de São João da Boa Vista (SP): oficinas mecânicas, manutenção, assistência técnica, contabilidade e serviços profissionais em geral.
-- Turismo: Hospedagem, passeios e atrações para quem visita São João da Boa Vista (SP) e a região: hotéis, pousadas, guias, agências e experiências locais.
-- Educação: Instituições de ensino e cursos de São João da Boa Vista (SP): escolas, idiomas, cursos técnicos, reforço escolar e formação profissional.
-- Outros: Iniciativas, associações, projetos sociais e espaços que não se encaixam nas demais categorias, mas fazem parte da vida de São João da Boa Vista (SP).
+- Onde Comer: Restaurantes, lanchonetes, pizzarias, padarias, bares e buffets. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Restaurantes e Churrascarias, Lanchonetes, Pizzarias, Padarias e Cafeterias, Açaí e Sorvetes, Doces e Bolos, Pastelarias e Salgados, Bares e Choperias, Food Trucks, Comida Vegana/Vegetariana, Buffets para Eventos.
+- Onde Comprar: Lojas, supermercados, eletrônicos, móveis, farmácias e presentes. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Lojas de Roupas, Supermercados, Lojas de Calçados, Eletrônicos e Informática, Eletrodomésticos, Móveis e Decoração, Livros e Papelaria, Presentes e Artesanato, Farmácias e Drogarias, Óticas, Floriculturas.
+- Casamentos e Festas: Buffets, decoração, salões, fotografia, música e tudo para casamentos e festas. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Buffets, Decoração, Salões e Espaços para Eventos, Fotografia e Filmagem, Música e DJ, Vestidos e Trajes, Bolos e Doces Finos, Convites e Papelaria, Aluguel de Materiais, Agências de Eventos, Bartenders e Drinks, Lembrancinhas.
+- Saúde e Beleza: Clínicas, dentistas, salões, barbearias, academias e bem-estar. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Clínicas Médicas, Salões de Beleza, Barbearias, Academias, Estúdios de Pilates, Clínicas de Estética e Spas, Dentistas e Odontologia, Psicólogos e Terapeutas, Nutricionistas, Podólogos, Massagistas.
+- Casa e Construção: Materiais de construção, acabamentos, reformas, paisagismo e imobiliárias. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Materiais de Construção, Lojas de Acabamentos, Marmorarias, Lojas de Móveis, Decoração e Design de Interiores, Tintas e Acabamentos, Elétrica e Iluminação, Hidráulica, Paisagismo e Jardinagem, Reformas e Construções, Serralherias, Vidraçarias, Imobiliárias.
+- Carro e Moto: Mecânicas, auto elétrica, funilaria, peças, concessionárias e serviços automotivos. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Auto Elétrica, Mecânicas, Lava Rápido, Funilaria e Pintura, Peças e Acessórios, Concessionárias, Borracharias, Guinchos, Centros Automotivos, Estacionamentos, Seguro de Veículos, Despachantes.
+- Assistência Técnica: Conserto de celulares, computadores, eletrodomésticos, ar-condicionado e serviços técnicos. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Celulares e Smartphones, Computadores e Notebooks, Eletrodomésticos, Eletrônicos (TVs, Som), Ar Condicionado, Máquinas de Costura, Ferramentas Elétricas, Impressoras, Conserto de Games, Chaveiros, Encanadores, Eletricistas.
+- Onde Ficar: Hotéis, pousadas, chalés, hotéis fazenda e hospedagem por temporada. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Hotéis, Pousadas, Airbnb e Temporada, Hostels, Motéis, Resorts, Campings, Hotéis Fazenda, Apart-hotéis, Chalés.
+- Cães e Gatos: Pet shops, veterinários, banho e tosa, adestramento e adoção. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Pet Shops, Veterinários, Banho e Tosa, Adestramento, Hotéis para Pets, Táxi Dog, Clínicas Veterinárias, Farmácias Veterinárias, Passeadores de Cães, ONGs e Adoção.
+- Escolas e Cursos: Escolas, idiomas, cursos técnicos, reforço escolar, faculdades e creches. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Escolas (Infantil ao Médio), Cursos Técnicos, Idiomas, Informática, Música, Dança, Artes e Desenho, Reforço Escolar, Pré-Vestibular, Cursos Profissionalizantes, Faculdades e Universidades, Creches.
+- Transportes e Locação: Táxis, locadoras, fretamento, cargas, motoboys e transporte executivo. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Táxis, Aplicativos de Transporte, Locadoras de Veículos, Transporte Escolar, Transporte de Cargas, Motoboys e Entregas, Ônibus e Vans Fretamento, Bicicletas Aluguel, Transporte Executivo, Aeroportos e Traslados.
+- Escritórios: Contabilidade, advocacia, arquitetura, engenharia, marketing e consultoria. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Contabilidade, Advocacia, Imobiliárias, Arquitetura e Urbanismo, Engenharia, Marketing e Publicidade, Consultoria, Coworking, Gráficas e Copiadoras, Seguros.
 
 ## Empresas
 
 ### Cantina Bella Serra
 URL: https://saojoaodigital.com.br/empresas/cantina-bella-serra/
-Categoria: Restaurantes (Restaurante italiano)
+Categoria: Onde Comer › Restaurante italiano
 Plano: premium | DADOS DE DEMONSTRAÇÃO
 Descrição: A Cantina Bella Serra é um restaurante de culinária italiana que prepara massas frescas todos os dias, molhos de cozimento lento e pizzas assadas em forno a lenha. O ambiente é pensado para almoços de família, encontros de amigos e comemorações, com salão climatizado e área externa.
 História: Fundada em 2009 por uma família apaixonada por cozinha italiana, a cantina começou com seis mesas e receitas passadas entre gerações. Hoje mantém o preparo artesanal e atende moradores e visitantes da cidade e da região.
@@ -40,7 +45,7 @@ Atualizado em: 2026-11-21
 
 ### Auto Center Mecânica do Centro
 URL: https://saojoaodigital.com.br/empresas/auto-center-mecanica-do-centro/
-Categoria: Serviços (Oficina mecânica)
+Categoria: Carro e Moto › Oficina mecânica
 Plano: premium | DADOS DE DEMONSTRAÇÃO
 Descrição: Oficina mecânica de carros nacionais e importados localizada na região central. Realiza diagnóstico com scanner, revisões preventivas, troca de óleo, freios, suspensão, alinhamento, balanceamento e manutenção de injeção eletrônica, sempre com orçamento prévio.
 História: Atua desde 2003 no mesmo endereço, construindo a reputação com orçamento claro, peças com garantia e prazos combinados.
@@ -63,7 +68,7 @@ Atualizado em: 2026-11-21
 
 ### Aqua Azul Piscinas
 URL: https://saojoaodigital.com.br/empresas/aqua-azul-piscinas/
-Categoria: Comércio (Loja de produtos para piscina)
+Categoria: Onde Comprar › Loja de produtos para piscina
 Plano: premium | DADOS DE DEMONSTRAÇÃO
 Descrição: A Aqua Azul Piscinas vende produtos químicos, filtros, bombas, aspiradores, capas e acessórios para piscinas residenciais e de condomínios. Também faz análise gratuita da água e orienta o tratamento correto para cada estação.
 História: Criada em 2014 por técnicos em tratamento de água, a loja cresceu atendendo famílias, chácaras e condomínios da região.
@@ -86,7 +91,7 @@ Atualizado em: 2026-11-21
 
 ### Clínica Vida Plena
 URL: https://saojoaodigital.com.br/empresas/clinica-vida-plena/
-Categoria: Saúde (Clínica multidisciplinar)
+Categoria: Saúde e Beleza › Clínica multidisciplinar
 Plano: premium | DADOS DE DEMONSTRAÇÃO
 Descrição: A Clínica Vida Plena reúne várias especialidades em um só endereço: clínica geral, fisioterapia, nutrição e psicologia. O atendimento é feito com hora marcada, com foco em prevenção, acolhimento e acompanhamento contínuo.
 História: Fundada em 2016 por um grupo de profissionais da saúde da região com a proposta de cuidado integrado.
@@ -106,7 +111,7 @@ Atualizado em: 2026-11-21
 
 ### Hotel Mirante da Serra
 URL: https://saojoaodigital.com.br/empresas/hotel-mirante-da-serra/
-Categoria: Turismo (Hotel)
+Categoria: Onde Ficar › Hotel
 Plano: gratuito | DADOS DE DEMONSTRAÇÃO
 Descrição: Hotel de porte médio com apartamentos standard e família, café da manhã incluso, Wi-Fi e estacionamento. Indicado para turistas, eventos e viagens a trabalho.
 Público: Turistas, famílias e viajantes a negócios.
@@ -120,7 +125,7 @@ Atualizado em: 2026-11-21
 
 ### Escola Global Idiomas
 URL: https://saojoaodigital.com.br/empresas/escola-global-idiomas/
-Categoria: Educação (Escola de idiomas)
+Categoria: Escolas e Cursos › Escola de idiomas
 Plano: gratuito | DADOS DE DEMONSTRAÇÃO
 Descrição: Escola de idiomas com turmas reduzidas de inglês e espanhol, foco em conversação e preparação para viagens e exames.
 Público: Crianças, jovens e adultos.
@@ -134,7 +139,7 @@ Atualizado em: 2026-11-21
 
 ### Pet Amigo Casa e Jardim
 URL: https://saojoaodigital.com.br/empresas/pet-amigo-casa-e-jardim/
-Categoria: Comércio (Pet shop)
+Categoria: Cães e Gatos › Pet shop
 Plano: gratuito | DADOS DE DEMONSTRAÇÃO
 Descrição: Pet shop com rações das principais marcas, acessórios, produtos de jardinagem e serviço de banho e tosa com agendamento.
 Público: Tutores de cães, gatos e aves.
@@ -147,17 +152,85 @@ Diferenciais: Banho e tosa com agendamento
 Pagamento: Pix, Cartão, Dinheiro
 Atualizado em: 2026-11-21
 
-### Associação Amigos do Bem
-URL: https://saojoaodigital.com.br/empresas/associacao-amigos-do-bem/
-Categoria: Outros (Associação comunitária)
+### Espaço Jardim das Festas
+URL: https://saojoaodigital.com.br/empresas/espaco-jardim-das-festas/
+Categoria: Casamentos e Festas › Salão de festas e eventos
+Plano: premium | DADOS DE DEMONSTRAÇÃO
+Descrição: O Espaço Jardim das Festas oferece salão climatizado e jardim para até 250 convidados, com cozinha de apoio, estacionamento e pacotes que podem incluir buffet, decoração e som.
+História: Inaugurado em 2018 para receber celebrações de família na região.
+Público: Noivos, famílias, formandos e empresas.
+Endereço: Estrada Exemplo, Km 2 - Zona Rural, São João da Boa Vista - SP, 13880-000 (Acesso pela estrada principal)
+Telefone: (19) 99999-0009 | WhatsApp: https://wa.me/5519999990009
+Horário: Segunda a sábado (visitas) 09:00-17:00 | Fechado: Domingo (eventos sob agenda)
+Produtos: Pacote casamento (sob orçamento)
+Serviços: Aluguel de salão; Pacotes com buffet; Decoração; Som e iluminação; Assessoria no dia do evento
+Diferenciais: Jardim para cerimônias; Estacionamento próprio; Salão climatizado; Visita guiada com hora marcada
+Pagamento: Pix, Cartão, Dinheiro
+Perguntas frequentes:
+  P: Qual a capacidade do salão?
+  R: Até 250 convidados entre salão e jardim.
+  P: Como agendar uma visita?
+  R: Pelo WhatsApp, informando a data desejada do evento.
+Atualizado em: 2026-11-21
+
+### Casa Forte Materiais de Construção
+URL: https://saojoaodigital.com.br/empresas/casa-forte-materiais-de-construcao/
+Categoria: Casa e Construção › Materiais de construção
+Plano: premium | DADOS DE DEMONSTRAÇÃO
+Descrição: Loja de materiais de construção com cimento, areia, tijolos, pisos, tintas, material hidráulico e elétrico. Orientação para pequenas reformas e entrega na cidade.
+Público: Construtores, pedreiros e moradores em reforma.
+Endereço: Avenida Exemplo, 1500 - Distrito Exemplo, São João da Boa Vista - SP, 13871-000
+Telefone: (19) 99999-0010 | WhatsApp: https://wa.me/5519999990010
+Horário: Segunda a sexta 07:30-18:00; Sábado 07:30-13:00 | Fechado: Domingo
+Produtos: Cimento, areia e tijolos; Tintas e acabamentos; Hidráulica e elétrica
+Serviços: Entrega na cidade; Corte de materiais; Orçamento de obra; Máquina de tintas
+Diferenciais: Entrega no mesmo dia na cidade; Máquina de tintas; Orçamento sem compromisso
+Pagamento: Pix, Cartão, Dinheiro
+Perguntas frequentes:
+  P: Vocês entregam?
+  R: Sim, na cidade. Consulte prazo e taxa pelo WhatsApp.
+Atualizado em: 2026-11-21
+
+### TecFix Assistência Técnica
+URL: https://saojoaodigital.com.br/empresas/tecfix-assistencia-tecnica/
+Categoria: Assistência Técnica › Assistência técnica de celulares e computadores
 Plano: gratuito | DADOS DE DEMONSTRAÇÃO
-Descrição: Associação sem fins lucrativos que organiza campanhas solidárias, arrecadação de alimentos e agasalhos e ações de voluntariado na cidade.
-Público: Famílias em vulnerabilidade e voluntários.
-Endereço: Rua Exemplo, 5 - Centro, São João da Boa Vista - SP, 13870-400
-Telefone: (19) 99999-0008 | WhatsApp: https://wa.me/5519999990008
-Horário: Segunda a sexta 09:00-16:00 | Fechado: Sábado e domingo
-Serviços: Campanhas de doação; Voluntariado
-Diferenciais: Prestação de contas pública
+Descrição: Assistência técnica para celulares, notebooks e computadores. Diagnóstico rápido, troca de telas e baterias, limpeza e formatação com garantia do serviço.
+Público: Pessoas e pequenas empresas.
+Endereço: Rua Exemplo, 210 - Centro, São João da Boa Vista - SP, 13870-500
+Telefone: (19) 99999-0011 | WhatsApp: https://wa.me/5519999990011
+Horário: Segunda a sexta 09:00-18:00; Sábado 09:00-13:00 | Fechado: Domingo
+Serviços: Troca de tela; Troca de bateria; Formatação; Limpeza de notebook; Recuperação de dados
+Diferenciais: Diagnóstico rápido; Garantia do serviço
+Pagamento: Pix, Cartão, Dinheiro
+Atualizado em: 2026-11-21
+
+### Rota Certa Locadora de Veículos
+URL: https://saojoaodigital.com.br/empresas/rota-certa-locadora-de-veiculos/
+Categoria: Transportes e Locação › Locadora de veículos
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Locadora com carros econômicos, SUVs e vans, com diárias e planos mensais. Retirada na loja e entrega sob consulta.
+Público: Visitantes, empresas e moradores.
+Endereço: Avenida Exemplo, 800 - Centro, São João da Boa Vista - SP, 13870-600
+Telefone: (19) 99999-0012 | WhatsApp: https://wa.me/5519999990012
+Horário: Segunda a sexta 08:00-18:00; Sábado 08:00-12:00 | Fechado: Domingo
+Serviços: Aluguel de carros; Aluguel de vans; Plano mensal; Entrega sob consulta
+Diferenciais: Frota revisada; Atendimento por WhatsApp
+Pagamento: Cartão de crédito, Pix
+Atualizado em: 2026-11-21
+
+### Prisma Contabilidade
+URL: https://saojoaodigital.com.br/empresas/prisma-contabilidade/
+Categoria: Escritórios › Escritório de contabilidade
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Escritório de contabilidade que atende MEI e pequenas empresas com abertura de CNPJ, impostos, folha de pagamento e consultoria fiscal.
+Público: MEIs e pequenas empresas.
+Endereço: Rua Exemplo, 45 - Centro, São João da Boa Vista - SP, 13870-700
+Telefone: (19) 99999-0013 | WhatsApp: https://wa.me/5519999990013
+Horário: Segunda a sexta 08:30-17:30 | Fechado: Sábado e domingo
+Serviços: Abertura de empresa; Imposto de renda; Folha de pagamento; Consultoria fiscal; Contabilidade para MEI
+Diferenciais: Atendimento por WhatsApp; Planos mensais fixos
+Pagamento: Pix, Boleto
 Atualizado em: 2026-11-21
 
 ## Eventos
@@ -168,11 +241,11 @@ Quando: 2026-12-05T17:00:00-03:00 até 2026-12-06T22:00:00-03:00
 Onde: Praça central (exemplo), São João da Boa Vista
 Evento de demonstração que reúne estabelecimentos de alimentação da cidade, com degustações, música ao vivo e espaço infantil. Entrada gratuita.
 
-### Mutirão Solidário do Agasalho
-URL: https://saojoaodigital.com.br/eventos/mutirao-solidario-agasalho/
+### Feira de Noivas e Festas
+URL: https://saojoaodigital.com.br/eventos/feira-de-noivas-e-festas/
 Quando: 2026-12-12T09:00:00-03:00 até 2026-12-12T15:00:00-03:00
-Onde: Sede da associação (exemplo), São João da Boa Vista
-Evento de demonstração. Voluntários recebem e organizam doações de agasalhos e cobertores.
+Onde: Espaço Jardim das Festas (exemplo), São João da Boa Vista
+Evento de demonstração com buffets, decoração, fotografia e música para quem planeja um casamento ou festa.
 
 ### Dia de Preparação da Piscina para o Verão
 URL: https://saojoaodigital.com.br/eventos/aulao-de-preparacao-para-o-verao/

@@ -1,69 +1,1018 @@
 {
-  "versao": "1.0",
+  "versao": "2.0",
   "atualizado": "2026-11-21",
+  "origem": "12 categorias oficiais do projeto São João Digital (repositório Sao_Joao_Digital)",
   "categorias": [
     {
-      "id": "restaurantes",
-      "slug": "restaurantes",
-      "nome": "Restaurantes",
+      "id": "onde-comer",
+      "slug": "onde-comer",
+      "nome": "Onde Comer",
       "icone": "🍽️",
-      "descricao": "Restaurantes, pizzarias, cafés, padarias e delivery em São João da Boa Vista.",
-      "intro": "Esta categoria reúne estabelecimentos de alimentação de São João da Boa Vista (SP): restaurantes, cantinas, pizzarias, cafeterias, padarias e serviços de delivery. Cada página informa cardápio, horário, endereço e formas de contato.",
-      "sinonimos": ["restaurante", "comida", "comer", "almoco", "jantar", "pizza", "massa", "italiano", "italiana", "lanche", "cafe", "padaria", "delivery", "refeicao", "gastronomia", "cantina"]
+      "cor": "#dc2626",
+      "ordem": 1,
+      "descricao": "Restaurantes, lanchonetes, pizzarias, padarias, bares e buffets.",
+      "intro": "Restaurantes, lanchonetes, pizzarias, padarias, bares e buffets. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Restaurantes e Churrascarias, Lanchonetes, Pizzarias, Padarias e Cafeterias, Açaí e Sorvetes, Doces e Bolos, Pastelarias e Salgados, Bares e Choperias, Food Trucks, Comida Vegana/Vegetariana, Buffets para Eventos.",
+      "subcategorias": [
+        {
+          "nome": "Restaurantes e Churrascarias",
+          "slug": "restaurantes-churrascarias"
+        },
+        {
+          "nome": "Lanchonetes",
+          "slug": "lanchonetes"
+        },
+        {
+          "nome": "Pizzarias",
+          "slug": "pizzarias"
+        },
+        {
+          "nome": "Padarias e Cafeterias",
+          "slug": "padarias-cafeterias"
+        },
+        {
+          "nome": "Açaí e Sorvetes",
+          "slug": "acai-sorvetes"
+        },
+        {
+          "nome": "Doces e Bolos",
+          "slug": "doces-bolos"
+        },
+        {
+          "nome": "Pastelarias e Salgados",
+          "slug": "pastelarias-salgados"
+        },
+        {
+          "nome": "Bares e Choperias",
+          "slug": "bares-choperias"
+        },
+        {
+          "nome": "Food Trucks",
+          "slug": "food-trucks"
+        },
+        {
+          "nome": "Comida Vegana/Vegetariana",
+          "slug": "vegana-vegetariana"
+        },
+        {
+          "nome": "Buffets para Eventos",
+          "slug": "buffets-eventos"
+        }
+      ],
+      "sinonimos": [
+        "comida",
+        "comer",
+        "almoco",
+        "jantar",
+        "lanche",
+        "pizza",
+        "massa",
+        "italiano",
+        "italiana",
+        "cafe",
+        "delivery",
+        "refeicao",
+        "gastronomia",
+        "onde",
+        "restaurantes",
+        "churrascarias",
+        "lanchonetes",
+        "pizzarias",
+        "padarias",
+        "cafeterias",
+        "acai",
+        "sorvetes",
+        "doces",
+        "bolos",
+        "pastelarias",
+        "salgados",
+        "bares",
+        "choperias",
+        "food",
+        "trucks",
+        "vegana",
+        "vegetariana",
+        "buffets",
+        "eventos"
+      ]
     },
     {
-      "id": "saude",
-      "slug": "saude",
-      "nome": "Saúde",
-      "icone": "🩺",
-      "descricao": "Clínicas, consultórios, farmácias, laboratórios e bem-estar na cidade.",
-      "intro": "Profissionais e estabelecimentos de saúde e bem-estar de São João da Boa Vista (SP): clínicas, consultórios, odontologia, fisioterapia, farmácias e laboratórios. Confirme sempre horários e convênios diretamente com o estabelecimento.",
-      "sinonimos": ["saude", "clinica", "medico", "dentista", "odontologia", "fisioterapia", "farmacia", "laboratorio", "exame", "consulta", "psicologo", "nutricao", "bem-estar", "pediatra"]
-    },
-    {
-      "id": "comercio",
-      "slug": "comercio",
-      "nome": "Comércio",
+      "id": "onde-comprar",
+      "slug": "onde-comprar",
+      "nome": "Onde Comprar",
       "icone": "🛍️",
-      "descricao": "Lojas, supermercados, pet shops e produtos para casa e lazer.",
-      "intro": "Lojas e comércio local de São João da Boa Vista (SP): varejo, materiais, pet shops, produtos para casa, jardim e piscina. Use as páginas para comparar produtos, horários e formas de pagamento.",
-      "sinonimos": ["comercio", "loja", "comprar", "produto", "produtos", "piscina", "pet", "racao", "supermercado", "material", "construcao", "presente", "roupa", "varejo"]
+      "cor": "#1e40af",
+      "ordem": 2,
+      "descricao": "Lojas, supermercados, eletrônicos, móveis, farmácias e presentes.",
+      "intro": "Lojas, supermercados, eletrônicos, móveis, farmácias e presentes. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Lojas de Roupas, Supermercados, Lojas de Calçados, Eletrônicos e Informática, Eletrodomésticos, Móveis e Decoração, Livros e Papelaria, Presentes e Artesanato, Farmácias e Drogarias, Óticas, Floriculturas.",
+      "subcategorias": [
+        {
+          "nome": "Lojas de Roupas",
+          "slug": "lojas-roupas"
+        },
+        {
+          "nome": "Supermercados",
+          "slug": "supermercados"
+        },
+        {
+          "nome": "Lojas de Calçados",
+          "slug": "lojas-calcados"
+        },
+        {
+          "nome": "Eletrônicos e Informática",
+          "slug": "eletronicos-informatica"
+        },
+        {
+          "nome": "Eletrodomésticos",
+          "slug": "eletrodomesticos"
+        },
+        {
+          "nome": "Móveis e Decoração",
+          "slug": "moveis-decoracao"
+        },
+        {
+          "nome": "Livros e Papelaria",
+          "slug": "livros-papelaria"
+        },
+        {
+          "nome": "Presentes e Artesanato",
+          "slug": "presentes-artesanato"
+        },
+        {
+          "nome": "Farmácias e Drogarias",
+          "slug": "farmacias-drogarias"
+        },
+        {
+          "nome": "Óticas",
+          "slug": "oticas"
+        },
+        {
+          "nome": "Floriculturas",
+          "slug": "floriculturas"
+        }
+      ],
+      "sinonimos": [
+        "comprar",
+        "loja",
+        "produto",
+        "produtos",
+        "piscina",
+        "presente",
+        "roupa",
+        "varejo",
+        "onde",
+        "lojas",
+        "roupas",
+        "supermercados",
+        "calcados",
+        "eletronicos",
+        "informatica",
+        "eletrodomesticos",
+        "moveis",
+        "decoracao",
+        "livros",
+        "papelaria",
+        "presentes",
+        "artesanato",
+        "farmacias",
+        "drogarias",
+        "oticas",
+        "floriculturas"
+      ]
     },
     {
-      "id": "servicos",
-      "slug": "servicos",
-      "nome": "Serviços",
+      "id": "casamentos-festas",
+      "slug": "casamentos-festas",
+      "nome": "Casamentos e Festas",
+      "icone": "💒",
+      "cor": "#db2777",
+      "ordem": 3,
+      "descricao": "Buffets, decoração, salões, fotografia, música e tudo para casamentos e festas.",
+      "intro": "Buffets, decoração, salões, fotografia, música e tudo para casamentos e festas. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Buffets, Decoração, Salões e Espaços para Eventos, Fotografia e Filmagem, Música e DJ, Vestidos e Trajes, Bolos e Doces Finos, Convites e Papelaria, Aluguel de Materiais, Agências de Eventos, Bartenders e Drinks, Lembrancinhas.",
+      "subcategorias": [
+        {
+          "nome": "Buffets",
+          "slug": "buffets"
+        },
+        {
+          "nome": "Decoração",
+          "slug": "decoracao-festas"
+        },
+        {
+          "nome": "Salões e Espaços para Eventos",
+          "slug": "saloes-espacos"
+        },
+        {
+          "nome": "Fotografia e Filmagem",
+          "slug": "fotografia-filmagem"
+        },
+        {
+          "nome": "Música e DJ",
+          "slug": "musica-dj"
+        },
+        {
+          "nome": "Vestidos e Trajes",
+          "slug": "vestidos-trajes"
+        },
+        {
+          "nome": "Bolos e Doces Finos",
+          "slug": "bolos-doces-finos"
+        },
+        {
+          "nome": "Convites e Papelaria",
+          "slug": "convites-papelaria"
+        },
+        {
+          "nome": "Aluguel de Materiais",
+          "slug": "aluguel-materiais"
+        },
+        {
+          "nome": "Agências de Eventos",
+          "slug": "agencias-eventos"
+        },
+        {
+          "nome": "Bartenders e Drinks",
+          "slug": "bartenders-drinks"
+        },
+        {
+          "nome": "Lembrancinhas",
+          "slug": "lembrancinhas"
+        }
+      ],
+      "sinonimos": [
+        "casamento",
+        "festa",
+        "aniversario",
+        "evento",
+        "formatura",
+        "casamentos",
+        "festas",
+        "buffets",
+        "decoracao",
+        "saloes",
+        "espacos",
+        "eventos",
+        "fotografia",
+        "filmagem",
+        "musica",
+        "vestidos",
+        "trajes",
+        "bolos",
+        "doces",
+        "finos",
+        "convites",
+        "papelaria",
+        "aluguel",
+        "materiais",
+        "agencias",
+        "bartenders",
+        "drinks",
+        "lembrancinhas"
+      ]
+    },
+    {
+      "id": "saude-beleza",
+      "slug": "saude-beleza",
+      "nome": "Saúde e Beleza",
+      "icone": "💊",
+      "cor": "#be185d",
+      "ordem": 4,
+      "descricao": "Clínicas, dentistas, salões, barbearias, academias e bem-estar.",
+      "intro": "Clínicas, dentistas, salões, barbearias, academias e bem-estar. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Clínicas Médicas, Salões de Beleza, Barbearias, Academias, Estúdios de Pilates, Clínicas de Estética e Spas, Dentistas e Odontologia, Psicólogos e Terapeutas, Nutricionistas, Podólogos, Massagistas.",
+      "subcategorias": [
+        {
+          "nome": "Clínicas Médicas",
+          "slug": "clinicas-medicas"
+        },
+        {
+          "nome": "Salões de Beleza",
+          "slug": "saloes-beleza"
+        },
+        {
+          "nome": "Barbearias",
+          "slug": "barbearias"
+        },
+        {
+          "nome": "Academias",
+          "slug": "academias"
+        },
+        {
+          "nome": "Estúdios de Pilates",
+          "slug": "pilates"
+        },
+        {
+          "nome": "Clínicas de Estética e Spas",
+          "slug": "estetica-spas"
+        },
+        {
+          "nome": "Dentistas e Odontologia",
+          "slug": "dentistas"
+        },
+        {
+          "nome": "Psicólogos e Terapeutas",
+          "slug": "psicologos-terapeutas"
+        },
+        {
+          "nome": "Nutricionistas",
+          "slug": "nutricionistas"
+        },
+        {
+          "nome": "Podólogos",
+          "slug": "podologos"
+        },
+        {
+          "nome": "Massagistas",
+          "slug": "massagistas"
+        }
+      ],
+      "sinonimos": [
+        "saude",
+        "medico",
+        "clinica",
+        "dentista",
+        "beleza",
+        "cabelo",
+        "academia",
+        "consulta",
+        "fisioterapia",
+        "clinicas",
+        "medicas",
+        "saloes",
+        "barbearias",
+        "academias",
+        "estudios",
+        "pilates",
+        "estetica",
+        "spas",
+        "dentistas",
+        "odontologia",
+        "psicologos",
+        "terapeutas",
+        "nutricionistas",
+        "podologos",
+        "massagistas"
+      ]
+    },
+    {
+      "id": "casa-construcao",
+      "slug": "casa-construcao",
+      "nome": "Casa e Construção",
+      "icone": "🏠",
+      "cor": "#b45309",
+      "ordem": 5,
+      "descricao": "Materiais de construção, acabamentos, reformas, paisagismo e imobiliárias.",
+      "intro": "Materiais de construção, acabamentos, reformas, paisagismo e imobiliárias. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Materiais de Construção, Lojas de Acabamentos, Marmorarias, Lojas de Móveis, Decoração e Design de Interiores, Tintas e Acabamentos, Elétrica e Iluminação, Hidráulica, Paisagismo e Jardinagem, Reformas e Construções, Serralherias, Vidraçarias, Imobiliárias.",
+      "subcategorias": [
+        {
+          "nome": "Materiais de Construção",
+          "slug": "materiais-construcao"
+        },
+        {
+          "nome": "Lojas de Acabamentos",
+          "slug": "acabamentos"
+        },
+        {
+          "nome": "Marmorarias",
+          "slug": "marmorarias"
+        },
+        {
+          "nome": "Lojas de Móveis",
+          "slug": "moveis"
+        },
+        {
+          "nome": "Decoração e Design de Interiores",
+          "slug": "design-interiores"
+        },
+        {
+          "nome": "Tintas e Acabamentos",
+          "slug": "tintas"
+        },
+        {
+          "nome": "Elétrica e Iluminação",
+          "slug": "eletrica-iluminacao"
+        },
+        {
+          "nome": "Hidráulica",
+          "slug": "hidraulica"
+        },
+        {
+          "nome": "Paisagismo e Jardinagem",
+          "slug": "paisagismo"
+        },
+        {
+          "nome": "Reformas e Construções",
+          "slug": "reformas"
+        },
+        {
+          "nome": "Serralherias",
+          "slug": "serralherias"
+        },
+        {
+          "nome": "Vidraçarias",
+          "slug": "vidracarias"
+        },
+        {
+          "nome": "Imobiliárias",
+          "slug": "imobiliarias"
+        }
+      ],
+      "sinonimos": [
+        "casa",
+        "obra",
+        "construcao",
+        "reforma",
+        "material",
+        "tinta",
+        "imovel",
+        "materiais",
+        "lojas",
+        "acabamentos",
+        "marmorarias",
+        "moveis",
+        "decoracao",
+        "design",
+        "interiores",
+        "tintas",
+        "eletrica",
+        "iluminacao",
+        "hidraulica",
+        "paisagismo",
+        "jardinagem",
+        "reformas",
+        "construcoes",
+        "serralherias",
+        "vidracarias",
+        "imobiliarias"
+      ]
+    },
+    {
+      "id": "carro-moto",
+      "slug": "carro-moto",
+      "nome": "Carro e Moto",
+      "icone": "🚗",
+      "cor": "#374151",
+      "ordem": 6,
+      "descricao": "Mecânicas, auto elétrica, funilaria, peças, concessionárias e serviços automotivos.",
+      "intro": "Mecânicas, auto elétrica, funilaria, peças, concessionárias e serviços automotivos. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Auto Elétrica, Mecânicas, Lava Rápido, Funilaria e Pintura, Peças e Acessórios, Concessionárias, Borracharias, Guinchos, Centros Automotivos, Estacionamentos, Seguro de Veículos, Despachantes.",
+      "subcategorias": [
+        {
+          "nome": "Auto Elétrica",
+          "slug": "auto-eletrica"
+        },
+        {
+          "nome": "Mecânicas",
+          "slug": "mecanicas"
+        },
+        {
+          "nome": "Lava Rápido",
+          "slug": "lava-rapido"
+        },
+        {
+          "nome": "Funilaria e Pintura",
+          "slug": "funilaria-pintura"
+        },
+        {
+          "nome": "Peças e Acessórios",
+          "slug": "pecas-acessorios"
+        },
+        {
+          "nome": "Concessionárias",
+          "slug": "concessionarias"
+        },
+        {
+          "nome": "Borracharias",
+          "slug": "borracharias"
+        },
+        {
+          "nome": "Guinchos",
+          "slug": "guinchos"
+        },
+        {
+          "nome": "Centros Automotivos",
+          "slug": "centros-automotivos"
+        },
+        {
+          "nome": "Estacionamentos",
+          "slug": "estacionamentos"
+        },
+        {
+          "nome": "Seguro de Veículos",
+          "slug": "seguro-veiculos"
+        },
+        {
+          "nome": "Despachantes",
+          "slug": "despachantes"
+        }
+      ],
+      "sinonimos": [
+        "carro",
+        "moto",
+        "mecanico",
+        "mecanica",
+        "oficina",
+        "automovel",
+        "veiculo",
+        "revisao",
+        "freio",
+        "auto",
+        "eletrica",
+        "mecanicas",
+        "lava",
+        "rapido",
+        "funilaria",
+        "pintura",
+        "pecas",
+        "acessorios",
+        "concessionarias",
+        "borracharias",
+        "guinchos",
+        "centros",
+        "automotivos",
+        "estacionamentos",
+        "seguro",
+        "veiculos",
+        "despachantes"
+      ]
+    },
+    {
+      "id": "assistencia-tecnica",
+      "slug": "assistencia-tecnica",
+      "nome": "Assistência Técnica",
       "icone": "🔧",
-      "descricao": "Mecânicos, eletricistas, contadores, advogados e prestadores de serviço.",
-      "intro": "Prestadores de serviço de São João da Boa Vista (SP): oficinas mecânicas, manutenção, assistência técnica, contabilidade e serviços profissionais em geral.",
-      "sinonimos": ["servico", "servicos", "mecanico", "mecanica", "oficina", "carro", "automovel", "eletricista", "encanador", "contador", "contabilidade", "advogado", "reparo", "manutencao", "conserto", "assistencia"]
+      "cor": "#6366f1",
+      "ordem": 7,
+      "descricao": "Conserto de celulares, computadores, eletrodomésticos, ar-condicionado e serviços técnicos.",
+      "intro": "Conserto de celulares, computadores, eletrodomésticos, ar-condicionado e serviços técnicos. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Celulares e Smartphones, Computadores e Notebooks, Eletrodomésticos, Eletrônicos (TVs, Som), Ar Condicionado, Máquinas de Costura, Ferramentas Elétricas, Impressoras, Conserto de Games, Chaveiros, Encanadores, Eletricistas.",
+      "subcategorias": [
+        {
+          "nome": "Celulares e Smartphones",
+          "slug": "celulares"
+        },
+        {
+          "nome": "Computadores e Notebooks",
+          "slug": "computadores"
+        },
+        {
+          "nome": "Eletrodomésticos",
+          "slug": "eletrodomesticos-assist"
+        },
+        {
+          "nome": "Eletrônicos (TVs, Som)",
+          "slug": "eletronicos-assist"
+        },
+        {
+          "nome": "Ar Condicionado",
+          "slug": "ar-condicionado"
+        },
+        {
+          "nome": "Máquinas de Costura",
+          "slug": "maquinas-costura"
+        },
+        {
+          "nome": "Ferramentas Elétricas",
+          "slug": "ferramentas-eletricas"
+        },
+        {
+          "nome": "Impressoras",
+          "slug": "impressoras"
+        },
+        {
+          "nome": "Conserto de Games",
+          "slug": "games"
+        },
+        {
+          "nome": "Chaveiros",
+          "slug": "chaveiros"
+        },
+        {
+          "nome": "Encanadores",
+          "slug": "encanadores"
+        },
+        {
+          "nome": "Eletricistas",
+          "slug": "eletricistas"
+        }
+      ],
+      "sinonimos": [
+        "conserto",
+        "reparo",
+        "assistencia",
+        "tecnico",
+        "manutencao",
+        "celular",
+        "eletricista",
+        "encanador",
+        "tecnica",
+        "celulares",
+        "smartphones",
+        "computadores",
+        "notebooks",
+        "eletrodomesticos",
+        "eletronicos",
+        "tvs",
+        "som",
+        "condicionado",
+        "maquinas",
+        "costura",
+        "ferramentas",
+        "eletricas",
+        "impressoras",
+        "games",
+        "chaveiros",
+        "encanadores",
+        "eletricistas"
+      ]
     },
     {
-      "id": "turismo",
-      "slug": "turismo",
-      "nome": "Turismo",
-      "icone": "🧭",
-      "descricao": "Hotéis, pousadas, passeios e atrações para visitantes.",
-      "intro": "Hospedagem, passeios e atrações para quem visita São João da Boa Vista (SP) e a região: hotéis, pousadas, guias, agências e experiências locais.",
-      "sinonimos": ["turismo", "hotel", "pousada", "hospedagem", "passeio", "visitar", "viagem", "atracao", "turista", "dormir", "hospedar", "agencia"]
+      "id": "onde-ficar",
+      "slug": "onde-ficar",
+      "nome": "Onde Ficar",
+      "icone": "🏨",
+      "cor": "#0f766e",
+      "ordem": 8,
+      "descricao": "Hotéis, pousadas, chalés, hotéis fazenda e hospedagem por temporada.",
+      "intro": "Hotéis, pousadas, chalés, hotéis fazenda e hospedagem por temporada. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Hotéis, Pousadas, Airbnb e Temporada, Hostels, Motéis, Resorts, Campings, Hotéis Fazenda, Apart-hotéis, Chalés.",
+      "subcategorias": [
+        {
+          "nome": "Hotéis",
+          "slug": "hoteis"
+        },
+        {
+          "nome": "Pousadas",
+          "slug": "pousadas"
+        },
+        {
+          "nome": "Airbnb e Temporada",
+          "slug": "airbnb-temporada"
+        },
+        {
+          "nome": "Hostels",
+          "slug": "hostels"
+        },
+        {
+          "nome": "Motéis",
+          "slug": "moteis"
+        },
+        {
+          "nome": "Resorts",
+          "slug": "resorts"
+        },
+        {
+          "nome": "Campings",
+          "slug": "campings"
+        },
+        {
+          "nome": "Hotéis Fazenda",
+          "slug": "hoteis-fazenda"
+        },
+        {
+          "nome": "Apart-hotéis",
+          "slug": "apart-hoteis"
+        },
+        {
+          "nome": "Chalés",
+          "slug": "chales"
+        }
+      ],
+      "sinonimos": [
+        "hotel",
+        "pousada",
+        "hospedagem",
+        "dormir",
+        "hospedar",
+        "turismo",
+        "viagem",
+        "visitar",
+        "onde",
+        "ficar",
+        "hoteis",
+        "pousadas",
+        "airbnb",
+        "temporada",
+        "hostels",
+        "moteis",
+        "resorts",
+        "campings",
+        "fazenda",
+        "apart",
+        "chales"
+      ]
     },
     {
-      "id": "educacao",
-      "slug": "educacao",
-      "nome": "Educação",
-      "icone": "🎓",
-      "descricao": "Escolas, cursos, idiomas, reforço escolar e faculdades.",
-      "intro": "Instituições de ensino e cursos de São João da Boa Vista (SP): escolas, idiomas, cursos técnicos, reforço escolar e formação profissional.",
-      "sinonimos": ["educacao", "escola", "curso", "idioma", "ingles", "espanhol", "aula", "faculdade", "ensino", "reforco", "professor", "aprender", "colegio"]
+      "id": "caes-gatos",
+      "slug": "caes-gatos",
+      "nome": "Cães e Gatos",
+      "icone": "🐾",
+      "cor": "#16a34a",
+      "ordem": 9,
+      "descricao": "Pet shops, veterinários, banho e tosa, adestramento e adoção.",
+      "intro": "Pet shops, veterinários, banho e tosa, adestramento e adoção. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Pet Shops, Veterinários, Banho e Tosa, Adestramento, Hotéis para Pets, Táxi Dog, Clínicas Veterinárias, Farmácias Veterinárias, Passeadores de Cães, ONGs e Adoção.",
+      "subcategorias": [
+        {
+          "nome": "Pet Shops",
+          "slug": "pet-shops"
+        },
+        {
+          "nome": "Veterinários",
+          "slug": "veterinarios"
+        },
+        {
+          "nome": "Banho e Tosa",
+          "slug": "banho-tosa"
+        },
+        {
+          "nome": "Adestramento",
+          "slug": "adestramento"
+        },
+        {
+          "nome": "Hotéis para Pets",
+          "slug": "hoteis-pets"
+        },
+        {
+          "nome": "Táxi Dog",
+          "slug": "taxi-dog"
+        },
+        {
+          "nome": "Clínicas Veterinárias",
+          "slug": "clinicas-veterinarias"
+        },
+        {
+          "nome": "Farmácias Veterinárias",
+          "slug": "farmacias-veterinarias"
+        },
+        {
+          "nome": "Passeadores de Cães",
+          "slug": "passeadores"
+        },
+        {
+          "nome": "ONGs e Adoção",
+          "slug": "ongs-adocao"
+        }
+      ],
+      "sinonimos": [
+        "pet",
+        "cachorro",
+        "gato",
+        "animal",
+        "racao",
+        "veterinario",
+        "caes",
+        "gatos",
+        "shops",
+        "veterinarios",
+        "banho",
+        "tosa",
+        "adestramento",
+        "hoteis",
+        "pets",
+        "taxi",
+        "dog",
+        "clinicas",
+        "veterinarias",
+        "farmacias",
+        "passeadores",
+        "ongs",
+        "adocao"
+      ]
     },
     {
-      "id": "outros",
-      "slug": "outros",
-      "nome": "Outros",
-      "icone": "✨",
-      "descricao": "Associações, ONGs, espaços culturais e demais iniciativas locais.",
-      "intro": "Iniciativas, associações, projetos sociais e espaços que não se encaixam nas demais categorias, mas fazem parte da vida de São João da Boa Vista (SP).",
-      "sinonimos": ["outros", "ong", "associacao", "cultura", "projeto", "social", "voluntario", "igreja", "espaco"]
+      "id": "escolas-cursos",
+      "slug": "escolas-cursos",
+      "nome": "Escolas e Cursos",
+      "icone": "📚",
+      "cor": "#1d4ed8",
+      "ordem": 10,
+      "descricao": "Escolas, idiomas, cursos técnicos, reforço escolar, faculdades e creches.",
+      "intro": "Escolas, idiomas, cursos técnicos, reforço escolar, faculdades e creches. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Escolas (Infantil ao Médio), Cursos Técnicos, Idiomas, Informática, Música, Dança, Artes e Desenho, Reforço Escolar, Pré-Vestibular, Cursos Profissionalizantes, Faculdades e Universidades, Creches.",
+      "subcategorias": [
+        {
+          "nome": "Escolas (Infantil ao Médio)",
+          "slug": "escolas"
+        },
+        {
+          "nome": "Cursos Técnicos",
+          "slug": "cursos-tecnicos"
+        },
+        {
+          "nome": "Idiomas",
+          "slug": "idiomas"
+        },
+        {
+          "nome": "Informática",
+          "slug": "informatica"
+        },
+        {
+          "nome": "Música",
+          "slug": "musica"
+        },
+        {
+          "nome": "Dança",
+          "slug": "danca"
+        },
+        {
+          "nome": "Artes e Desenho",
+          "slug": "artes-desenho"
+        },
+        {
+          "nome": "Reforço Escolar",
+          "slug": "reforco-escolar"
+        },
+        {
+          "nome": "Pré-Vestibular",
+          "slug": "pre-vestibular"
+        },
+        {
+          "nome": "Cursos Profissionalizantes",
+          "slug": "profissionalizantes"
+        },
+        {
+          "nome": "Faculdades e Universidades",
+          "slug": "faculdades"
+        },
+        {
+          "nome": "Creches",
+          "slug": "creches"
+        }
+      ],
+      "sinonimos": [
+        "escola",
+        "curso",
+        "aula",
+        "ingles",
+        "idioma",
+        "faculdade",
+        "ensino",
+        "aprender",
+        "escolas",
+        "cursos",
+        "infantil",
+        "medio",
+        "tecnicos",
+        "idiomas",
+        "informatica",
+        "musica",
+        "danca",
+        "artes",
+        "desenho",
+        "reforco",
+        "escolar",
+        "pre",
+        "vestibular",
+        "profissionalizantes",
+        "faculdades",
+        "universidades",
+        "creches"
+      ]
+    },
+    {
+      "id": "transportes-locacao",
+      "slug": "transportes-locacao",
+      "nome": "Transportes e Locação",
+      "icone": "🚕",
+      "cor": "#0891b2",
+      "ordem": 11,
+      "descricao": "Táxis, locadoras, fretamento, cargas, motoboys e transporte executivo.",
+      "intro": "Táxis, locadoras, fretamento, cargas, motoboys e transporte executivo. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Táxis, Aplicativos de Transporte, Locadoras de Veículos, Transporte Escolar, Transporte de Cargas, Motoboys e Entregas, Ônibus e Vans Fretamento, Bicicletas Aluguel, Transporte Executivo, Aeroportos e Traslados.",
+      "subcategorias": [
+        {
+          "nome": "Táxis",
+          "slug": "taxis"
+        },
+        {
+          "nome": "Aplicativos de Transporte",
+          "slug": "apps-transporte"
+        },
+        {
+          "nome": "Locadoras de Veículos",
+          "slug": "locadoras"
+        },
+        {
+          "nome": "Transporte Escolar",
+          "slug": "transporte-escolar"
+        },
+        {
+          "nome": "Transporte de Cargas",
+          "slug": "transporte-cargas"
+        },
+        {
+          "nome": "Motoboys e Entregas",
+          "slug": "motoboys"
+        },
+        {
+          "nome": "Ônibus e Vans Fretamento",
+          "slug": "onibus-vans"
+        },
+        {
+          "nome": "Bicicletas Aluguel",
+          "slug": "bicicletas"
+        },
+        {
+          "nome": "Transporte Executivo",
+          "slug": "transporte-executivo"
+        },
+        {
+          "nome": "Aeroportos e Traslados",
+          "slug": "aeroportos-traslados"
+        }
+      ],
+      "sinonimos": [
+        "taxi",
+        "transporte",
+        "frete",
+        "locacao",
+        "aluguel",
+        "carro",
+        "entrega",
+        "transportes",
+        "taxis",
+        "aplicativos",
+        "locadoras",
+        "veiculos",
+        "escolar",
+        "cargas",
+        "motoboys",
+        "entregas",
+        "onibus",
+        "vans",
+        "fretamento",
+        "bicicletas",
+        "executivo",
+        "aeroportos",
+        "traslados"
+      ]
+    },
+    {
+      "id": "escritorios",
+      "slug": "escritorios",
+      "nome": "Escritórios",
+      "icone": "💼",
+      "cor": "#7c3aed",
+      "ordem": 12,
+      "descricao": "Contabilidade, advocacia, arquitetura, engenharia, marketing e consultoria.",
+      "intro": "Contabilidade, advocacia, arquitetura, engenharia, marketing e consultoria. Categoria do São João Digital para São João da Boa Vista (SP). Subcategorias: Contabilidade, Advocacia, Imobiliárias, Arquitetura e Urbanismo, Engenharia, Marketing e Publicidade, Consultoria, Coworking, Gráficas e Copiadoras, Seguros.",
+      "subcategorias": [
+        {
+          "nome": "Contabilidade",
+          "slug": "contabilidade"
+        },
+        {
+          "nome": "Advocacia",
+          "slug": "advocacia"
+        },
+        {
+          "nome": "Imobiliárias",
+          "slug": "imobiliarias-escrit"
+        },
+        {
+          "nome": "Arquitetura e Urbanismo",
+          "slug": "arquitetura"
+        },
+        {
+          "nome": "Engenharia",
+          "slug": "engenharia"
+        },
+        {
+          "nome": "Marketing e Publicidade",
+          "slug": "marketing-publicidade"
+        },
+        {
+          "nome": "Consultoria",
+          "slug": "consultoria"
+        },
+        {
+          "nome": "Coworking",
+          "slug": "coworking"
+        },
+        {
+          "nome": "Gráficas e Copiadoras",
+          "slug": "graficas"
+        },
+        {
+          "nome": "Seguros",
+          "slug": "seguros"
+        }
+      ],
+      "sinonimos": [
+        "escritorio",
+        "contador",
+        "contabilidade",
+        "advogado",
+        "arquiteto",
+        "engenheiro",
+        "consultoria",
+        "servicos",
+        "escritorios",
+        "advocacia",
+        "imobiliarias",
+        "arquitetura",
+        "urbanismo",
+        "engenharia",
+        "marketing",
+        "publicidade",
+        "coworking",
+        "graficas",
+        "copiadoras",
+        "seguros"
+      ]
     }
   ]
 }

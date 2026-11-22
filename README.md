@@ -2,20 +2,20 @@
 
 Base de conhecimento local de **São João da Boa Vista (SP)** para pessoas e sistemas de IA. Não é só um diretório de empresas: é uma infraestrutura de dados estruturados (JSON + HTML + Schema.org) com assistentes que respondem **somente** com o que está cadastrado.
 
-**Stack:** HTML5, CSS3, JavaScript puro, JSON. Sem banco de dados, sem Python, sem TypeScript. Funciona em hospedagem compartilhada (`public_html`).
+**Stack:** HTML5, CSS3, JavaScript puro, JSON e Bootstrap 5.3.3 (CSS + JS hospedados em `assets/vendor/`, sem CDN, compatível com a CSP). Sem banco de dados, sem Python, sem TypeScript. Funciona em hospedagem compartilhada (`public_html`).
 
 ## Estrutura
 
 ```
 index.html                 Home
 empresas/<slug>/           Uma página completa por empresa (Schema.org + FAQ + assistente IA)
-categorias/<slug>/         restaurantes, saude, comercio, servicos, turismo, educacao, outros
+categorias/<slug>/         12 categorias oficiais (Onde Comer, Onde Comprar, Casamentos e Festas, Saúde e Beleza, Casa e Construção, Carro e Moto, Assistência Técnica, Onde Ficar, Cães e Gatos, Escolas e Cursos, Transportes e Locação, Escritórios), com subcategorias
 eventos/<slug>/            Agenda (schema Event)
 noticias/<slug>/           Notícias, guias, novidades e conteúdo patrocinado identificado
 assistente/                "Assistente Inteligente São João Digital"
 planos/  sobre/            Modelo de negócio e como interpretar os dados
 dados/                     empresas.json, categorias.json, eventos.json, noticias.json (fonte única)
-assets/                    css, js (core, ai-engine, site) e imagens SVG
+assets/                    vendor (Bootstrap), css, js (core, ai-engine, site) e imagens SVG
 tools/build.js             Gerador das páginas a partir dos JSON (Node, só para desenvolvimento)
 robots.txt  sitemap.xml  llms.txt  llms-full.txt  .htaccess  404.html
 ```

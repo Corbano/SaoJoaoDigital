@@ -11,26 +11,30 @@
       "fim": "2026-12-06T22:00:00-03:00",
       "local": "Praça central (exemplo)",
       "cidade": "São João da Boa Vista",
-      "categoria": "restaurantes",
+      "categoria": "onde-comer",
       "resumo": "Dois dias de gastronomia local com restaurantes, cafés e música ao vivo.",
       "descricao": "Evento de demonstração que reúne estabelecimentos de alimentação da cidade, com degustações, música ao vivo e espaço infantil. Entrada gratuita.",
       "gratuito": true,
-      "empresas": ["cantina-bella-serra"],
+      "empresas": [
+        "cantina-bella-serra"
+      ],
       "demo": true
     },
     {
-      "id": "demo-mutirao-solidario",
-      "slug": "mutirao-solidario-agasalho",
-      "titulo": "Mutirão Solidário do Agasalho",
+      "id": "demo-feira-noivas",
+      "slug": "feira-de-noivas-e-festas",
+      "titulo": "Feira de Noivas e Festas",
       "inicio": "2026-12-12T09:00:00-03:00",
       "fim": "2026-12-12T15:00:00-03:00",
-      "local": "Sede da associação (exemplo)",
+      "local": "Espaço Jardim das Festas (exemplo)",
       "cidade": "São João da Boa Vista",
-      "categoria": "outros",
-      "resumo": "Arrecadação e triagem de agasalhos com voluntários.",
-      "descricao": "Evento de demonstração. Voluntários recebem e organizam doações de agasalhos e cobertores.",
+      "categoria": "casamentos-festas",
+      "resumo": "Fornecedores de casamentos e festas reunidos em um dia.",
+      "descricao": "Evento de demonstração com buffets, decoração, fotografia e música para quem planeja um casamento ou festa.",
       "gratuito": true,
-      "empresas": ["associacao-amigos-do-bem"],
+      "empresas": [
+        "espaco-jardim-das-festas"
+      ],
       "demo": true
     },
     {
@@ -41,11 +45,13 @@
       "fim": "2026-12-19T12:00:00-03:00",
       "local": "Loja Aqua Azul Piscinas (exemplo)",
       "cidade": "São João da Boa Vista",
-      "categoria": "comercio",
+      "categoria": "onde-comprar",
       "resumo": "Demonstração prática de tratamento da água e manutenção de filtros.",
       "descricao": "Evento de demonstração com orientações técnicas sobre tratamento da água, escolha de filtros e cuidados de temporada.",
       "gratuito": true,
-      "empresas": ["aqua-azul-piscinas"],
+      "empresas": [
+        "aqua-azul-piscinas"
+      ],
       "demo": true
     },
     {
@@ -56,11 +62,13 @@
       "fim": "2027-01-22T18:00:00-03:00",
       "local": "Clínica Vida Plena (exemplo)",
       "cidade": "São João da Boa Vista",
-      "categoria": "saude",
+      "categoria": "saude-beleza",
       "resumo": "Palestras e avaliações gratuitas com profissionais de saúde.",
       "descricao": "Evento de demonstração com palestras sobre nutrição, postura e saúde mental, além de avaliações rápidas.",
       "gratuito": true,
-      "empresas": ["clinica-vida-plena"],
+      "empresas": [
+        "clinica-vida-plena"
+      ],
       "demo": true
     }
   ]

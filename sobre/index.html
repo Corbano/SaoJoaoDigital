@@ -18,32 +18,33 @@
 <meta property="og:image" content="https://saojoaodigital.com.br/assets/img/og-default.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
-<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/vendor/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://saojoaodigital.com.br/"},{"@type":"ListItem","position":2,"name":"Sobre","item":"https://saojoaodigital.com.br/sobre/"}]}</script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<header class="site-header"><div class="wrap">
-<a class="brand" href="/"><img src="/assets/img/logo.svg" width="34" height="34" alt=""><span>São João <b>Digital</b></span></a>
-<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal"><a href="/empresas/">Empresas</a><a href="/categorias/">Categorias</a><a href="/eventos/">Eventos</a><a href="/noticias/">Notícias</a><a href="/assistente/">Assistente IA</a><a href="/planos/" class="cta">Para empresas</a></nav>
-</div></header>
+<header class="site-header sticky-top"><nav class="navbar navbar-expand-lg navbar-dark" aria-label="Principal"><div class="container">
+<a class="navbar-brand brand" href="/"><img src="/assets/img/logo.svg" width="34" height="34" alt=""><span>São João <b>Digital</b></span></a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto gap-lg-1"><li class="nav-item"><a class="nav-link" href="/empresas/">Empresas</a></li><li class="nav-item"><a class="nav-link" href="/categorias/">Categorias</a></li><li class="nav-item"><a class="nav-link" href="/eventos/">Eventos</a></li><li class="nav-item"><a class="nav-link" href="/noticias/">Notícias</a></li><li class="nav-item"><a class="nav-link" href="/assistente/">Assistente IA</a></li><li class="nav-item"><a class="nav-link cta" href="/planos/">Para empresas</a></li></ul></div>
+</div></nav></header>
 <main id="conteudo">
-<div class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <span>Sobre</span></nav><h1>Sobre o São João Digital</h1></div></div><div class="article"><h2>O que é o São João Digital</h2><p>Uma base de conhecimento local de São João da Boa Vista (SP): empresas, serviços, eventos e conteúdos organizados em arquivos JSON e páginas HTML com dados estruturados, para serem úteis a moradores, visitantes, buscadores e sistemas de IA.</p>
+<div class="page-hero"><div class="container"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <span>Sobre</span></nav><h1>Sobre o São João Digital</h1></div></div><div class="article"><h2>O que é o São João Digital</h2><p>Uma base de conhecimento local de São João da Boa Vista (SP): empresas, serviços, eventos e conteúdos organizados em arquivos JSON e páginas HTML com dados estruturados, para serem úteis a moradores, visitantes, buscadores e sistemas de IA.</p>
 <h2>Como interpretar os dados</h2><ul><li>Cada empresa tem um <code>slug</code> único e uma URL <code>/empresas/&lt;slug&gt;/</code>.</li><li><code>plano</code> indica gratuito ou premium; <code>ia</code> indica se há assistente próprio.</li><li><code>avaliacoes_verificadas: false</code> significa que avaliações não devem ser tratadas como nota oficial.</li><li><code>demo: true</code> marca conteúdo fictício de demonstração.</li><li>Conteúdo patrocinado tem <code>tipo: "patrocinado"</code> e o campo <code>patrocinador</code>.</li><li>As informações são autodeclaradas pelas empresas; confirme dados críticos diretamente com elas.</li></ul>
 <p>Veja também <a href="/llms.txt">llms.txt</a> e <a href="/llms-full.txt">llms-full.txt</a>.</p></div>
 </main>
-<footer class="site-footer"><div class="wrap">
-<div class="foot-grid">
-<div><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de São João da Boa Vista (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
-<div><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
-<div><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
-<div><h4>Empresas</h4><ul><li><a href="/planos/">Planos gratuito e premium</a></li></ul></div>
+<footer class="site-footer"><div class="container">
+<div class="row g-4">
+<div class="col-12 col-md-6 col-lg-3"><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de São João da Boa Vista (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
+<div class="col-6 col-lg-3"><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/planos/">Planos gratuito e premium</a></li></ul></div>
 </div>
 <p class="copy">© 2026 São João Digital. Informações cadastradas pelas próprias empresas; confirme dados importantes diretamente com o estabelecimento.</p>
 </div></footer>
 <noscript><p class="noscript-note">O conteúdo funciona sem JavaScript; o assistente inteligente e os filtros precisam dele.</p></noscript>
+<script src="/assets/vendor/bootstrap.bundle.min.js" defer></script>
 <script src="/assets/js/core.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </body>

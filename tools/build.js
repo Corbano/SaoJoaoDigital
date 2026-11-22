@@ -52,14 +52,14 @@ const urls = []; // para o sitemap
 const addUrl = (loc, lastmod, prio, freq) => urls.push({ loc, lastmod: lastmod || TODAY, prio, freq });
 
 /* ---------- imagens SVG (logos e fotos ilustrativas) ---------- */
-const PALETA = { restaurantes: ['#b4231f', '#ff8a3d'], saude: ['#0e7c86', '#2dd4bf'], comercio: ['#1d4ed8', '#38bdf8'], servicos: ['#334155', '#64748b'], turismo: ['#7c3aed', '#c084fc'], educacao: ['#047857', '#34d399'], outros: ['#a16207', '#fbbf24'] };
+const paleta = (cat) => { const c = (catById[cat] || {}).cor || '#0e7c86'; return [c, c + 'aa']; };
 const iniciais = (n) => n.split(/\s+/).filter((w) => w.length > 2).slice(0, 2).map((w) => w[0].toUpperCase()).join('') || n.slice(0, 2).toUpperCase();
 function logoSvg(e) {
-  const [a, b] = PALETA[e.categoria] || PALETA.outros;
+  const [a, b] = paleta(e.categoria);
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Logo ${esc(e.nome)}"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="128" height="128" rx="28" fill="url(#g)"/><text x="64" y="80" font-family="Arial,Helvetica,sans-serif" font-size="52" font-weight="700" text-anchor="middle" fill="#fff">${esc(iniciais(e.nome))}</text></svg>`;
 }
 function fotoSvg(e, i) {
-  const [a, b] = PALETA[e.categoria] || PALETA.outros;
+  const [a, b] = paleta(e.categoria);
   const flip = i % 2 ? [b, a] : [a, b];
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de ${esc(e.nome)}"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${flip[0]}"/><stop offset="1" stop-color="${flip[1]}"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="${i % 2 ? 620 : 180}" cy="150" r="90" fill="#fff" opacity=".15"/><text x="400" y="320" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700" text-anchor="middle" fill="#fff">${esc(e.nome)}</text><text x="400" y="372" font-family="Arial,Helvetica,sans-serif" font-size="22" text-anchor="middle" fill="#fff" opacity=".85">Foto ilustrativa — substitua pela foto real</text></svg>`;
 }
@@ -72,7 +72,7 @@ const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['/even
 function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scripts = [], noindex = false, hero = '', image = '/assets/img/og-default.svg' }) {
   const fullTitle = p === '/' ? title : `${title} | ${SITE_NAME}`;
   const robots = NOINDEX || noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1';
-  const nav = NAV.map(([h, t]) => `<a href="${h}"${p.startsWith(h) ? ' aria-current="page"' : ''}${h === '/planos/' ? ' class="cta"' : ''}>${t}</a>`).join('');
+  const nav = NAV.map(([h, t]) => `<li class="nav-item"><a class="nav-link${h === '/planos/' ? ' cta' : ''}${p.startsWith(h) ? ' active' : ''}" href="${h}"${p.startsWith(h) ? ' aria-current="page"' : ''}>${t}</a></li>`).join('');
   const ld = jsonld.length ? `<script type="application/ld+json">${json(jsonld.length === 1 ? jsonld[0] : { '@context': 'https://schema.org', '@graph': jsonld.map((x) => { const { '@context': _c, ...r } = x; return r; }) })}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -94,26 +94,26 @@ function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scr
 <meta property="og:image" content="${abs(image)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
-<link rel="preload" href="/assets/css/style.css" as="style">
+<link rel="stylesheet" href="/assets/vendor/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 ${ld}
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<header class="site-header"><div class="wrap">
-<a class="brand" href="/"><img src="/assets/img/logo.svg" width="34" height="34" alt=""><span>São João <b>Digital</b></span></a>
-<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal">${nav}</nav>
-</div></header>
+<header class="site-header sticky-top"><nav class="navbar navbar-expand-lg navbar-dark" aria-label="Principal"><div class="container">
+<a class="navbar-brand brand" href="/"><img src="/assets/img/logo.svg" width="34" height="34" alt=""><span>São João <b>Digital</b></span></a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav"><ul class="navbar-nav ms-auto gap-lg-1">${nav}</ul></div>
+</div></nav></header>
 <main id="conteudo">
 ${hero}${body}
 </main>
-<footer class="site-footer"><div class="wrap">
-<div class="foot-grid">
-<div><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de ${CIDADE} (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
-<div><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
-<div><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
-<div><h4>Empresas</h4><ul><li><a href="/planos/">Planos gratuito e premium</a></li></ul></div>
+<footer class="site-footer"><div class="container">
+<div class="row g-4">
+<div class="col-12 col-md-6 col-lg-3"><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de ${CIDADE} (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
+<div class="col-6 col-lg-3"><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/planos/">Planos gratuito e premium</a></li></ul></div>
 </div>
 <p class="copy">© ${new Date().getFullYear()} ${SITE_NAME}. Informações cadastradas pelas próprias empresas; confirme dados importantes diretamente com o estabelecimento.</p>
 </div></footer>
@@ -124,11 +124,12 @@ ${scripts.map((s) => `<script src="${s}" defer></script>`).join('\n')}
 `;
 }
 
-const pageHero = (crumbs, h1, sub) => `<div class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Você está em">${crumbs.map(([h, t], i) => (h && i < crumbs.length - 1 ? `<a href="${h}">${esc(t)}</a>` : `<span>${esc(t)}</span>`)).join(' › ')}</nav><h1>${esc(h1)}</h1>${sub ? `<p>${esc(sub)}</p>` : ''}</div></div>`;
+const pageHero = (crumbs, h1, sub) => `<div class="page-hero"><div class="container"><nav class="crumbs" aria-label="Você está em">${crumbs.map(([h, t], i) => (h && i < crumbs.length - 1 ? `<a href="${h}">${esc(t)}</a>` : `<span>${esc(t)}</span>`)).join(' › ')}</nav><h1>${esc(h1)}</h1>${sub ? `<p>${esc(sub)}</p>` : ''}</div></div>`;
 const crumbLd = (items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([h, t], i) => ({ '@type': 'ListItem', position: i + 1, name: t, item: abs(h) })) });
 const demoNotice = (o) => (o.demo ? '<p class="notice"><strong>Dados de demonstração.</strong> Este conteúdo é fictício e serve para testar a plataforma.</p>' : '');
-const CORE_JS = ['/assets/js/core.js', '/assets/js/site.js'];
-const AI_JS = ['/assets/js/core.js', '/assets/js/ai-engine.js', '/assets/js/site.js'];
+const BS_JS = '/assets/vendor/bootstrap.bundle.min.js';
+const CORE_JS = [BS_JS, '/assets/js/core.js', '/assets/js/site.js'];
+const AI_JS = [BS_JS, '/assets/js/core.js', '/assets/js/ai-engine.js', '/assets/js/site.js'];
 
 const orgNode = { '@type': 'Organization', '@id': abs('/#organization'), name: SITE_NAME, url: abs('/'), logo: abs('/assets/img/logo.svg'), areaServed: { '@type': 'City', name: CIDADE, containedInPlace: { '@type': 'State', name: 'São Paulo' } } };
 const siteNode = { '@type': 'WebSite', '@id': abs('/#website'), url: abs('/'), name: SITE_NAME, inLanguage: 'pt-BR', publisher: { '@id': abs('/#organization') }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: abs('/assistente/?q={search_term_string}') }, 'query-input': 'required name=search_term_string' } };
@@ -137,33 +138,36 @@ const siteNode = { '@type': 'WebSite', '@id': abs('/#website'), url: abs('/'), n
 const empLogo = (e) => `/assets/img/empresas/${e.slug}/logo.svg`;
 function cardEmpresa(e) {
   const busca = [e.nome, e.subcategoria, (e.tags || []).join(' '), e.endereco.bairro, e.resumo].join(' ');
-  return `<article class="card" data-cat="${esc(e.categoria)}" data-busca="${esc(norm(busca))}">
+  return `<div class="col-12 col-md-6 col-lg-4" data-cat="${esc(e.categoria)}" data-busca="${esc(norm(busca))}"><article class="card h-100 shadow-sm"><div class="card-body">
 <img class="logo" src="${empLogo(e)}" width="54" height="54" alt="Logo ${esc(e.nome)}" loading="lazy">
-<div><span class="tag">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="tag prem">Premium</span>' : ''}${e.demo ? ' <span class="tag demo">Demo</span>' : ''}</div>
+<div><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="badge text-bg-warning">Premium</span>' : ''}${e.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
 <h3><a href="/empresas/${e.slug}/">${esc(e.nome)}</a></h3>
 <p class="meta">${esc(e.subcategoria)} · ${esc(e.endereco.bairro)}</p>
-<p>${esc(e.resumo)}</p></article>`;
+<p class="mb-0">${esc(e.resumo)}</p></div></article></div>`;
 }
 function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim(); }
+function cardCategoria(c) {
+  return `<div class="col-6 col-md-4 col-lg-3"><article class="card cat-card h-100 shadow-sm" style="--cat:${c.cor}"><div class="card-body"><span class="ico" aria-hidden="true">${c.icone}</span><h3 class="h6 mt-2"><a href="/categorias/${c.slug}/">${esc(c.nome)}</a></h3><p class="meta mb-0">${esc(c.descricao)}</p></div></article></div>`;
+}
 function cardNoticia(n) {
-  return `<article class="card"><div><span class="tag${n.tipo === 'patrocinado' ? ' spons' : ''}">${esc(TIPOS[n.tipo])}</span>${n.demo ? ' <span class="tag demo">Demo</span>' : ''}</div>
+  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge ${n.tipo === 'patrocinado' ? 'text-bg-danger' : 'text-bg-info'}">${esc(TIPOS[n.tipo])}</span>${n.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
 <h3><a href="/noticias/${n.slug}/">${esc(n.titulo)}</a></h3>
 <p class="meta"><time datetime="${n.data}">${dataBR(n.data)}</time> · ${esc(n.autor)}</p>
-<p>${esc(n.resumo)}</p>${n.patrocinador ? `<p class="meta"><strong>${esc(n.patrocinador.rotulo)}</strong></p>` : ''}</article>`;
+<p>${esc(n.resumo)}</p>${n.patrocinador ? `<p class="meta"><strong>${esc(n.patrocinador.rotulo)}</strong></p>` : ''}</div></article></div>`;
 }
 function cardEvento(v) {
-  return `<article class="card"><div><span class="tag">${esc(catById[v.categoria].nome)}</span>${v.demo ? ' <span class="tag demo">Demo</span>' : ''}</div>
+  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge text-bg-info">${esc(catById[v.categoria].nome)}</span>${v.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
 <h3><a href="/eventos/${v.slug}/">${esc(v.titulo)}</a></h3>
 <p class="meta"><time datetime="${v.inicio}">${dataBR(v.inicio)}</time> · ${esc(v.local)}</p>
-<p>${esc(v.resumo)}</p></article>`;
+<p class="mb-0">${esc(v.resumo)}</p></div></article></div>`;
 }
 
 /* ---------- JSON-LD de empresa ---------- */
-const TIPO_LB = { restaurantes: 'Restaurant', saude: 'MedicalClinic', comercio: 'Store', servicos: 'LocalBusiness', turismo: 'Hotel', educacao: ['LocalBusiness', 'EducationalOrganization'], outros: 'LocalBusiness' };
+const TIPO_LB = { 'onde-comer': 'Restaurant', 'onde-comprar': 'Store', 'casamentos-festas': 'LocalBusiness', 'saude-beleza': 'HealthAndBeautyBusiness', 'casa-construcao': 'HomeAndConstructionBusiness', 'carro-moto': 'AutomotiveBusiness', 'assistencia-tecnica': 'LocalBusiness', 'onde-ficar': 'LodgingBusiness', 'caes-gatos': 'PetStore', 'escolas-cursos': ['LocalBusiness', 'EducationalOrganization'], 'transportes-locacao': 'AutoRental', escritorios: 'ProfessionalService' };
 function empresaLd(e) {
   const url = abs(`/empresas/${e.slug}/`);
   const sameAs = Object.values(e.redes || {}).filter(Boolean);
-  const tipo = e.subcategoria === 'Oficina mecânica' ? 'AutoRepair' : e.subcategoria === 'Pet shop' ? 'PetStore' : TIPO_LB[e.categoria];
+  const tipo = e.subcategoria_slug === 'mecanicas' ? 'AutoRepair' : e.subcategoria_slug === 'clinicas-medicas' ? 'MedicalClinic' : e.subcategoria_slug === 'hoteis' ? 'Hotel' : e.subcategoria_slug === 'contabilidade' ? 'AccountingService' : TIPO_LB[e.categoria];
   const lb = {
     '@type': tipo, '@id': url + '#localbusiness', name: e.nome, description: e.descricao, url,
     image: [abs(empLogo(e)), abs(`/assets/img/empresas/${e.slug}/foto-1.svg`)], logo: abs(empLogo(e)),
@@ -196,7 +200,7 @@ function paginaEmpresa(e) {
   const socials = Object.entries(e.redes || {}).filter(([, v]) => v).map(([k, v]) => `<li><a href="${esc(v)}" rel="noopener nofollow" target="_blank">${esc(k[0].toUpperCase() + k.slice(1))}</a></li>`).join('') + (e.site ? `<li><a href="${esc(e.site)}" rel="noopener" target="_blank">Site oficial</a></li>` : '');
   const nota = e.avaliacoes_verificadas && e.avaliacoes.length ? (e.avaliacoes.reduce((a, b) => a + b.nota, 0) / e.avaliacoes.length).toFixed(1) : null;
   const sec = (cond, html) => (cond ? html : '');
-  const body = `<div class="wrap layout">
+  const body = `<div class="container layout">
 <div>
 ${demoNotice(e)}
 ${sec(true, `<section class="panel" aria-labelledby="sobre"><h2 id="sobre">Sobre a ${esc(e.nome)}</h2><p>${esc(e.descricao)}</p>${e.publico ? `<h3>Público atendido</h3><p>${esc(e.publico)}</p>` : ''}</section>`)}
@@ -207,10 +211,10 @@ ${sec(e.historia, `<section class="panel" aria-labelledby="historia"><h2 id="his
 ${sec(e.produtos.length, `<section class="panel" aria-labelledby="produtos"><h2 id="produtos">Produtos</h2><ul>${e.produtos.map((p) => `<li><strong>${esc(p.nome)}</strong>${p.descricao ? ' — ' + esc(p.descricao) : ''}${p.preco ? ` <em>(${esc(p.preco)})</em>` : ''}</li>`).join('')}</ul></section>`)}
 ${sec(e.servicos.length, `<section class="panel" aria-labelledby="servicos"><h2 id="servicos">Serviços</h2><ul>${e.servicos.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></section>`)}
 ${sec(e.diferenciais.length, `<section class="panel" aria-labelledby="dif"><h2 id="dif">Diferenciais</h2><ul>${e.diferenciais.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></section>`)}
-${sec(e.faq.length, `<section class="panel faq" aria-labelledby="faq"><h2 id="faq">Perguntas frequentes</h2>${e.faq.map((f) => `<details><summary>${esc(f.p)}</summary><p>${esc(f.r)}</p></details>`).join('')}</section>`)}
+${sec(e.faq.length, `<section class="panel faq" aria-labelledby="faq"><h2 id="faq">Perguntas frequentes</h2><div class="accordion" id="acc-faq">${e.faq.map((f, i) => `<div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button${i ? ' collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#faq-${i}" aria-expanded="${i ? 'false' : 'true'}" aria-controls="faq-${i}">${esc(f.p)}</button></h3><div id="faq-${i}" class="accordion-collapse collapse${i ? '' : ' show'}" data-bs-parent="#acc-faq"><div class="accordion-body">${esc(f.r)}</div></div></div>`).join('')}</div></section>`)}
 <section class="panel" aria-labelledby="aval"><h2 id="aval">Avaliações</h2>${nota ? `<p><span class="stars" aria-hidden="true">★</span> <strong>${nota}</strong> de 5 (${e.avaliacoes.length} avaliações verificadas)</p>` : '<p>Ainda não há avaliações verificadas para esta empresa.</p>'}
 ${e.avaliacoes.map((a) => `<div class="review"><span class="stars" aria-label="${a.nota} de 5 estrelas">${'★'.repeat(a.nota)}${'☆'.repeat(5 - a.nota)}</span> <strong>${esc(a.autor)}</strong> <small><time datetime="${a.data}">${dataBR(a.data)}</time></small><p>${esc(a.texto)}</p></div>`).join('')}</section>
-${sec(rel.length, `<section class="panel" aria-labelledby="rel"><h2 id="rel">Notícias relacionadas</h2><ul>${rel.map((n) => `<li><a href="/noticias/${n.slug}/">${esc(n.titulo)}</a>${n.tipo === 'patrocinado' ? ' <span class="tag spons">Patrocinado</span>' : ''} <small>${dataBR(n.data)}</small></li>`).join('')}</ul></section>`)}
+${sec(rel.length, `<section class="panel" aria-labelledby="rel"><h2 id="rel">Notícias relacionadas</h2><ul>${rel.map((n) => `<li><a href="/noticias/${n.slug}/">${esc(n.titulo)}</a>${n.tipo === 'patrocinado' ? ' <span class="badge text-bg-danger">Patrocinado</span>' : ''} <small>${dataBR(n.data)}</small></li>`).join('')}</ul></section>`)}
 ${sec(eventos.length, `<section class="panel" aria-labelledby="evt"><h2 id="evt">Eventos</h2><ul>${eventos.map((v) => `<li><a href="/eventos/${v.slug}/">${esc(v.titulo)}</a> — ${dataBR(v.inicio)}</li>`).join('')}</ul></section>`)}
 ${sec(e.atualizacoes.length, `<section class="panel" aria-labelledby="upd"><h2 id="upd">Últimas atualizações</h2><ul>${e.atualizacoes.map((u) => `<li><time datetime="${u.data}">${dataBR(u.data)}</time> — ${esc(u.texto)}</li>`).join('')}</ul></section>`)}
 </div>
@@ -223,15 +227,15 @@ ${wa ? `<dt>WhatsApp</dt><dd><a href="${wa}" rel="noopener nofollow" target="_bl
 ${realEmail(e.email) ? `<dt>E-mail</dt><dd><a href="mailto:${esc(e.email)}">${esc(e.email)}</a></dd>` : ''}
 <dt>Horário</dt><dd>${e.horario.map((h) => `${esc(h.dias)}: ${h.abre}–${h.fecha}`).join('<br>')}${e.fechado ? `<br><small>Fechado: ${esc(e.fechado)}</small>` : ''}</dd>
 ${e.pagamento.length ? `<dt>Pagamento</dt><dd>${esc(e.pagamento.join(', '))}</dd>` : ''}</dl>
-${wa ? `<p><a class="btn wa" href="${wa}" rel="noopener nofollow" target="_blank">WhatsApp</a></p>` : ''}</section>
+${wa ? `<p><a class="btn btn-success" href="${wa}" rel="noopener nofollow" target="_blank">WhatsApp</a></p>` : ''}</section>
 ${socials ? `<section class="panel"><h2>Redes sociais</h2><ul>${socials}</ul></section>` : ''}
 ${e.ia ? `<section class="chat" id="chat-empresa" data-slug="${e.slug}" aria-label="Assistente de IA de ${esc(e.nome)}"><div class="chat-head">🤖 Assistente de ${esc(e.nome)}</div>
 <div class="chat-log" role="log" aria-live="polite"><div class="msg bot">Olá! Respondo apenas com as informações cadastradas por ${esc(e.nome)}. O que você quer saber?</div></div>
 <div class="suggest"><button type="button">Qual o horário?</button><button type="button">Quais produtos vende?</button><button type="button">Qual o endereço?</button><button type="button">Quais as formas de pagamento?</button></div>
-<form class="chat-form"><label class="sr" for="q-emp">Sua pergunta</label><input id="q-emp" name="q" maxlength="200" placeholder="Pergunte sobre a empresa" autocomplete="off"><button class="btn" type="submit">Enviar</button></form></section>`
+<form class="chat-form"><label class="sr" for="q-emp">Sua pergunta</label><input id="q-emp" name="q" maxlength="200" placeholder="Pergunte sobre a empresa" autocomplete="off"><button class="btn btn-primary" type="submit">Enviar</button></form></section>`
       : `<section class="panel"><h2>Assistente de IA</h2><p>Disponível no <a href="/planos/">plano premium</a>.</p></section>`}
 </aside></div>`;
-  const hero = `<div class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <a href="/empresas/">Empresas</a> › <a href="/categorias/${cat.slug}/">${esc(cat.nome)}</a> › <span>${esc(e.nome)}</span></nav>
+  const hero = `<div class="page-hero"><div class="container"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <a href="/empresas/">Empresas</a> › <a href="/categorias/${cat.slug}/">${esc(cat.nome)}</a> › <span>${esc(e.nome)}</span></nav>
 <div class="company-head"><img class="logo" src="${empLogo(e)}" width="84" height="84" alt="Logo ${esc(e.nome)}"><div><h1>${esc(e.nome)}</h1><p>${esc(e.subcategoria)} em ${CIDADE} · <a href="/categorias/${cat.slug}/" style="color:#cfe0f5">${esc(cat.nome)}</a>${e.plano === 'premium' ? ' · <strong>Premium</strong>' : ''}</p></div></div></div></div>`;
   addUrl(`/empresas/${e.slug}/`, e.atualizado, e.plano === 'premium' ? '0.8' : '0.6', 'weekly');
   return layout({ title: `${e.nome} — ${e.subcategoria} em ${CIDADE}`, desc: `${e.resumo} Endereço, telefone, horário e perguntas frequentes.`, path: `/empresas/${e.slug}/`, jsonld: empresaLd(e), body, hero, scripts: e.ia ? AI_JS : CORE_JS, image: `/assets/img/empresas/${e.slug}/foto-1.svg` });
@@ -250,42 +254,42 @@ function build() {
   const destaques = EMP.filter((e) => e.destaque || e.plano === 'premium').slice(0, 6);
   const proximos = EVT.slice().sort((a, b) => a.inicio.localeCompare(b.inicio)).slice(0, 3);
   const homeBody = `
-<section class="block"><div class="wrap"><h2>Explore por categoria</h2><p class="sub">Informações organizadas para você e para as inteligências artificiais encontrarem rápido.</p>
-<div class="grid">${CATS.map((c) => `<article class="card cat-card"><span class="ico" aria-hidden="true">${c.icone}</span><h3><a href="/categorias/${c.slug}/">${esc(c.nome)}</a></h3><p class="meta">${esc(c.descricao)}</p></article>`).join('')}</div></div></section>
-<section class="block alt"><div class="wrap"><h2>Empresas em destaque</h2><p class="sub">Páginas completas com horário, endereço, produtos, perguntas frequentes e assistente próprio.</p>
-<div class="grid">${destaques.map(cardEmpresa).join('')}</div><p><a class="btn ghost" href="/empresas/">Ver todas as empresas</a></p></div></section>
-<section class="block"><div class="wrap"><h2>Como funciona a infraestrutura</h2><p class="sub">Mais que um catálogo: uma base de conhecimento local estruturada.</p>
-<div class="grid">
-<article class="card"><h3>1. Dados estruturados</h3><p>Cada empresa, evento e notícia é um registro em JSON, publicado em páginas HTML com Schema.org.</p></article>
-<article class="card"><h3>2. Legível por IA</h3><p>Arquivos <a href="/llms.txt">llms.txt</a> e <a href="/llms-full.txt">llms-full.txt</a> explicam o conteúdo para assistentes e buscadores generativos.</p></article>
-<article class="card"><h3>3. Assistentes que não inventam</h3><p>O assistente da cidade e o de cada empresa respondem somente com os dados cadastrados.</p></article>
-<article class="card"><h3>4. Transparência</h3><p>Conteúdo patrocinado sempre identificado, com a empresa patrocinadora indicada.</p></article></div></div></section>
-<section class="block alt"><div class="wrap"><h2>Próximos eventos</h2><div class="grid">${proximos.map(cardEvento).join('')}</div><p><a class="btn ghost" href="/eventos/">Ver agenda completa</a></p></div></section>
-<section class="block"><div class="wrap"><h2>Notícias e guias locais</h2><div class="grid">${NOT.slice().sort((a, b) => b.data.localeCompare(a.data)).slice(0, 3).map(cardNoticia).join('')}</div><p><a class="btn ghost" href="/noticias/">Ver todos os conteúdos</a></p></div></section>`;
-  const homeHero = `<section class="hero"><div class="wrap"><span class="badge"><span class="dot"></span> Base de conhecimento local · ${CIDADE} (SP)</span>
+<section class="block"><div class="container"><h2>Explore por categoria</h2><p class="sub">Informações organizadas para você e para as inteligências artificiais encontrarem rápido.</p>
+<div class="row g-3">${CATS.map((c) => cardCategoria(c)).join('')}</div></div></section>
+<section class="block alt"><div class="container"><h2>Empresas em destaque</h2><p class="sub">Páginas completas com horário, endereço, produtos, perguntas frequentes e assistente próprio.</p>
+<div class="row g-3">${destaques.map(cardEmpresa).join('')}</div><p><a class="btn btn-outline-secondary" href="/empresas/">Ver todas as empresas</a></p></div></section>
+<section class="block"><div class="container"><h2>Como funciona a infraestrutura</h2><p class="sub">Mais que um catálogo: uma base de conhecimento local estruturada.</p>
+<div class="row g-3">
+<div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>1. Dados estruturados</h3><p class="mb-0">Cada empresa, evento e notícia é um registro em JSON, publicado em páginas HTML com Schema.org.</p></div></article></div>
+<div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>2. Legível por IA</h3><p class="mb-0">Arquivos <a href="/llms.txt">llms.txt</a> e <a href="/llms-full.txt">llms-full.txt</a> explicam o conteúdo para assistentes e buscadores generativos.</p></div></article></div>
+<div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>3. Assistentes que não inventam</h3><p class="mb-0">O assistente da cidade e o de cada empresa respondem somente com os dados cadastrados.</p></div></article></div>
+<div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>4. Transparência</h3><p class="mb-0">Conteúdo patrocinado sempre identificado, com a empresa patrocinadora indicada.</p></div></article></div></div></div></section>
+<section class="block alt"><div class="container"><h2>Próximos eventos</h2><div class="row g-3">${proximos.map(cardEvento).join('')}</div><p><a class="btn btn-outline-secondary" href="/eventos/">Ver agenda completa</a></p></div></section>
+<section class="block"><div class="container"><h2>Notícias e guias locais</h2><div class="row g-3">${NOT.slice().sort((a, b) => b.data.localeCompare(a.data)).slice(0, 3).map(cardNoticia).join('')}</div><p><a class="btn btn-outline-secondary" href="/noticias/">Ver todos os conteúdos</a></p></div></section>`;
+  const homeHero = `<section class="hero"><div class="container"><span class="badge"><span class="dot"></span> Base de conhecimento local · ${CIDADE} (SP)</span>
 <h1>A cidade inteira, <em>explicada</em> para pessoas e IAs.</h1>
 <p class="lead">Pergunte sobre empresas, serviços e eventos de ${CIDADE}. As respostas vêm de dados organizados e verificáveis, não de palpites.</p>
-<form class="ask" id="home-ask" role="search" action="/assistente/" method="get"><label class="sr" for="home-q">Pergunte ao assistente</label><input id="home-q" name="q" maxlength="200" placeholder="Ex.: restaurante italiano, mecânico no centro…" autocomplete="off"><button class="btn alt" type="submit">Perguntar</button></form>
+<form class="ask" id="home-ask" role="search" action="/assistente/" method="get"><label class="sr" for="home-q">Pergunte ao assistente</label><input id="home-q" name="q" maxlength="200" placeholder="Ex.: restaurante italiano, mecânico no centro…" autocomplete="off"><button class="btn btn-warning fw-bold" type="submit">Perguntar</button></form>
 <div class="chips" aria-label="Sugestões"><button class="chip" type="button" data-q="Qual restaurante italiano tem na cidade?">🍝 Restaurante italiano</button><button class="chip" type="button" data-q="Preciso de um mecânico próximo ao centro">🔧 Mecânico no centro</button><button class="chip" type="button" data-q="Onde comprar produtos para piscina?">🏊 Produtos para piscina</button></div></div></section>`;
   write('index.html', layout({ title: `${SITE_NAME} — Base de conhecimento local de ${CIDADE}`, desc: `Empresas, serviços, eventos e notícias de ${CIDADE} (SP) em dados estruturados, com assistente inteligente. Informação local confiável para pessoas e IAs.`, path: '/', jsonld: [{ '@context': 'https://schema.org', ...orgNode }, siteNode, { '@type': 'WebPage', '@id': abs('/#webpage'), url: abs('/'), name: SITE_NAME, isPartOf: { '@id': abs('/#website') }, about: { '@type': 'City', name: CIDADE }, inLanguage: 'pt-BR' }], hero: homeHero, body: homeBody, scripts: CORE_JS }));
   addUrl('/', TODAY, '1.0', 'daily');
 
   /* Empresas */
   EMP.forEach((e) => write(`empresas/${e.slug}/index.html`, paginaEmpresa(e)));
-  const empList = `<div class="wrap" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}
-<div class="filters"><label class="sr" for="f-q">Buscar empresa</label><input id="f-q" type="search" placeholder="Buscar por nome, produto, bairro…"><label class="sr" for="f-cat">Categoria</label><select id="f-cat"><option value="">Todas as categorias</option>${CATS.map((c) => `<option value="${c.id}">${esc(c.nome)}</option>`).join('')}</select><span id="f-count" class="meta" aria-live="polite"></span></div>
-<div class="grid" id="lista-empresas">${EMP.map(cardEmpresa).join('')}</div></div>`;
+  const empList = `<div class="container" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}
+<div class="filters"><label class="sr" for="f-q">Buscar empresa</label><input class="form-control" id="f-q" type="search" placeholder="Buscar por nome, produto, bairro…"><label class="sr" for="f-cat">Categoria</label><select class="form-select" id="f-cat"><option value="">Todas as categorias</option>${CATS.map((c) => `<option value="${c.id}">${esc(c.nome)}</option>`).join('')}</select><span id="f-count" class="meta" aria-live="polite"></span></div>
+<div class="row g-3" id="lista-empresas">${EMP.map(cardEmpresa).join('')}</div></div>`;
   write('empresas/index.html', layout({ title: `Empresas e serviços de ${CIDADE}`, desc: `Diretório estruturado de empresas de ${CIDADE} (SP): contato, horário, endereço, produtos e perguntas frequentes.`, path: '/empresas/', hero: pageHero([['/', 'Início'], ['/empresas/', 'Empresas']], `Empresas de ${CIDADE}`, 'Cada empresa tem página própria com dados estruturados.'), body: empList, scripts: CORE_JS, jsonld: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: `Empresas de ${CIDADE}`, itemListElement: EMP.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/empresas/${e.slug}/`), name: e.nome })) }, crumbLd([['/', 'Início'], ['/empresas/', 'Empresas']])] }));
   addUrl('/empresas/', TODAY, '0.9', 'daily');
 
   /* Categorias */
   CATS.forEach((c) => {
     const lista = EMP.filter((e) => e.categoria === c.id);
-    const body = `<div class="wrap" style="padding-top:26px;padding-bottom:30px"><p>${esc(c.intro)}</p>${lista.length ? `<div class="grid">${lista.map(cardEmpresa).join('')}</div>` : '<p>Ainda não há empresas cadastradas nesta categoria. <a href="/planos/">Cadastre a sua gratuitamente</a>.</p>'}</div>`;
+    const body = `<div class="container" style="padding-top:26px;padding-bottom:30px"><p>${esc(c.intro)}</p><h2 class="h5">Subcategorias</h2><ul class="list-inline subcats">${c.subcategorias.map((sc) => { const n = lista.filter((e) => e.subcategoria_slug === sc.slug).length; return `<li class="list-inline-item"><span class="badge rounded-pill ${n ? 'text-bg-primary' : 'text-bg-light border'}">${esc(sc.nome)}${n ? ' (' + n + ')' : ''}</span></li>`; }).join('')}</ul><h2 class="h5">Empresas</h2>${lista.length ? `<div class="row g-3">${lista.map(cardEmpresa).join('')}</div>` : '<p>Ainda não há empresas cadastradas nesta categoria. <a href="/planos/">Cadastre a sua gratuitamente</a>.</p>'}</div>`;
     write(`categorias/${c.slug}/index.html`, layout({ title: `${c.nome} em ${CIDADE}`, desc: `${c.descricao} ${lista.length} ${lista.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'} em ${CIDADE} (SP).`, path: `/categorias/${c.slug}/`, hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias'], [`/categorias/${c.slug}/`, c.nome]], `${c.nome} em ${CIDADE}`, c.descricao), body, scripts: CORE_JS, jsonld: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${c.nome} em ${CIDADE}`, description: c.intro, mainEntity: { '@type': 'ItemList', itemListElement: lista.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/empresas/${e.slug}/`), name: e.nome })) } }, crumbLd([['/', 'Início'], ['/categorias/', 'Categorias'], [`/categorias/${c.slug}/`, c.nome]])] }));
     addUrl(`/categorias/${c.slug}/`, TODAY, '0.8', 'weekly');
   });
-  write('categorias/index.html', layout({ title: `Categorias de empresas e serviços em ${CIDADE}`, desc: `Navegue por categorias: restaurantes, saúde, comércio, serviços, turismo, educação e outros em ${CIDADE}.`, path: '/categorias/', hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias']], 'Categorias', 'Encontre empresas e serviços por tipo de atividade.'), body: `<div class="wrap" style="padding-top:26px;padding-bottom:30px"><div class="grid">${CATS.map((c) => `<article class="card cat-card"><span class="ico" aria-hidden="true">${c.icone}</span><h3><a href="/categorias/${c.slug}/">${esc(c.nome)}</a></h3><p class="meta">${esc(c.descricao)}</p></article>`).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/categorias/', 'Categorias']])] }));
+  write('categorias/index.html', layout({ title: `Categorias de empresas e serviços em ${CIDADE}`, desc: `Navegue pelas 12 categorias do São João Digital: ${CATS.map((c) => c.nome).join(', ')}.`, path: '/categorias/', hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias']], 'Categorias', 'Encontre empresas e serviços por tipo de atividade.'), body: `<div class="container" style="padding-top:26px;padding-bottom:30px"><div class="row g-3">${CATS.map((c) => cardCategoria(c)).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/categorias/', 'Categorias']])] }));
   addUrl('/categorias/', TODAY, '0.7', 'weekly');
 
   /* Eventos */
@@ -297,7 +301,7 @@ function build() {
     write(`eventos/${v.slug}/index.html`, layout({ title: `${v.titulo} — ${dataBR(v.inicio)}`, desc: `${v.resumo} ${dataBR(v.inicio)} em ${v.local}, ${v.cidade}.`, path: `/eventos/${v.slug}/`, hero: pageHero([['/', 'Início'], ['/eventos/', 'Eventos'], [`/eventos/${v.slug}/`, v.titulo]], v.titulo, v.resumo), body, scripts: CORE_JS, type: 'article', jsonld: [ld, crumbLd([['/', 'Início'], ['/eventos/', 'Eventos'], [`/eventos/${v.slug}/`, v.titulo]])] }));
     addUrl(`/eventos/${v.slug}/`, eventosData.atualizado, '0.6', 'weekly');
   });
-  write('eventos/index.html', layout({ title: `Agenda de eventos em ${CIDADE}`, desc: `Eventos, feiras e ações de ${CIDADE} (SP), com data, local e empresas participantes.`, path: '/eventos/', hero: pageHero([['/', 'Início'], ['/eventos/', 'Eventos']], 'Eventos da cidade', 'Agenda organizada por data.'), body: `<div class="wrap" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}<div class="grid">${evOrd.map(cardEvento).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/eventos/', 'Eventos']])] }));
+  write('eventos/index.html', layout({ title: `Agenda de eventos em ${CIDADE}`, desc: `Eventos, feiras e ações de ${CIDADE} (SP), com data, local e empresas participantes.`, path: '/eventos/', hero: pageHero([['/', 'Início'], ['/eventos/', 'Eventos']], 'Eventos da cidade', 'Agenda organizada por data.'), body: `<div class="container" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}<div class="row g-3">${evOrd.map(cardEvento).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/eventos/', 'Eventos']])] }));
   addUrl('/eventos/', TODAY, '0.7', 'daily');
 
   /* Notícias */
@@ -310,22 +314,22 @@ function build() {
     write(`noticias/${n.slug}/index.html`, layout({ title: n.titulo, desc: n.resumo, path: `/noticias/${n.slug}/`, hero: pageHero([['/', 'Início'], ['/noticias/', 'Notícias'], [`/noticias/${n.slug}/`, n.titulo]], n.titulo, ''), body, scripts: CORE_JS, type: 'article', jsonld: [ld, crumbLd([['/', 'Início'], ['/noticias/', 'Notícias'], [`/noticias/${n.slug}/`, n.titulo]])] }));
     addUrl(`/noticias/${n.slug}/`, n.data, '0.6', 'monthly');
   });
-  write('noticias/index.html', layout({ title: `Notícias, guias e novidades de ${CIDADE}`, desc: `Conteúdo local de ${CIDADE}: notícias, guias da cidade, novidades das empresas e conteúdos patrocinados identificados.`, path: '/noticias/', hero: pageHero([['/', 'Início'], ['/noticias/', 'Notícias']], 'Notícias e guias locais', 'Conteúdo patrocinado é sempre identificado com a empresa patrocinadora.'), body: `<div class="wrap" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}<div class="grid">${notOrd.map(cardNoticia).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/noticias/', 'Notícias']])] }));
+  write('noticias/index.html', layout({ title: `Notícias, guias e novidades de ${CIDADE}`, desc: `Conteúdo local de ${CIDADE}: notícias, guias da cidade, novidades das empresas e conteúdos patrocinados identificados.`, path: '/noticias/', hero: pageHero([['/', 'Início'], ['/noticias/', 'Notícias']], 'Notícias e guias locais', 'Conteúdo patrocinado é sempre identificado com a empresa patrocinadora.'), body: `<div class="container" style="padding-top:26px;padding-bottom:30px">${demoNotice({ demo: true })}<div class="row g-3">${notOrd.map(cardNoticia).join('')}</div></div>`, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/noticias/', 'Notícias']])] }));
   addUrl('/noticias/', TODAY, '0.7', 'daily');
 
   /* Assistente da cidade */
-  const chat = `<div class="wrap" style="padding-top:26px;padding-bottom:40px;max-width:760px"><section class="chat" id="chat-cidade" aria-label="Assistente Inteligente São João Digital"><div class="chat-head">🤖 Assistente Inteligente São João Digital</div>
+  const chat = `<div class="container" style="padding-top:26px;padding-bottom:40px;max-width:760px"><section class="chat" id="chat-cidade" aria-label="Assistente Inteligente São João Digital"><div class="chat-head">🤖 Assistente Inteligente São João Digital</div>
 <div class="chat-log" role="log" aria-live="polite"><div class="msg bot">Olá! Pergunto aos dados cadastrados de ${CIDADE} e indico as empresas mais relevantes. Não invento informações: se não houver cadastro, eu aviso.</div></div>
 <div class="suggest"><button type="button">Qual restaurante italiano tem em São João da Boa Vista?</button><button type="button">Preciso de um mecânico próximo ao centro</button><button type="button">Onde comprar produtos para piscina?</button><button type="button">Tem clínica de fisioterapia?</button></div>
-<form class="chat-form"><label class="sr" for="q-city">Sua pergunta</label><input id="q-city" name="q" maxlength="200" placeholder="Pergunte sobre empresas e serviços da cidade" autocomplete="off"><button class="btn" type="submit">Enviar</button></form></section>
+<form class="chat-form"><label class="sr" for="q-city">Sua pergunta</label><input id="q-city" name="q" maxlength="200" placeholder="Pergunte sobre empresas e serviços da cidade" autocomplete="off"><button class="btn btn-primary" type="submit">Enviar</button></form></section>
 <p class="meta" style="margin-top:14px">As respostas usam somente o arquivo <a href="/dados/empresas.json">empresas.json</a>. A estrutura permite conectar uma API de IA no futuro (veja o README).</p></div>`;
   write('assistente/index.html', layout({ title: 'Assistente Inteligente São João Digital', desc: `Pergunte sobre restaurantes, mecânicos, lojas e serviços de ${CIDADE}. O assistente responde apenas com dados cadastrados.`, path: '/assistente/', hero: pageHero([['/', 'Início'], ['/assistente/', 'Assistente']], 'Assistente Inteligente São João Digital', `Encontre empresas e serviços de ${CIDADE} conversando.`), body: chat, scripts: AI_JS, jsonld: [{ '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Assistente Inteligente São João Digital', applicationCategory: 'UtilitiesApplication', operatingSystem: 'Web', url: abs('/assistente/'), inLanguage: 'pt-BR', offers: { '@type': 'Offer', price: 0, priceCurrency: 'BRL' } }, crumbLd([['/', 'Início'], ['/assistente/', 'Assistente']])] }));
   addUrl('/assistente/', TODAY, '0.8', 'weekly');
 
   /* Planos */
-  const planos = `<div class="wrap" style="padding-top:26px;padding-bottom:40px"><div class="plans">
-<section class="plan"><h2>Gratuito</h2><p class="price">R$ 0</p><ul><li>Cadastro básico</li><li>Nome, categoria, contato e horário</li><li>Presença nos dados abertos da cidade</li></ul></section>
-<section class="plan feat"><h2>Premium</h2><p class="price">Em breve</p><ul><li>Página completa com fotos, história e FAQ</li><li>Dados estruturados avançados (Schema.org)</li><li>Destaque nas buscas e categorias</li><li>Assistente de IA próprio da empresa</li><li>Conteúdos patrocinados identificados</li></ul></section></div>
+  const planos = `<div class="container" style="padding-top:26px;padding-bottom:40px"><div class="row g-3">
+<div class="col-md-6"><section class="plan card h-100"><div class="card-body"><h2>Gratuito</h2><p class="price">R$ 0</p><ul><li>Cadastro básico</li><li>Nome, categoria, contato e horário</li><li>Presença nos dados abertos da cidade</li></ul></div></section></div>
+<div class="col-md-6"><section class="plan feat card h-100"><div class="card-body"><h2>Premium</h2><p class="price">Em breve</p><ul><li>Página completa com fotos, história e FAQ</li><li>Dados estruturados avançados (Schema.org)</li><li>Destaque nas buscas e categorias</li><li>Assistente de IA próprio da empresa</li><li>Conteúdos patrocinados identificados</li></ul></div></section></div></div>
 <p class="meta">Valores e contratação ainda não definidos. No código, o plano de cada empresa é o campo <code>plano</code> em <code>dados/empresas.json</code> e o assistente é ativado por <code>ia: true</code>.</p></div>`;
   write('planos/index.html', layout({ title: 'Planos para empresas: gratuito e premium', desc: `Cadastre sua empresa de ${CIDADE} gratuitamente ou ative o plano premium com página completa, destaque e assistente de IA.`, path: '/planos/', hero: pageHero([['/', 'Início'], ['/planos/', 'Planos']], 'Planos para empresas', 'Do cadastro básico ao assistente de IA próprio.'), body: planos, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/planos/', 'Planos']])] }));
   addUrl('/planos/', TODAY, '0.5', 'monthly');
@@ -367,7 +371,7 @@ function build() {
 ## Páginas principais
 - [Início](${abs('/')})
 - [Empresas](${abs('/empresas/')})
-- [Categorias](${abs('/categorias/')}): ${CATS.map((c) => c.nome).join(', ')}
+- [Categorias](${abs('/categorias/')}): ${CATS.map((c) => c.nome).join(', ')} (12 categorias, cada uma com subcategorias)
 - [Eventos](${abs('/eventos/')})
 - [Notícias e guias](${abs('/noticias/')})
 - [Assistente Inteligente](${abs('/assistente/')})
@@ -383,7 +387,7 @@ ${EMP.map((e) => `- [${e.nome}](${abs(`/empresas/${e.slug}/`)}): ${e.subcategori
   /* llms-full.txt */
   const emp = (e) => `### ${e.nome}
 URL: ${abs(`/empresas/${e.slug}/`)}
-Categoria: ${catById[e.categoria].nome} (${e.subcategoria})
+Categoria: ${catById[e.categoria].nome} › ${e.subcategoria}
 Plano: ${e.plano}${e.demo ? ' | DADOS DE DEMONSTRAÇÃO' : ''}
 Descrição: ${e.descricao}
 ${e.historia ? `História: ${e.historia}\n` : ''}Público: ${e.publico}

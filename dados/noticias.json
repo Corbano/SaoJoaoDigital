@@ -21,8 +21,10 @@
         "Para almoço rápido, procure estabelecimentos com prato executivo. Para jantares em família, prefira reservar com antecedência nos fins de semana.",
         "Este guia é de demonstração e será alimentado com estabelecimentos verificados na plataforma."
       ],
-      "empresas": ["cantina-bella-serra"],
-      "categoria": "restaurantes",
+      "empresas": [
+        "cantina-bella-serra"
+      ],
+      "categoria": "onde-comer",
       "demo": true
     },
     {
@@ -37,8 +39,10 @@
         "Confirme a garantia das peças e da mão de obra e exija nota fiscal.",
         "Prefira oficinas que expliquem o problema e mostrem as peças trocadas."
       ],
-      "empresas": ["auto-center-mecanica-do-centro"],
-      "categoria": "servicos",
+      "empresas": [
+        "auto-center-mecanica-do-centro"
+      ],
+      "categoria": "carro-moto",
       "demo": true
     },
     {
@@ -52,8 +56,10 @@
         "O restaurante apresentou um menu de fim de ano com pratos sazonais e novas opções vegetarianas.",
         "Reservas podem ser feitas pelo WhatsApp informado na página da empresa."
       ],
-      "empresas": ["cantina-bella-serra"],
-      "categoria": "restaurantes",
+      "empresas": [
+        "cantina-bella-serra"
+      ],
+      "categoria": "onde-comer",
       "demo": true
     },
     {
@@ -68,9 +74,14 @@
         "Faça a filtragem pelo tempo recomendado pelo fabricante do filtro e retrolave quando necessário.",
         "Em caso de água turva ou esverdeada, leve uma amostra para análise antes de aplicar produtos."
       ],
-      "empresas": ["aqua-azul-piscinas"],
-      "categoria": "comercio",
-      "patrocinador": { "empresa": "aqua-azul-piscinas", "rotulo": "Patrocinado por Aqua Azul Piscinas" },
+      "empresas": [
+        "aqua-azul-piscinas"
+      ],
+      "categoria": "onde-comprar",
+      "patrocinador": {
+        "empresa": "aqua-azul-piscinas",
+        "rotulo": "Patrocinado por Aqua Azul Piscinas"
+      },
       "demo": true
     }
   ]
