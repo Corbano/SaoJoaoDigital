@@ -386,3 +386,28 @@ h2::after{display:none}
 .sponsor-box{border-color:#cfa100;background:var(--laranja-t)}
 .form-control:focus,.form-select:focus{border-color:var(--marinho);box-shadow:0 0 0 .2rem rgba(18,52,86,.15)}
 .stars{color:#c99700}
+
+/* ---- Azul claro como cor de apoio (v4.1) ---- */
+:root{--celeste:#e8f2fc;--celeste-m:#cfe3f7;--celeste-b:#3f86d1;--suave:#eef5fc}
+section.block.alt{background:var(--celeste)}
+.card:hover{border-color:var(--celeste-b)}
+.cat-card .ico{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:var(--celeste);filter:none;opacity:1;font-size:1.6rem}
+.cat-card .ico{filter:none}
+.text-bg-info{background-color:var(--celeste)!important;border:0;color:var(--marinho)!important}
+.destinos{background:var(--celeste);border:0}
+.destinos-t{color:var(--marinho)}
+.destinos a{color:var(--marinho);border-top-color:var(--celeste-m)}
+.destinos a::after{border-left-color:var(--marinho)}
+.destinos a:hover{color:var(--celeste-b)}
+.chip{border-color:rgba(207,227,247,.55);color:#e8f2fc}
+.chip:hover{background:var(--celeste);border-color:var(--celeste);color:var(--marinho)}
+.hero p.lead,.page-hero p,.crumbs,.crumbs a{color:#cfe3f7}
+.site-footer{color:#b5cde6}
+.table>:not(caption)>*>*{border-bottom-color:var(--celeste-m)}
+.panel{border-color:var(--celeste-m)}
+.card{border-color:var(--celeste-m)}
+.accordion{--bs-accordion-active-bg:var(--celeste);--bs-accordion-border-color:var(--celeste-m)}
+.btn-outline-primary,.btn-outline-secondary{--bs-btn-border-color:var(--celeste-b);--bs-btn-hover-bg:var(--celeste);--bs-btn-hover-border-color:var(--celeste-b);--bs-btn-hover-color:var(--marinho);--bs-btn-active-bg:var(--celeste-m);--bs-btn-active-color:var(--marinho);--bs-btn-active-border-color:var(--celeste-b)}
+.page-hero .btn-outline-primary,.page-hero .btn-outline-secondary{--bs-btn-color:#fff;--bs-btn-border-color:#fff;--bs-btn-hover-bg:#fff;--bs-btn-hover-color:var(--marinho)}
+.hero .destinos a:not(.btn){color:var(--marinho)}
+.hero .destinos a:not(.btn):hover{color:var(--celeste-b)}
