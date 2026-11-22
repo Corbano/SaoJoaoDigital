@@ -35,7 +35,7 @@ module.exports = function gerarCategorias(ctx) {
       { p: `Como cadastrar minha empresa em ${c.nome}?`, r: 'O cadastro básico é gratuito; o plano premium libera página completa, destaque e assistente de IA. Veja a <a href="/planos/">página de planos</a>.' }
     ];
 
-    const sistemasCat = (SIS_CAT[c.slug] || []).map((k) => { const x = SISTEMAS[k]; return `<div class="col-12 col-md-6 col-lg-3"><article class="card h-100"><div class="card-body"><div class="fs-2" aria-hidden="true">${x.icone}</div><h3 class="h6 mt-2"><a href="${x.url}">${esc(x.nome)}</a></h3><p class="meta mb-0">${esc(x.desc)}</p></div></article></div>`; }).join('');
+    const sistemasCat = (SIS_CAT[c.slug] || []).map((k) => { const x = SISTEMAS[k]; return `<div class="col-12 col-md-6 col-lg-3"><article class="card cat-card sis h-100"><div class="card-body"><span class="ico" aria-hidden="true">${x.icone}</span><h3 class="h6 mt-2"><a href="${x.url}">${esc(x.nome)}</a></h3><p class="meta mb-0">${esc(x.desc)}</p></div></article></div>`; }).join('');
     const sec = (cond, titulo, html) => (cond ? `<section class="mb-4"><h2 class="h4">${titulo}</h2>${html}</section>` : '');
     const body = `<div class="container pg">${demoNotice({ demo: true })}
 <p class="lead">${esc(c.intro)}</p>

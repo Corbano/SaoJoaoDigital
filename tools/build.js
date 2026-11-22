@@ -145,7 +145,7 @@ function cardEmpresa(e) {
   const busca = [e.nome, e.subcategoria, (e.tags || []).join(' '), e.endereco.bairro, e.resumo].join(' ');
   return `<div class="col-12 col-md-6 col-lg-4" data-cat="${esc(e.categoria)}" data-busca="${esc(norm(busca))}"><article class="card h-100 shadow-sm"><div class="card-body">
 <img class="logo" src="${empLogo(e)}" width="54" height="54" alt="Logo ${esc(e.nome)}" loading="lazy">
-<div><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="badge text-bg-primary">Premium</span>' : ''}${e.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
+<div><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="badge text-bg-primary">Premium</span>' : ''}</div>
 <h3><a href="/empresas/${e.slug}/">${esc(e.nome)}</a></h3>
 <p class="meta">${esc(e.subcategoria)} · ${esc(e.endereco.bairro)}</p>
 <p class="mb-0">${esc(e.resumo)}</p></div></article></div>`;
@@ -155,13 +155,13 @@ function cardCategoria(c) {
   return `<div class="col-6 col-md-4 col-lg-3"><article class="card cat-card h-100 c-${c.slug}"><div class="card-body"><span class="ico" aria-hidden="true">${c.icone}</span><h3 class="h6 mt-2"><a href="/categorias/${c.slug}/">${esc(c.nome)}</a></h3><p class="meta mb-0">${esc(c.descricao)}</p></div></article></div>`;
 }
 function cardNoticia(n) {
-  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge ${n.tipo === 'patrocinado' ? 'text-bg-danger' : 'text-bg-info'}">${esc(TIPOS[n.tipo])}</span>${n.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
+  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge ${n.tipo === 'patrocinado' ? 'text-bg-danger' : 'text-bg-info'}">${esc(TIPOS[n.tipo])}</span></div>
 <h3><a href="/noticias/${n.slug}/">${esc(n.titulo)}</a></h3>
 <p class="meta"><time datetime="${n.data}">${dataBR(n.data)}</time> · ${esc(n.autor)}</p>
 <p>${esc(n.resumo)}</p>${n.patrocinador ? `<p class="meta"><strong>${esc(n.patrocinador.rotulo)}</strong></p>` : ''}</div></article></div>`;
 }
 function cardEvento(v) {
-  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge text-bg-info">${esc(catById[v.categoria].nome)}</span>${v.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
+  return `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><div><span class="badge text-bg-info">${esc(catById[v.categoria].nome)}</span></div>
 <h3><a href="/eventos/${v.slug}/">${esc(v.titulo)}</a></h3>
 <p class="meta"><time datetime="${v.inicio}">${dataBR(v.inicio)}</time> · ${esc(v.local)}</p>
 <p class="mb-0">${esc(v.resumo)}</p></div></article></div>`;
@@ -365,8 +365,8 @@ function build() {
   const destaques = EMP.filter((e) => e.destaque || e.plano === 'premium').slice(0, 6);
   const proximos = EVT.slice().sort((a, b) => a.inicio.localeCompare(b.inicio)).slice(0, 3);
   const { SISTEMAS } = require('./sistemas-map');
-  const SISTEMAS_HOME = `<section class="block alt"><div class="container"><h2>Serviços online</h2><p class="sub">Cada categoria tem seus micro-sistemas: peça, agende, compare, compre ou venda sem sair do site.</p><div class="row g-3">${['cardapios', 'agendar', 'imoveis', 'veiculos', 'saude', 'comparador', 'vitrine', 'busca'].map((k) => `<div class="col-6 col-lg-3"><article class="card h-100"><div class="card-body"><div class="fs-2" aria-hidden="true">${SISTEMAS[k].icone}</div><h3 class="h6 mt-2"><a href="${SISTEMAS[k].url}">${esc(SISTEMAS[k].nome)}</a></h3><p class="meta mb-0">${esc(SISTEMAS[k].desc)}</p></div></article></div>`).join('')}</div><p><a class="btn btn-outline-secondary" href="/servicos/">Ver todos os serviços</a></p></div></section>`;
-  const homeBody = `
+  const SISTEMAS_HOME = `<section class="block alt"><div class="container"><h2>Serviços online</h2><p class="sub">Cada categoria tem seus micro-sistemas: peça, agende, compare, compre ou venda sem sair do site.</p><div class="row g-3">${['cardapios', 'agendar', 'imoveis', 'veiculos', 'saude', 'comparador', 'vitrine', 'busca'].map((k) => `<div class="col-6 col-lg-3"><article class="card cat-card sis h-100"><div class="card-body"><span class="ico" aria-hidden="true">${SISTEMAS[k].icone}</span><h3 class="h6 mt-2"><a href="${SISTEMAS[k].url}">${esc(SISTEMAS[k].nome)}</a></h3><p class="meta mb-0">${esc(SISTEMAS[k].desc)}</p></div></article></div>`).join('')}</div><p><a class="btn btn-outline-secondary" href="/servicos/">Ver todos os serviços</a></p></div></section>`;
+  let homeBody = `
 <section class="block"><div class="container"><h2>Explore por categoria</h2><p class="sub">Informações organizadas para você e para as inteligências artificiais encontrarem rápido.</p>
 <div class="row g-3">${CATS.map((c) => cardCategoria(c)).join('')}</div></div></section>
 <section class="block alt"><div class="container"><h2>Empresas em destaque</h2><p class="sub">Páginas completas com horário, endereço, produtos, perguntas frequentes e assistente próprio.</p>
@@ -387,6 +387,12 @@ function build() {
 <div class="chips" aria-label="Sugestões"><button class="chip" type="button" data-q="Qual restaurante italiano tem na cidade?">Restaurante italiano</button><button class="chip" type="button" data-q="Preciso de um mecânico próximo ao centro">Mecânico no centro</button><button class="chip" type="button" data-q="Onde comprar produtos para piscina?">Produtos para piscina</button></div></div></div>
 <div class="col-lg-4"><nav class="destinos" aria-label="Acesso rápido"><p class="destinos-t">Acesso rápido</p><a href="/categorias/onde-comer/">Onde comer</a><a href="/cupons/">Cupons da semana</a><a href="/comparador/">Comparar preços</a><a href="/agendar/">Agendar horário</a><a href="/guia-medico/">Guia médico</a><a href="/eventos/">Eventos</a></nav></div>
 </div></div></section>`;
+  {
+    const partes = homeBody.split(/(?=<section class="block)/).filter((p) => p.trim());
+    const por = (t) => { const p = partes.find((x) => x.includes(t)); if (!p) throw new Error('home: ' + t); return p; };
+    const ordem = ['Serviços online', 'Explore por categoria', 'Cupons e ofertas da semana', 'Empresas em destaque', 'Guia médico e soluções digitais', 'Próximos eventos', 'Notícias e guias locais', 'Como funciona a infraestrutura'].map(por);
+    homeBody = ordem.map((p, i) => p.replace(/<section class="block(?: alt)?">/, i % 2 ? '<section class="block alt">' : '<section class="block">')).join('\n');
+  }
   write('index.html', layout({ title: `${SITE_NAME} — Base de conhecimento local de ${CIDADE}`, desc: `Empresas, serviços, eventos e notícias de ${CIDADE} (SP) em dados estruturados, com assistente inteligente. Informação local confiável para pessoas e IAs.`, path: '/', jsonld: [{ '@context': 'https://schema.org', ...orgNode }, siteNode, { '@type': 'WebPage', '@id': abs('/#webpage'), url: abs('/'), name: SITE_NAME, isPartOf: { '@id': abs('/#website') }, about: { '@type': 'City', name: CIDADE }, inLanguage: 'pt-BR' }], hero: homeHero, body: homeBody, scripts: CORE_JS }));
   addUrl('/', TODAY, '1.0', 'daily');
 

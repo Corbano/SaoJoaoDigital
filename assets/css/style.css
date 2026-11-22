@@ -511,3 +511,4 @@ a:hover{color:var(--roxo)}
 fieldset{border:0;padding:0;margin:0}
 .zonas li.faixa-azul{border-left-color:#3f86d1}.zonas li.faixa-verde{border-left-color:#3d9a4a}.zonas li.faixa-amarela{border-left-color:#d4a400}.zonas li.faixa-laranja{border-left-color:#e0731a}.zonas li.faixa-vermelha{border-left-color:#c8352b}
 .resultado .btn{margin-top:6px}
+.cat-card.sis .ico{background:var(--laranja-t)}
