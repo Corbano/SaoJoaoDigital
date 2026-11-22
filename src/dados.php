@@ -9,7 +9,8 @@ function importar_json(): array
     $emp = json_decode((string)file_get_contents(SJD_ROOT . '/dados/empresas.json'), true);
     $of = json_decode((string)file_get_contents(SJD_ROOT . '/dados/ofertas.json'), true);
     $cp = json_decode((string)file_get_contents(SJD_ROOT . '/dados/cupons.json'), true);
-    $ne = $no = $nc = 0;
+    $pa = json_decode((string)file_get_contents(SJD_ROOT . '/dados/parceiros.json'), true);
+    $ne = $no = $nc = $np = 0;
 
     $pdo->beginTransaction();
     try {
@@ -49,12 +50,26 @@ function importar_json(): array
             ]);
             $nc++;
         }
+        $up2 = $pdo->prepare('INSERT INTO parceiros (tipo, slug, nome, whatsapp, ativo, demo) VALUES (?,?,?,?,1,?)
+            ON DUPLICATE KEY UPDATE nome=VALUES(nome), whatsapp=VALUES(whatsapp), demo=VALUES(demo)');
+        foreach (['imobiliaria' => 'imobiliarias', 'garagem' => 'garagens'] as $tipo => $chave) {
+            foreach ($pa[$chave] ?? [] as $p) {
+                $up2->execute([$tipo, $p['id'], $p['nome'], preg_replace('/D/', '', $p['whatsapp']), !empty($p['demo']) ? 1 : 0]);
+                $np++;
+            }
+        }
+        $up3 = $pdo->prepare('INSERT INTO profissionais_saude (tipo, slug, nome, especialidade, endereco, whatsapp, ativo, demo) VALUES (?,?,?,?,?,?,1,?)
+            ON DUPLICATE KEY UPDATE tipo=VALUES(tipo), nome=VALUES(nome), especialidade=VALUES(especialidade), endereco=VALUES(endereco), whatsapp=VALUES(whatsapp), demo=VALUES(demo)');
+        foreach ($pa['profissionais_saude'] ?? [] as $p) {
+            $up3->execute([$p['tipo'], $p['id'], $p['nome'], $p['especialidade'] ?? '', $p['endereco'] ?? '', preg_replace('/D/', '', $p['whatsapp']), !empty($p['demo']) ? 1 : 0]);
+            $np++;
+        }
         $pdo->commit();
     } catch (Throwable $t) {
         $pdo->rollBack();
         throw $t;
     }
-    return ['empresas' => $ne, 'ofertas' => $no, 'cupons' => $nc];
+    return ['empresas' => $ne, 'ofertas' => $no, 'cupons' => $nc, 'parceiros' => $np];
 }
 
 /** Escreve dados/empresas.json e dados/ofertas.json a partir do banco (faz cópia .bak antes). */

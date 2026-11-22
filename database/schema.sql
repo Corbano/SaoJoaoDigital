@@ -134,3 +134,45 @@ CREATE TABLE IF NOT EXISTS rate_limit (
   criado_em  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   KEY idx_rl (chave, criado_em)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Parceiros dos micro-sistemas: imobiliárias (Imóveis) e garagens/lojas (Veículos).
+CREATE TABLE IF NOT EXISTS parceiros (
+  id          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo        ENUM('imobiliaria','garagem') NOT NULL,
+  slug        VARCHAR(120) NOT NULL,
+  nome        VARCHAR(160) NOT NULL,
+  whatsapp    VARCHAR(20) NOT NULL,
+  ativo       TINYINT(1) NOT NULL DEFAULT 1,
+  demo        TINYINT(1) NOT NULL DEFAULT 0,
+  criado_em   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uq_parceiro (tipo, slug),
+  KEY idx_parceiro_ativo (ativo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Profissionais de saúde (nutricionistas, personal, academias, psicólogos, psiquiatras).
+CREATE TABLE IF NOT EXISTS profissionais_saude (
+  id            INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  tipo          ENUM('nutricionista','personal','academia','psicologo','psiquiatra') NOT NULL,
+  slug          VARCHAR(120) NOT NULL UNIQUE,
+  nome          VARCHAR(160) NOT NULL,
+  especialidade VARCHAR(160) NOT NULL DEFAULT '',
+  endereco      VARCHAR(200) NOT NULL DEFAULT '',
+  whatsapp      VARCHAR(20) NOT NULL,
+  instagram     VARCHAR(80) NOT NULL DEFAULT '',
+  maps_url      VARCHAR(300) NOT NULL DEFAULT '',
+  ativo         TINYINT(1) NOT NULL DEFAULT 1,
+  demo          TINYINT(1) NOT NULL DEFAULT 0,
+  criado_em     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY idx_prof_tipo (tipo, ativo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Cliques nos funis (só contagem: sistema, parceiro e intenção; nenhum dado do perfil do cliente).
+CREATE TABLE IF NOT EXISTS cliques (
+  id            BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  sistema       VARCHAR(20) NOT NULL,
+  parceiro_slug VARCHAR(120) NOT NULL,
+  intencao      VARCHAR(30) NOT NULL DEFAULT '',
+  ip_hash       CHAR(64) NOT NULL,
+  criado_em     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY idx_cl_sistema (sistema, criado_em)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

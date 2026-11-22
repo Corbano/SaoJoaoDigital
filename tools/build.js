@@ -70,7 +70,7 @@ const BRAND_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" r
 const OG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2e1a5c"/><stop offset="1" stop-color="#1f1142"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><text x="80" y="300" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" fill="#fff">São João <tspan fill="#d6f08a">Digital</tspan></text><text x="80" y="380" font-family="Arial,Helvetica,sans-serif" font-size="38" fill="#cfe0f5">Base de conhecimento local de ${CIDADE}</text></svg>`;
 
 /* ---------- layout compartilhado ---------- */
-const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['Serviços', [['/comparador/', 'Comparador de preços'], ['/cardapios/', 'Cardápios digitais'], ['/agendar/', 'Agendamento'], ['/cupons/', 'Cupons da semana'], ['/encartes/', 'Encartes'], ['/vitrine/', 'Vitrine virtual'], ['/guia-medico/', 'Guia médico'], ['/solucoes-digitais/', 'Soluções digitais']]], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/anuncie/', 'Anuncie']];
+const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['Serviços', [['/cardapios/', 'Cardápios digitais'], ['/agendar/', 'Agendamento'], ['/imoveis/', 'Imóveis'], ['/veiculos/', 'Carros e motos'], ['/saude/', 'Saúde e bem-estar'], ['/guia-medico/', 'Guia médico'], ['/servicos/', 'Todos os serviços']]], ['Ofertas', [['/comparador/', 'Comparador de preços'], ['/cupons/', 'Cupons'], ['/ofertas-semana/', 'Ofertas da semana'], ['/encartes/', 'Encartes'], ['/vitrine/', 'Vitrine virtual'], ['/shopping-digital/', 'Shopping digital']]], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/busca/', 'Buscar'], ['/anuncie/', 'Anuncie']];
 
 function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scripts = [], noindex = false, hero = '', image = '/assets/img/og-default.svg' }) {
   const fullTitle = p === '/' ? title : `${title} | ${SITE_NAME}`;
@@ -118,7 +118,7 @@ ${hero}${body}
 <div class="col-12 col-md-6 col-lg-3"><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de ${CIDADE} (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
 <div class="col-6 col-lg-3"><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
 <div class="col-6 col-lg-3"><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
-<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/cadastrar/">Cadastrar minha empresa</a></li><li><a href="/anuncie/">Anuncie</a></li><li><a href="/planos/">Planos</a></li><li><a href="/privacidade/">Privacidade</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/cadastrar/">Cadastrar minha empresa</a></li><li><a href="/anuncie/">Anuncie</a></li><li><a href="/solucoes-digitais/">Soluções digitais</a></li><li><a href="/minisite-modelo/">Minisite modelo</a></li><li><a href="/planos/">Planos</a></li><li><a href="/privacidade/">Privacidade</a></li><li><a href="/termos/">Termos de uso</a></li><li><a href="/mapa-do-site/">Mapa do site</a></li></ul></div>
 </div>
 <p class="copy">© ${new Date().getFullYear()} ${SITE_NAME}. Informações cadastradas pelas próprias empresas; confirme dados importantes diretamente com o estabelecimento.</p>
 </div></footer>
@@ -137,7 +137,7 @@ const CORE_JS = [BS_JS, '/assets/js/core.js', '/assets/js/site.js'];
 const AI_JS = [BS_JS, '/assets/js/core.js', '/assets/js/ai-engine.js', '/assets/js/site.js'];
 
 const orgNode = { '@type': 'Organization', '@id': abs('/#organization'), name: SITE_NAME, url: abs('/'), logo: abs('/assets/img/logo.svg'), areaServed: { '@type': 'City', name: CIDADE, containedInPlace: { '@type': 'State', name: 'São Paulo' } } };
-const siteNode = { '@type': 'WebSite', '@id': abs('/#website'), url: abs('/'), name: SITE_NAME, inLanguage: 'pt-BR', publisher: { '@id': abs('/#organization') }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: abs('/assistente/?q={search_term_string}') }, 'query-input': 'required name=search_term_string' } };
+const siteNode = { '@type': 'WebSite', '@id': abs('/#website'), url: abs('/'), name: SITE_NAME, inLanguage: 'pt-BR', publisher: { '@id': abs('/#organization') }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: abs('/busca/?q={search_term_string}') }, 'query-input': 'required name=search_term_string' } };
 
 /* ---------- cartões ---------- */
 const empLogo = (e) => `/assets/img/empresas/${e.slug}/logo.svg`;
@@ -349,7 +349,7 @@ ${tabelaOfertas(p)}
 
 function build() {
   // limpa saídas anteriores geradas (apenas pastas geradas)
-  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'cardapios', 'agendar', 'cadastrar', 'privacidade', 'planos', 'sobre', 'cupons', 'encartes', 'vitrine', 'guia-medico', 'solucoes-digitais', 'anuncie', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
+  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'cardapios', 'agendar', 'cadastrar', 'privacidade', 'planos', 'sobre', 'shopping-digital', 'ofertas-semana', 'minisite-modelo', 'servicos', 'mapa-do-site', 'termos', 'cupons', 'encartes', 'vitrine', 'guia-medico', 'solucoes-digitais', 'anuncie', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
 
   write('assets/img/logo.svg', BRAND_SVG);
   write('assets/img/favicon.svg', BRAND_SVG);
@@ -359,9 +359,13 @@ function build() {
   /* Recursos extras (cupons, encartes, vitrine, guia médico, soluções, anuncie) */
   const EXTRAS = require('./extras')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, empBySlug, catById, CORE_JS, TODAY, ROOT });
 
+  require('./paginas')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, EVT, NOT, CATS, empBySlug, catById, CORE_JS, TODAY, ROOT, SITE_NAME });
+
   /* Home */
   const destaques = EMP.filter((e) => e.destaque || e.plano === 'premium').slice(0, 6);
   const proximos = EVT.slice().sort((a, b) => a.inicio.localeCompare(b.inicio)).slice(0, 3);
+  const { SISTEMAS } = require('./sistemas-map');
+  const SISTEMAS_HOME = `<section class="block alt"><div class="container"><h2>Serviços online</h2><p class="sub">Cada categoria tem seus micro-sistemas: peça, agende, compare, compre ou venda sem sair do site.</p><div class="row g-3">${['cardapios', 'agendar', 'imoveis', 'veiculos', 'saude', 'comparador', 'vitrine', 'busca'].map((k) => `<div class="col-6 col-lg-3"><article class="card h-100"><div class="card-body"><div class="fs-2" aria-hidden="true">${SISTEMAS[k].icone}</div><h3 class="h6 mt-2"><a href="${SISTEMAS[k].url}">${esc(SISTEMAS[k].nome)}</a></h3><p class="meta mb-0">${esc(SISTEMAS[k].desc)}</p></div></article></div>`).join('')}</div><p><a class="btn btn-outline-secondary" href="/servicos/">Ver todos os serviços</a></p></div></section>`;
   const homeBody = `
 <section class="block"><div class="container"><h2>Explore por categoria</h2><p class="sub">Informações organizadas para você e para as inteligências artificiais encontrarem rápido.</p>
 <div class="row g-3">${CATS.map((c) => cardCategoria(c)).join('')}</div></div></section>
@@ -374,7 +378,7 @@ function build() {
 <div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>3. Assistentes que não inventam</h3><p class="mb-0">O assistente da cidade e o de cada empresa respondem somente com os dados cadastrados.</p></div></article></div>
 <div class="col-12 col-md-6 col-lg-3"><article class="card h-100 shadow-sm"><div class="card-body"><h3>4. Transparência</h3><p class="mb-0">Conteúdo patrocinado sempre identificado, com a empresa patrocinadora indicada.</p></div></article></div></div></div></section>
 <section class="block alt"><div class="container"><h2>Próximos eventos</h2><div class="row g-3">${proximos.map(cardEvento).join('')}</div><p><a class="btn btn-outline-secondary" href="/eventos/">Ver agenda completa</a></p></div></section>
-<section class="block"><div class="container"><h2>Notícias e guias locais</h2><div class="row g-3">${NOT.slice().sort((a, b) => b.data.localeCompare(a.data)).slice(0, 3).map(cardNoticia).join('')}</div><p><a class="btn btn-outline-secondary" href="/noticias/">Ver todos os conteúdos</a></p></div></section>${EXTRAS.homeBlocks}`;
+<section class="block"><div class="container"><h2>Notícias e guias locais</h2><div class="row g-3">${NOT.slice().sort((a, b) => b.data.localeCompare(a.data)).slice(0, 3).map(cardNoticia).join('')}</div><p><a class="btn btn-outline-secondary" href="/noticias/">Ver todos os conteúdos</a></p></div></section>${SISTEMAS_HOME}${EXTRAS.homeBlocks}`;
   const homeHero = `<section class="hero"><div class="container"><div class="row g-4 align-items-stretch">
 <div class="col-lg-8"><div class="placa">
 <h1>Tudo o que existe em ${CIDADE}, num só lugar confiável.</h1>
@@ -461,6 +465,14 @@ function build() {
   /* sitemap.xml */
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${abs(u.loc)}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.freq}</changefreq><priority>${u.prio}</priority></url>`).join('\n')}\n</urlset>\n`);
 
+  {
+    const mod = layout({ title: 'x', desc: 'x', path: '/__php__', body: '@@', scripts: [] });
+    const cut = (a, b, from = 0) => { const i = mod.indexOf(a, from); const j = mod.indexOf(b, i); if (i < 0 || j < 0) throw new Error('parcial: ' + a); return mod.slice(i, j); };
+    write('src/partials/head-links.html', cut('<link rel="alternate" type="text/plain"', '</head>'));
+    write('src/partials/header.html', cut('<body>', '@@'));
+    write('src/partials/footer.html', cut('<footer', '</body>'));
+  }
+
   /* llms.txt */
   write('llms.txt', `# ${SITE_NAME}
 
@@ -495,6 +507,7 @@ function build() {
 - [Cardápios digitais](${abs('/cardapios/')}): menus com preços e pedido pelo WhatsApp
 - [Agendamento](${abs('/agendar/')}): solicitação de horário (a confirmação é da empresa)
 ${EXTRAS.llms}
+- [Todos os serviços](${abs('/servicos/')}) · [Imóveis](${abs('/imoveis/')}) · [Carros e motos](${abs('/veiculos/')}) · [Saúde e bem-estar](${abs('/saude/')}) · [Profissionais de saúde](${abs('/profissionais-saude/')}) · [Ofertas da semana](${abs('/ofertas-semana/')}) · [Shopping digital](${abs('/shopping-digital/')}) · [Busca](${abs('/busca/')}) · [Mapa do site](${abs('/mapa-do-site/')})
 - [Assistente Inteligente](${abs('/assistente/')})
 - [Como interpretar os dados](${abs('/sobre/')})
 

@@ -480,3 +480,34 @@ a:hover{color:var(--roxo)}
 .msg.user{background:var(--roxo)}
 .chat-head{background:var(--marinho)}
 .row+p{margin-top:22px}
+
+/* ---- Micro-sistemas PHP: funis (imóveis, veículos), saúde, busca ---- */
+.parceiro{display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 10px;border:1px solid var(--cinza-2);border-radius:12px;background:#fff;text-decoration:none;color:var(--marinho);font:inherit;cursor:pointer;height:100%;transition:border-color .15s}
+.parceiro:hover,.parceiro.ativo{border-color:var(--roxo);color:var(--marinho)}
+.parceiro.ativo{background:var(--roxo-t)}
+.parceiro-nome{font-weight:700;font-size:.9rem;text-align:center;line-height:1.25}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;color:#fff;font-family:var(--font-d);font-weight:800;font-size:1.15rem;flex:none}
+.av-0{background:#2e1a5c}.av-1{background:#6b46c1}.av-2{background:#44287f}.av-3{background:#553399}.av-4{background:#3b2476}.av-5{background:#7c5cd1}
+.intencoes{display:flex;flex-wrap:wrap;gap:10px}
+.intencao{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:2px solid var(--cinza-2);border-radius:12px;background:#fff;color:var(--marinho);font-weight:700;text-decoration:none}
+.intencao:hover{border-color:var(--roxo);color:var(--marinho)}
+.intencao.ativo{border-color:var(--marinho);background:var(--laranja-t)}
+.msg-previa{background:var(--cinza-1);border:1px solid var(--cinza-2);border-radius:10px;padding:16px;white-space:pre-wrap;font-family:var(--font);font-size:.95rem}
+.fipe-card{background:var(--cinza-1);border:1px solid var(--cinza-2);border-radius:12px;padding:16px 18px}
+.fipe-valor{font-family:var(--font-d);font-weight:800;font-size:2rem;color:var(--roxo-d)}
+.resultado{margin-top:18px;border-radius:12px;padding:16px 18px;background:var(--cinza-1);border-left:6px solid var(--cinza-3)}
+.resultado-t{font-family:var(--font-d);font-weight:800;font-size:1.25rem;margin-bottom:6px}
+.faixa-azul{border-left-color:#3f86d1}.faixa-verde{border-left-color:#3d9a4a}.faixa-amarela{border-left-color:#d4a400}.faixa-laranja{border-left-color:#e0731a}.faixa-vermelha{border-left-color:#c8352b}
+.zonas{list-style:none;margin:10px 0 14px;padding:0;display:grid;gap:8px}
+.zonas li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;background:#fff;border:1px solid var(--cinza-2);border-left:6px solid var(--cinza-3);border-radius:8px;padding:8px 12px}
+.zonas li span{flex:1 1 100%;font-size:.85rem;color:var(--cinza-3)}
+.notas{display:flex;gap:8px}
+.nota{flex:1;cursor:pointer}
+.nota input{position:absolute;opacity:0;width:1px;height:1px}
+.nota span{display:block;text-align:center;padding:8px 0;border:1px solid var(--cinza-2);border-radius:8px;font-weight:700;background:#fff}
+.nota input:checked+span{background:var(--marinho);border-color:var(--marinho);color:#fff}
+.nota input:focus-visible+span{outline:3px solid var(--roxo);outline-offset:2px}
+.resultados li{padding:10px 0;border-bottom:1px solid var(--cinza-2)}
+fieldset{border:0;padding:0;margin:0}
+.zonas li.faixa-azul{border-left-color:#3f86d1}.zonas li.faixa-verde{border-left-color:#3d9a4a}.zonas li.faixa-amarela{border-left-color:#d4a400}.zonas li.faixa-laranja{border-left-color:#e0731a}.zonas li.faixa-vermelha{border-left-color:#c8352b}
+.resultado .btn{margin-top:6px}

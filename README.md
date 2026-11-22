@@ -45,6 +45,27 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 - **Cupons, encartes, vitrine:** `dados/cupons.json` (código, tipo, validade, `semana: true` destaca na home; vencidos somem), `dados/encartes.json` (seções com itens e preço "de/por"), `dados/vitrine.json` (produtos com botão "tenho interesse" no WhatsApp).
 - **Guia médico:** gerado das empresas de Saúde e Beleza nas especialidades de saúde (campo `subcategoria_slug`).
 
+## Micro-sistemas em PHP + MySQL (funis do projeto antigo)
+
+Portados de `Corbano/Sao_Joao_Digital`. São páginas PHP montadas no servidor (sem JavaScript), com URL limpa via `.htaccess`:
+
+| URL | Arquivo | O que faz |
+|---|---|---|
+| `/imoveis/` | `imoveis.php` | Escolhe a imobiliária, depois comprar/alugar/vender, preenche o perfil e monta a mensagem de WhatsApp |
+| `/veiculos/` | `veiculos.php` | Consulta a Tabela FIPE (servidor, cache de 24 h), escolhe comprar ou vender/trocar e a garagem |
+| `/saude/` | `saude.php` | Calculadoras de IMC, água, estresse e frequência cardíaca, com encaminhamento a profissionais |
+| `/profissionais-saude/`, `/parceiros-saude/` | `profissionais-saude.php`, `parceiros-saude.php` | Nutricionistas, personal, academias, psicólogos e psiquiatras |
+| `/busca/` | `busca.php` | Busca em empresas, categorias, ofertas, cupons, vitrine, eventos, notícias e profissionais |
+| `/ir/` | `ir.php` | Conta o clique e leva ao WhatsApp do parceiro (destino sempre do cadastro, sem redirecionamento aberto) |
+
+- **Banco (phpMyAdmin):** tabelas `parceiros`, `profissionais_saude` e `cliques` em `database/schema.sql`. Cadastro e edição em `/admin/parceiros.php` e `/admin/profissionais.php`; contagem em `/admin/cliques.php`. Em `/admin/dados.php` o **Importar** carrega `dados/parceiros.json` no banco.
+- **Sem banco** (ou fora do ar) as páginas usam `dados/parceiros.json` como reserva.
+- A ordem dos parceiros muda a cada 5 minutos (igualdade entre anunciantes).
+- **Privacidade:** o perfil digitado vai só na mensagem do WhatsApp; o banco guarda apenas sistema, parceiro e intenção.
+- O cabeçalho e o rodapé das páginas PHP vêm de `src/partials/`, gerados por `node tools/build.js` (mesmo menu dos estáticos). Rode o build sempre que mudar o menu.
+- Teste local: `php -S localhost:8099 -t . tools/router-dev.php` (em produção quem roteia é o `.htaccess`).
+- Páginas estáticas novas: `/servicos/`, `/shopping-digital/`, `/ofertas-semana/`, `/minisite-modelo/` (+12 modelos por categoria), `/mapa-do-site/`, `/termos/` e todas as subcategorias (as sem empresas ficam `noindex` e fora do sitemap).
+
 ## Design
 
 Identidade premium: roxo escuro `#2e1a5c`, roxo `#6b46c1`, verde limão leve, branco e cinza (visual limpo; limão em ações). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.

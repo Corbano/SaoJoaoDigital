@@ -1,0 +1,333 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-22",
+  "aviso": "Parceiros, profissionais e telefones de DEMONSTRAÇÃO (fictícios). Em produção cada parceiro informa o próprio WhatsApp.",
+  "imobiliarias": [
+    {
+      "id": "central-imoveis-sjb",
+      "nome": "Central Imóveis SJB",
+      "whatsapp": "5519999900101",
+      "demo": true
+    },
+    {
+      "id": "boa-vista-imoveis",
+      "nome": "Boa Vista Imóveis",
+      "whatsapp": "5519999900102",
+      "demo": true
+    },
+    {
+      "id": "sao-joao-imoveis",
+      "nome": "São João Imóveis",
+      "whatsapp": "5519999900103",
+      "demo": true
+    },
+    {
+      "id": "prime-imoveis-sjb",
+      "nome": "Prime Imóveis SJB",
+      "whatsapp": "5519999900104",
+      "demo": true
+    },
+    {
+      "id": "horizonte-imoveis",
+      "nome": "Horizonte Imóveis",
+      "whatsapp": "5519999900105",
+      "demo": true
+    },
+    {
+      "id": "villa-nova-imoveis",
+      "nome": "Villa Nova Imóveis",
+      "whatsapp": "5519999900106",
+      "demo": true
+    },
+    {
+      "id": "prado-imoveis",
+      "nome": "Prado Imóveis",
+      "whatsapp": "5519999900107",
+      "demo": true
+    },
+    {
+      "id": "residencial-chacaras",
+      "nome": "Residencial Chácaras",
+      "whatsapp": "5519999900108",
+      "demo": true
+    },
+    {
+      "id": "elite-imoveis-sjb",
+      "nome": "Elite Imóveis SJB",
+      "whatsapp": "5519999900109",
+      "demo": true
+    },
+    {
+      "id": "delta-imoveis",
+      "nome": "Delta Imóveis",
+      "whatsapp": "5519999900110",
+      "demo": true
+    },
+    {
+      "id": "imobilar-sjb",
+      "nome": "Imobilar SJB",
+      "whatsapp": "5519999900111",
+      "demo": true
+    },
+    {
+      "id": "maximovel",
+      "nome": "MaxImovel",
+      "whatsapp": "5519999900112",
+      "demo": true
+    }
+  ],
+  "garagens": [
+    {
+      "id": "auto-class-sjb",
+      "nome": "Auto Class SJB",
+      "whatsapp": "5519999900113",
+      "demo": true
+    },
+    {
+      "id": "moto-center-sjb",
+      "nome": "Moto Center SJB",
+      "whatsapp": "5519999900114",
+      "demo": true
+    },
+    {
+      "id": "garage-prime",
+      "nome": "Garage Prime",
+      "whatsapp": "5519999900115",
+      "demo": true
+    },
+    {
+      "id": "multi-veiculos",
+      "nome": "Multi Veículos",
+      "whatsapp": "5519999900116",
+      "demo": true
+    },
+    {
+      "id": "top-car-sjb",
+      "nome": "Top Car SJB",
+      "whatsapp": "5519999900117",
+      "demo": true
+    },
+    {
+      "id": "moto-show",
+      "nome": "Moto Show",
+      "whatsapp": "5519999900118",
+      "demo": true
+    },
+    {
+      "id": "veiculos-select",
+      "nome": "Veículos Select",
+      "whatsapp": "5519999900119",
+      "demo": true
+    },
+    {
+      "id": "auto-park",
+      "nome": "Auto Park",
+      "whatsapp": "5519999900120",
+      "demo": true
+    },
+    {
+      "id": "delta-motors",
+      "nome": "Delta Motors",
+      "whatsapp": "5519999900121",
+      "demo": true
+    },
+    {
+      "id": "carro-certo-sjb",
+      "nome": "Carro Certo SJB",
+      "whatsapp": "5519999900122",
+      "demo": true
+    },
+    {
+      "id": "moto-plus",
+      "nome": "Moto Plus",
+      "whatsapp": "5519999900123",
+      "demo": true
+    },
+    {
+      "id": "automas-veiculos",
+      "nome": "AutoMas Veículos",
+      "whatsapp": "5519999900124",
+      "demo": true
+    }
+  ],
+  "tipos_saude": [
+    {
+      "tipo": "nutricionista",
+      "titulo": "Nutricionistas",
+      "singular": "nutricionista",
+      "emoji": "🥗",
+      "badge": "Avaliação gratuita",
+      "descricao": "Alimentação equilibrada para o seu objetivo, com acompanhamento profissional.",
+      "msg": "agendar minha avaliação nutricional gratuita",
+      "grupo": "corpo"
+    },
+    {
+      "tipo": "personal",
+      "titulo": "Personal Trainers",
+      "singular": "personal trainer",
+      "emoji": "💪",
+      "badge": "Treino experimental",
+      "descricao": "Treino acompanhado e adaptado a você. Experimente uma sessão antes de decidir.",
+      "msg": "agendar meu treino experimental com personal trainer",
+      "grupo": "corpo"
+    },
+    {
+      "tipo": "academia",
+      "titulo": "Academias",
+      "singular": "academia",
+      "emoji": "🏋️",
+      "badge": "Aula experimental",
+      "descricao": "Academias da cidade com aula experimental para conhecer a estrutura.",
+      "msg": "agendar minha aula experimental gratuita na academia",
+      "grupo": "corpo"
+    },
+    {
+      "tipo": "psicologo",
+      "titulo": "Psicólogos",
+      "singular": "psicólogo",
+      "emoji": "🧠",
+      "badge": "1ª consulta gratuita",
+      "descricao": "Saúde mental é saúde. Converse com um psicólogo e dê o primeiro passo.",
+      "msg": "agendar minha primeira consulta gratuita com psicólogo",
+      "grupo": "mente"
+    },
+    {
+      "tipo": "psiquiatra",
+      "titulo": "Psiquiatras",
+      "singular": "psiquiatra",
+      "emoji": "🔬",
+      "badge": "Atendimento especializado",
+      "descricao": "Avaliação e acompanhamento psiquiátrico com atendimento humanizado.",
+      "msg": "agendar uma consulta com psiquiatra",
+      "grupo": "mente"
+    }
+  ],
+  "profissionais_saude": [
+    {
+      "id": "dra-ana-costa",
+      "tipo": "nutricionista",
+      "nome": "Dra. Ana Costa",
+      "especialidade": "Nutrição esportiva",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900125",
+      "demo": true
+    },
+    {
+      "id": "dr-rafael-lima",
+      "tipo": "nutricionista",
+      "nome": "Dr. Rafael Lima",
+      "especialidade": "Emagrecimento saudável",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900126",
+      "demo": true
+    },
+    {
+      "id": "dra-beatriz-nunes",
+      "tipo": "nutricionista",
+      "nome": "Dra. Beatriz Nunes",
+      "especialidade": "Nutrição infantil",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900127",
+      "demo": true
+    },
+    {
+      "id": "marcos-teixeira",
+      "tipo": "personal",
+      "nome": "Marcos Teixeira",
+      "especialidade": "Treino funcional",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900128",
+      "demo": true
+    },
+    {
+      "id": "camila-duarte",
+      "tipo": "personal",
+      "nome": "Camila Duarte",
+      "especialidade": "Musculação e emagrecimento",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900129",
+      "demo": true
+    },
+    {
+      "id": "pedro-alves",
+      "tipo": "personal",
+      "nome": "Pedro Alves",
+      "especialidade": "Condicionamento físico",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900130",
+      "demo": true
+    },
+    {
+      "id": "academia-corpo-em-forma",
+      "tipo": "academia",
+      "nome": "Academia Corpo em Forma",
+      "especialidade": "Musculação e aulas coletivas",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900131",
+      "demo": true
+    },
+    {
+      "id": "studio-movimento",
+      "tipo": "academia",
+      "nome": "Studio Movimento",
+      "especialidade": "Treino funcional",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900132",
+      "demo": true
+    },
+    {
+      "id": "academia-vida-ativa",
+      "tipo": "academia",
+      "nome": "Academia Vida Ativa",
+      "especialidade": "Musculação e natação",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900133",
+      "demo": true
+    },
+    {
+      "id": "dra-helena-rocha",
+      "tipo": "psicologo",
+      "nome": "Dra. Helena Rocha",
+      "especialidade": "Terapia cognitivo-comportamental",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900134",
+      "demo": true
+    },
+    {
+      "id": "dr-lucas-moreira",
+      "tipo": "psicologo",
+      "nome": "Dr. Lucas Moreira",
+      "especialidade": "Ansiedade e estresse",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900135",
+      "demo": true
+    },
+    {
+      "id": "dra-paula-freitas",
+      "tipo": "psicologo",
+      "nome": "Dra. Paula Freitas",
+      "especialidade": "Terapia de casal e família",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900136",
+      "demo": true
+    },
+    {
+      "id": "dr-henrique-barros",
+      "tipo": "psiquiatra",
+      "nome": "Dr. Henrique Barros",
+      "especialidade": "Psiquiatria adulto",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900137",
+      "demo": true
+    },
+    {
+      "id": "dra-leticia-campos",
+      "tipo": "psiquiatra",
+      "nome": "Dra. Letícia Campos",
+      "especialidade": "Psiquiatria infantil e adolescente",
+      "endereco": "Centro, São João da Boa Vista",
+      "whatsapp": "5519999900138",
+      "demo": true
+    }
+  ]
+}

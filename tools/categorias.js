@@ -3,6 +3,7 @@
  * Cada categoria reúne empresas, comparador de preços, cardápios/agendamento, eventos, notícias e FAQ (GEO).
  */
 'use strict';
+const { SISTEMAS, CATEGORIAS: SIS_CAT } = require('./sistemas-map');
 
 module.exports = function gerarCategorias(ctx) {
   const { esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, CIDADE, CATS, EMP, EVT, NOT, PROD, CARD, empBySlug, catById, cardEmpresa, cardEvento, cardNoticia, cardProduto, CORE_JS, TODAY } = ctx;
@@ -23,7 +24,7 @@ module.exports = function gerarCategorias(ctx) {
 
     const chips = c.subcategorias.map((sc) => {
       const n = emps.filter((e) => e.subcategoria_slug === sc.slug).length;
-      return `<li class="list-inline-item mb-1">${n ? `<a class="badge rounded-pill text-bg-primary text-decoration-none" href="${url}${sc.slug}/">${esc(sc.nome)} (${n})</a>` : `<span class="badge rounded-pill text-bg-light border">${esc(sc.nome)}</span>`}</li>`;
+      return `<li class="list-inline-item mb-1"><a class="badge rounded-pill ${n ? 'text-bg-primary' : 'text-bg-info'} text-decoration-none" href="${url}${sc.slug}/">${esc(sc.nome)}${n ? ` (${n})` : ''}</a></li>`;
     }).join('');
 
     const faq = [
@@ -34,12 +35,14 @@ module.exports = function gerarCategorias(ctx) {
       { p: `Como cadastrar minha empresa em ${c.nome}?`, r: 'O cadastro básico é gratuito; o plano premium libera página completa, destaque e assistente de IA. Veja a <a href="/planos/">página de planos</a>.' }
     ];
 
+    const sistemasCat = (SIS_CAT[c.slug] || []).map((k) => { const x = SISTEMAS[k]; return `<div class="col-12 col-md-6 col-lg-3"><article class="card h-100"><div class="card-body"><div class="fs-2" aria-hidden="true">${x.icone}</div><h3 class="h6 mt-2"><a href="${x.url}">${esc(x.nome)}</a></h3><p class="meta mb-0">${esc(x.desc)}</p></div></article></div>`; }).join('');
     const sec = (cond, titulo, html) => (cond ? `<section class="mb-4"><h2 class="h4">${titulo}</h2>${html}</section>` : '');
     const body = `<div class="container pg">${demoNotice({ demo: true })}
 <p class="lead">${esc(c.intro)}</p>
 <section class="mb-4"><h2 class="h5">Subcategorias</h2><ul class="list-inline subcats mb-0">${chips}</ul></section>
 ${sec(true, 'Empresas', emps.length ? grid(emps.map(cardEmpresa).join('')) : '<p>Ainda não há empresas cadastradas nesta categoria. <a href="/planos/">Cadastre a sua gratuitamente</a>.</p>')}
 ${sec(prods.length, 'Compare preços', grid(prods.map(cardProduto).join('')))}
+${sec(true, 'Serviços online desta categoria', grid(sistemasCat))}
 ${sec(comCard.length || comAg.length, 'Serviços online', `<ul>${comCard.map((e) => `<li><a href="/cardapios/${e.slug}/">Cardápio digital — ${esc(e.nome)}</a></li>`).join('')}${comAg.map((e) => `<li><a href="/agendar/${e.slug}/">Agendar — ${esc(e.nome)}</a></li>`).join('')}</ul>`)}
 ${sec(evs.length, 'Eventos', grid(evs.map(cardEvento).join('')))}
 ${sec(nots.length, 'Notícias e guias', grid(nots.map(cardNoticia).join('')))}
@@ -56,24 +59,29 @@ ${faqHtml('faq-' + c.slug, faq)}</div>`;
     // subcategorias que já têm empresas
     c.subcategorias.forEach((sc) => {
       const se = emps.filter((e) => e.subcategoria_slug === sc.slug);
-      if (!se.length) return;
       const surl = `${url}${sc.slug}/`;
+      const vazia = !se.length;
+      const outras = c.subcategorias.filter((x) => x.slug !== sc.slug);
       const sprods = prods.filter((p) => p.ofertas.some((o) => se.some((e) => e.slug === o.empresa)));
-      const sfaq = [
+      const sfaq = vazia ? [
+        { p: `Há ${sc.nome.toLowerCase()} cadastrados em ${CIDADE}?`, r: `Ainda não. <a href="/cadastrar/">Cadastre sua empresa gratuitamente</a> para aparecer aqui.` },
+        { p: 'Onde encontro outras opções?', r: `Veja a categoria <a href="${url}">${esc(c.nome)}</a> ou use a <a href="/busca/">busca</a>.` }
+      ] : [
         { p: `Quais ${sc.nome.toLowerCase()} há em ${CIDADE}?`, r: `Cadastrados no São João Digital: ${lista(se.map((e) => `<a href="/empresas/${e.slug}/">${esc(e.nome)}</a>`))}.` },
         { p: `Como encontro o contato de ${sc.nome.toLowerCase()}?`, r: 'Cada empresa tem página com telefone, WhatsApp, endereço e horário de funcionamento.' }
       ];
       const sbody = `<div class="container pg">${demoNotice({ demo: true })}
-<p class="lead">${esc(sc.nome)} em ${CIDADE}, dentro de <a href="${url}">${esc(c.nome)}</a>. ${se.length} ${se.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'}.</p>
-${sec(true, 'Empresas', grid(se.map(cardEmpresa).join('')))}
+<p class="lead">${esc(sc.nome)} em ${CIDADE}, dentro de <a href="${url}">${esc(c.nome)}</a>. ${se.length ? `${se.length} ${se.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'}.` : 'Ainda não há empresas cadastradas.'}</p>
+${vazia ? `<section class="panel"><h2 class="h4">Ainda sem empresas</h2><p>Nenhuma empresa de ${esc(sc.nome.toLowerCase())} está cadastrada ainda. Quer ser a primeira? <a class="btn btn-primary btn-sm" href="/cadastrar/">Cadastrar minha empresa</a></p></section>` : sec(true, 'Empresas', grid(se.map(cardEmpresa).join('')))}
+<section class="mb-4"><h2 class="h5">Outras subcategorias de ${esc(c.nome)}</h2><ul class="list-inline subcats mb-0">${outras.map((x) => `<li class="list-inline-item mb-1"><a class="badge rounded-pill text-bg-info text-decoration-none" href="${url}${x.slug}/">${esc(x.nome)}</a></li>`).join('')}</ul></section>
 ${sec(sprods.length, 'Compare preços', grid(sprods.map(cardProduto).join('')))}
 ${faqHtml('faq-' + sc.slug, sfaq)}</div>`;
       write(`categorias/${c.slug}/${sc.slug}/index.html`, layout({
-        title: `${sc.nome} em ${CIDADE}`, desc: `${sc.nome} em ${CIDADE} (SP): ${se.map((e) => e.nome).join(', ')}. Telefone, endereço, horário e preços.`,
-        path: surl, hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias'], [url, c.nome], [surl, sc.nome]], `${sc.nome} em ${CIDADE}`, c.nome), body: sbody, scripts: CORE_JS,
+        title: `${sc.nome} em ${CIDADE}`, desc: `${sc.nome} em ${CIDADE} (SP): ${se.length ? se.map((e) => e.nome).join(', ') + '. Telefone, endereço, horário e preços.' : 'ainda sem empresas cadastradas.'}`,
+        noindex: vazia, path: surl, hero: pageHero([['/', 'Início'], ['/categorias/', 'Categorias'], [url, c.nome], [surl, sc.nome]], `${sc.nome} em ${CIDADE}`, c.nome), body: sbody, scripts: CORE_JS,
         jsonld: [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: `${sc.nome} em ${CIDADE}`, mainEntity: { '@type': 'ItemList', itemListElement: se.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/empresas/${e.slug}/`), name: e.nome })) } }, faqLd(sfaq), crumbLd([['/', 'Início'], ['/categorias/', 'Categorias'], [url, c.nome], [surl, sc.nome]])]
       }));
-      addUrl(surl, TODAY, '0.6', 'weekly');
+      if (!vazia) addUrl(surl, TODAY, '0.6', 'weekly');
     });
   });
 };

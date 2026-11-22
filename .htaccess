@@ -11,6 +11,8 @@ ErrorDocument 404 /404.html
 # Pastas sem barra final -> com barra (URLs canônicas)
 <IfModule mod_rewrite.c>
 RewriteEngine On
+# Páginas dinâmicas (PHP) com URL limpa
+RewriteRule ^(imoveis|veiculos|saude|profissionais-saude|parceiros-saude|busca|ir)/?$ $1.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_URI} !/$
 RewriteRule ^(.*)$ /$1/ [L,R=301]
@@ -30,7 +32,7 @@ RedirectMatch 404 ^/tools/
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
   # Sem scripts/estilos inline: CSP restritiva. Se conectar uma API de IA, adicione o domínio em connect-src.
-  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self' https://wa.me; frame-ancestors 'none'; object-src 'none'"
   # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
