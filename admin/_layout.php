@@ -5,7 +5,7 @@ require_once __DIR__ . '/../src/auth.php';
 function admin_topo(string $titulo, ?array $u = null): void
 {
     $atual = basename($_SERVER['SCRIPT_NAME'], '.php');
-    $menu = ['index' => 'Painel', 'agendamentos' => 'Agendamentos', 'pedidos' => 'Pedidos', 'cadastros' => 'Cadastros', 'empresas' => 'Empresas', 'ofertas' => 'Ofertas', 'dados' => 'Dados'];
+    $menu = ['index' => 'Painel', 'agendamentos' => 'Agendamentos', 'pedidos' => 'Pedidos', 'cadastros' => 'Cadastros', 'empresas' => 'Empresas', 'ofertas' => 'Ofertas', 'cupons' => 'Cupons', 'dados' => 'Dados'];
     ?><!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title><?= e($titulo) ?> — Admin São João Digital</title>

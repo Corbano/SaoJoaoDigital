@@ -23,9 +23,9 @@ module.exports = function gerarRecursos(ctx) {
 <div class="qty" data-id="${i.id}" data-nome="${esc(i.nome)}" data-preco="${i.preco}"><button type="button" class="btn btn-sm btn-outline-secondary" data-act="menos" aria-label="Remover ${esc(i.nome)}">−</button><output aria-live="polite">0</output><button type="button" class="btn btn-sm btn-primary" data-act="mais" aria-label="Adicionar ${esc(i.nome)}">+</button></div>
 </div></div></div>`).join('')}</div></section>`).join('');
     const dia = c.cardapio_dia ? `<section class="panel" aria-labelledby="dia"><h2 id="dia" class="h4">Cardápio do dia</h2><ul class="list-unstyled mb-0" id="cardapio-dia">${DIAS.map(([k, n]) => c.cardapio_dia[k] ? `<li data-dow="${k}"><strong>${n}:</strong> ${esc(c.cardapio_dia[k].prato)} <span class="text-secondary">(opção: ${esc(c.cardapio_dia[k].opcao)})</span></li>` : '').join('')}</ul></section>` : '';
-    const body = `<div class="container" style="padding-top:26px;padding-bottom:50px">${demoNotice({ demo: true })}
+    const body = `<div class="container pg">${demoNotice({ demo: true })}
 <div class="row g-4"><div class="col-lg-8">${dia}${secoes}</div>
-<aside class="col-lg-4"><section class="panel sticky-lg-top" style="top:76px" id="pedido" data-slug="${esc(e.slug)}" data-wa="${esc(e.whatsapp)}" data-empresa="${esc(e.nome)}" aria-labelledby="ped-h"><h2 class="h5" id="ped-h">Seu pedido</h2>
+<aside class="col-lg-4"><section class="panel sticky-lg-top sticky-ped" id="pedido" data-slug="${esc(e.slug)}" data-wa="${esc(e.whatsapp)}" data-empresa="${esc(e.nome)}" aria-labelledby="ped-h"><h2 class="h5" id="ped-h">Seu pedido</h2>
 <ul class="list-unstyled" id="ped-itens"><li class="text-secondary">Nenhum item ainda.</li></ul>
 <p class="fs-5 mb-3">Total: <strong id="ped-total">R$ 0,00</strong></p>
 <form id="ped-form" novalidate>
@@ -54,7 +54,7 @@ module.exports = function gerarRecursos(ctx) {
   write('cardapios/index.html', layout({
     title: `Cardápios digitais em ${CIDADE}`, desc: `Cardápios de restaurantes, pizzarias e marmitarias de ${CIDADE} com preços e pedido pelo WhatsApp.`,
     path: '/cardapios/', hero: pageHero([['/', 'Início'], ['/cardapios/', 'Cardápios']], 'Cardápios digitais', 'Veja o menu, monte o pedido e envie pelo WhatsApp.'),
-    body: `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}<div class="row g-3">${listaC}</div></div>`,
+    body: `<div class="container pg">${demoNotice({ demo: true })}<div class="row g-3">${listaC}</div></div>`,
     scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/cardapios/', 'Cardápios']])]
   }));
   addUrl('/cardapios/', '2026-11-22', '0.7', 'weekly');
@@ -67,7 +67,7 @@ module.exports = function gerarRecursos(ctx) {
     const a = e.agendamento;
     const url = `/agendar/${e.slug}/`;
     const hoje = new Date().toISOString().slice(0, 10);
-    const body = `<div class="container" style="padding-top:26px;padding-bottom:50px">${demoNotice(e)}
+    const body = `<div class="container pg">${demoNotice(e)}
 <div class="row g-4"><div class="col-lg-7"><section class="panel" aria-labelledby="ag-h"><h2 class="h4" id="ag-h">Solicite seu horário</h2>
 <form id="ag-form" data-slug="${esc(e.slug)}" novalidate>
 <div class="mb-3"><label class="form-label" for="a-serv">Serviço</label><select class="form-select" id="a-serv" required>${a.servicos.map((s, i) => `<option value="${i}">${esc(s.nome)}${s.preco ? ' — ' + brl(s.preco) : s.preco === 0 ? ' — grátis' : ''} (${s.duracao_min} min)</option>`).join('')}</select></div>
@@ -96,14 +96,14 @@ module.exports = function gerarRecursos(ctx) {
   write('agendar/index.html', layout({
     title: `Agendamento online em ${CIDADE}`, desc: `Solicite horário em clínicas, oficinas, pet shops, restaurantes e outros serviços de ${CIDADE} pelo WhatsApp.`,
     path: '/agendar/', hero: pageHero([['/', 'Início'], ['/agendar/', 'Agendamento']], 'Agendamento online', 'Peça seu horário em poucos cliques; a confirmação vem da própria empresa.'),
-    body: `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}<div class="row g-3">${comAg.map((e) => `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span><h3 class="h5 mt-2"><a href="/agendar/${e.slug}/">${esc(e.nome)}</a></h3><p class="meta mb-1">${esc(e.subcategoria)}</p><p class="mb-0">${esc(e.agendamento.servicos.map((s) => s.nome).join(' · '))}</p></div></article></div>`).join('')}</div></div>`,
+    body: `<div class="container pg">${demoNotice({ demo: true })}<div class="row g-3">${comAg.map((e) => `<div class="col-12 col-md-6 col-lg-4"><article class="card h-100 shadow-sm"><div class="card-body"><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span><h3 class="h5 mt-2"><a href="/agendar/${e.slug}/">${esc(e.nome)}</a></h3><p class="meta mb-1">${esc(e.subcategoria)}</p><p class="mb-0">${esc(e.agendamento.servicos.map((s) => s.nome).join(' · '))}</p></div></article></div>`).join('')}</div></div>`,
     scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/agendar/', 'Agendamento']])]
   }));
   addUrl('/agendar/', '2026-11-22', '0.7', 'weekly');
 
   /* ================= Cadastro de empresa e privacidade ================= */
   const cats = ctx.CATS;
-  const cadBody = `<div class="container" style="padding-top:26px;padding-bottom:50px"><div class="row justify-content-center"><div class="col-lg-8">
+  const cadBody = `<div class="container pg"><div class="row justify-content-center"><div class="col-lg-8">
 <p>O cadastro básico é <strong>gratuito</strong>. Depois de enviado, nossa equipe analisa as informações e publica a página da sua empresa. Para página completa, destaque e assistente de IA, conheça o <a href="/planos/">plano premium</a>.</p>
 <form id="cad-form" class="panel" novalidate>
 <div class="row g-3">

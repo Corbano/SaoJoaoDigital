@@ -18,6 +18,7 @@
 - [eventos.json](https://saojoaodigital.com.br/dados/eventos.json): agenda de eventos
 - [noticias.json](https://saojoaodigital.com.br/dados/noticias.json): notícias, guias, novidades e conteúdos patrocinados
 - [cardapios.json](https://saojoaodigital.com.br/dados/cardapios.json): itens e preços dos cardápios
+- [cupons.json](https://saojoaodigital.com.br/dados/cupons.json), [encartes.json](https://saojoaodigital.com.br/dados/encartes.json), [vitrine.json](https://saojoaodigital.com.br/dados/vitrine.json): cupons, encartes e produtos da vitrine
 - [ofertas.json](https://saojoaodigital.com.br/dados/ofertas.json): preços do comparador (preco, preco_promocional, data_inicio, data_fim)
 
 ## Páginas principais
@@ -29,6 +30,11 @@
 - [Comparador de preços](https://saojoaodigital.com.br/comparador/): menor preço por produto/serviço entre empresas
 - [Cardápios digitais](https://saojoaodigital.com.br/cardapios/): menus com preços e pedido pelo WhatsApp
 - [Agendamento](https://saojoaodigital.com.br/agendar/): solicitação de horário (a confirmação é da empresa)
+- [Cupons e ofertas da semana](https://saojoaodigital.com.br/cupons/): cupons com código e validade
+- [Encartes](https://saojoaodigital.com.br/encartes/): ofertas de lojas com preço e validade
+- [Vitrine virtual](https://saojoaodigital.com.br/vitrine/): produtos de lojas locais
+- [Guia médico](https://saojoaodigital.com.br/guia-medico/): profissionais de saúde por especialidade
+- [Soluções digitais](https://saojoaodigital.com.br/solucoes-digitais/) e [Anuncie](https://saojoaodigital.com.br/anuncie/)
 - [Assistente Inteligente](https://saojoaodigital.com.br/assistente/)
 - [Como interpretar os dados](https://saojoaodigital.com.br/sobre/)
 

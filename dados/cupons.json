@@ -1,0 +1,14 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-22",
+  "aviso": "Cupons de DEMONSTRAÇÃO (fictícios). Em produção, cada empresa cadastra seus cupons; confirme as condições com o estabelecimento.",
+  "cupons": [
+    { "id": "demo-cp-1", "empresa": "cantina-bella-serra", "titulo": "10% no jantar de sábado", "descricao": "Desconto de 10% na conta de sábado à noite, para mesas de até 6 pessoas.", "codigo": "BELLA10", "tipo": "percentual", "valor": 10, "semana": true, "data_inicio": "2026-11-15", "data_fim": "2026-12-31", "condicoes": "Não cumulativo com outras promoções. Apresentar o código ao garçom.", "demo": true },
+    { "id": "demo-cp-2", "empresa": "pizzaria-forno-de-ouro", "titulo": "Refrigerante grátis na pizza grande", "descricao": "Na compra de uma pizza grande, ganhe um refrigerante 2 litros.", "codigo": "FORNO2L", "tipo": "brinde", "valor": 0, "semana": true, "data_inicio": "2026-11-15", "data_fim": "2026-12-15", "condicoes": "Válido para pedidos pelo cardápio digital e retirada.", "demo": true },
+    { "id": "demo-cp-3", "empresa": "clinica-vida-plena", "titulo": "Primeira avaliação com 15% off", "descricao": "Desconto de 15% na primeira avaliação de fisioterapia.", "codigo": "VIDA15", "tipo": "percentual", "valor": 15, "semana": false, "data_inicio": "2026-11-01", "data_fim": "2026-12-31", "condicoes": "Apenas para novos pacientes. Agende pelo site.", "demo": true },
+    { "id": "demo-cp-4", "empresa": "aqua-azul-piscinas", "titulo": "R$ 20 off em kits de limpeza", "descricao": "Desconto de R$ 20 em kits de limpeza de piscina acima de R$ 150.", "codigo": "AZUL20", "tipo": "valor", "valor": 20, "semana": true, "data_inicio": "2026-11-10", "data_fim": "2026-12-20", "condicoes": "Compras acima de R$ 150. Um cupom por cliente.", "demo": true },
+    { "id": "demo-cp-5", "empresa": "auto-center-mecanica-do-centro", "titulo": "Revisão de freios com 10% off", "descricao": "10% de desconto na mão de obra da revisão de freios.", "codigo": "FREIO10", "tipo": "percentual", "valor": 10, "semana": false, "data_inicio": "2026-11-01", "data_fim": "2026-11-30", "condicoes": "Mão de obra apenas; peças à parte.", "demo": true },
+    { "id": "demo-cp-6", "empresa": "marmitaria-sabor-caseiro", "titulo": "Marmita grande pelo preço da média", "descricao": "Na segunda-feira, a marmita grande sai pelo preço da média.", "codigo": "SEGUNDA", "tipo": "brinde", "valor": 0, "semana": true, "data_inicio": "2026-11-01", "data_fim": "2026-12-28", "condicoes": "Somente às segundas-feiras.", "demo": true },
+    { "id": "demo-cp-7", "empresa": "pet-amigo-casa-e-jardim", "titulo": "Banho com 20% off (expirado)", "descricao": "Exemplo de cupom já encerrado: não deve aparecer nas listas.", "codigo": "BANHO20", "tipo": "percentual", "valor": 20, "semana": false, "data_inicio": "2026-09-01", "data_fim": "2026-10-31", "condicoes": "Encerrado.", "demo": true }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Base de conhecimento local de **São João da Boa Vista (SP)** para pessoas e sistemas de IA. Não é só um diretório de empresas: é uma infraestrutura de dados estruturados (JSON + HTML + Schema.org) com assistentes que respondem **somente** com o que está cadastrado.
 
-**Stack:** HTML5, CSS3, JavaScript puro, JSON e Bootstrap 5.3.3 (CSS + JS hospedados em `assets/vendor/`, sem CDN, compatível com a CSP). Sem banco de dados, sem Python, sem TypeScript. Funciona em hospedagem compartilhada (`public_html`).
+**Stack:** HTML5, CSS3, JavaScript puro, JSON e Bootstrap 5.3.3 (CSS, JS e fontes hospedados em `assets/`, sem CDN, compatível com a CSP). Páginas públicas estáticas; PHP 8 + MySQL (phpMyAdmin) opcionais para agendamento, pedidos, cadastro e painel. Sem Python, sem TypeScript. Funciona em hospedagem compartilhada (`public_html`).
 
 ## Estrutura
 
@@ -16,8 +16,10 @@ assistente/                "Assistente Inteligente São João Digital"
 comparador/<produto>/      Comparador de preços (menor preço primeiro, schema AggregateOffer)
 cardapios/<empresa>/       Cardápio digital + pedido pelo WhatsApp
 agendar/<empresa>/         Solicitação de agendamento pelo WhatsApp
-planos/  sobre/            Modelo de negócio e como interpretar os dados
-dados/                     empresas, categorias (12 + subcategorias), eventos, noticias, ofertas, cardapios (.json)
+cupons/  encartes/  vitrine/   Cupons e ofertas da semana, encartes digitais e vitrine virtual
+guia-medico/               Profissionais de saúde por especialidade
+solucoes-digitais/  anuncie/  planos/  sobre/   Oferta para empresas (planos Gratuito, Básico, Pro, Premium) e como interpretar os dados
+dados/                     empresas, categorias (12 + subcategorias), eventos, noticias, ofertas, cupons, encartes, vitrine, cardapios (.json)
 assets/                    vendor (Bootstrap), css, js (core, ai-engine, site) e imagens SVG
 tools/build.js             Gerador das páginas a partir dos JSON (Node, só para desenvolvimento)
 robots.txt  sitemap.xml  llms.txt  llms-full.txt  .htaccess  404.html
@@ -40,6 +42,13 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 - **Agendamento:** campo `agendamento` da empresa (serviços, duração, passo, antecedência). Os horários livres saem do horário de funcionamento; a solicitação vai por WhatsApp e só vale após a confirmação da empresa.
 - **Categorias:** páginas com empresas, preços, cardápios/agendamento, eventos, notícias e FAQ; subcategorias com empresas ganham página própria.
 
+- **Cupons, encartes, vitrine:** `dados/cupons.json` (código, tipo, validade, `semana: true` destaca na home; vencidos somem), `dados/encartes.json` (seções com itens e preço "de/por"), `dados/vitrine.json` (produtos com botão "tenho interesse" no WhatsApp).
+- **Guia médico:** gerado das empresas de Saúde e Beleza nas especialidades de saúde (campo `subcategoria_slug`).
+
+## Design
+
+Identidade "Sinalização": placa de rodovia do interior paulista (verde de indicação, azul de serviços, âmbar de atenção, filete branco). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.
+
 ## Back-end PHP + MySQL (opcional, camada dinâmica)
 
 As páginas públicas continuam **estáticas** (velocidade e SEO). O PHP acrescenta o que precisa gravar dados:
@@ -49,7 +58,7 @@ As páginas públicas continuam **estáticas** (velocidade e SEO). O PHP acresce
 | Agendamento real | `api/agendamento.php`, `api/horarios.php` | Grava a solicitação, **bloqueia horário já ocupado** (inclusive sobreposição pela duração do serviço) e devolve o link do WhatsApp |
 | Pedidos do cardápio | `api/pedido.php` | Grava o pedido; o **preço é recalculado no servidor** a partir do cardápio |
 | Cadastro de empresas | `api/cadastro.php` + `/cadastrar/` | Entra como pendente até um admin aprovar |
-| Painel | `/admin/` | Login, agendamentos, pedidos, cadastros (aprovar/rejeitar), empresas, ofertas do comparador, importar/exportar JSON |
+| Painel | `/admin/` | Login, agendamentos, pedidos, cadastros (aprovar/rejeitar), empresas, ofertas do comparador, cupons, importar/exportar JSON |
 
 Sem o back-end (hospedagem só estática) o site continua funcionando: agendamento e pedido caem para "só WhatsApp".
 

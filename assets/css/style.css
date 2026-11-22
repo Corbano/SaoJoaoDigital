@@ -142,3 +142,106 @@ h3{margin:0 0 6px;font-size:1.1rem}
 .accordion{--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(14,124,134,.25);--bs-accordion-active-bg:#e7f4f5;--bs-accordion-active-color:#0a5f67}
 .site-footer h4{font-size:1rem}
 .hero .container,.page-hero .container{position:relative;z-index:1}
+
+
+/* =====================================================================
+   Tema "Sinalização" (v2): placa de rodovia do interior paulista.
+   Verde de indicação, azul de serviços, âmbar de atenção, branco de borda.
+   ===================================================================== */
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;font-style:normal;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage Grotesque";font-weight:800;font-style:normal;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-style:normal;font-display:swap;src:url(/assets/fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;font-style:normal;font-display:swap;src:url(/assets/fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
+:root{
+  --placa:#0a4d34; --placa-d:#073a28; --servico:#1546a0; --atencao:#f5b800; --pimenta:#c8352b;
+  --papel:#f1f4ef; --tinta:#13201a; --apagado:#4d5c53; --fio:#d3dbd2;
+  --bg:var(--papel); --ink:var(--tinta); --muted:var(--apagado); --line:var(--fio);
+  --navy:var(--placa-d); --navy2:var(--placa); --brand:var(--servico); --brand-d:#0f3677; --accent:var(--atencao);
+  --font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --font-d:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
+  --radius:8px; --shadow:none;
+  --bs-primary:#1546a0;--bs-primary-rgb:21,70,160;--bs-link-color:#1546a0;--bs-link-hover-color:#0f3677;--bs-body-font-family:var(--font);--bs-body-bg:var(--papel);--bs-body-color:var(--tinta);--bs-border-radius:6px
+}
+body{font-size:1.03rem;line-height:1.65}
+h1,h2,h3,h4,.brand,.price{font-family:var(--font-d);font-weight:800;letter-spacing:-.015em}
+h3{font-weight:700}
+.pg{padding-top:30px;padding-bottom:52px}.pg-narrow{max-width:760px}
+.sticky-ped{top:84px}
+
+.site-header{background:var(--placa-d);border-bottom:3px solid var(--atencao)}
+.brand{font-size:1.15rem}.brand span b{color:var(--atencao)}
+.navbar .nav-link{color:#dcebe3;font-weight:600;font-size:.95rem}
+.navbar .nav-link:hover,.navbar .nav-link.active{background:rgba(255,255,255,.12)}
+.navbar .nav-link.cta{background:var(--atencao);color:#1b1500;border-radius:6px}
+.dropdown-menu{border-radius:8px;border:1px solid var(--fio);padding:.4rem}
+.dropdown-item{border-radius:6px;font-weight:600;font-size:.94rem}
+.dropdown-item.active,.dropdown-item:active{background:var(--placa);color:#fff}
+
+.hero{background:var(--placa-d);padding:44px 0 48px}
+.hero::after{display:none}
+.placa{position:relative;height:100%;background:var(--placa);border:4px solid #fff;border-radius:22px;padding:34px 34px 30px;box-shadow:0 0 0 6px var(--placa-d),0 0 0 8px rgba(255,255,255,.35)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.7rem);line-height:1.04;max-width:16ch;margin:0 0 16px;color:#fff}
+.hero p.lead{color:#d9ece1;max-width:52ch;font-size:1.12rem}
+.ask{border-radius:10px;box-shadow:none;padding:6px}
+.ask input{font-size:1rem}
+.chip{background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;border-radius:6px;font-weight:600}
+.chip:hover{background:#fff;color:var(--placa-d)}
+.destinos{height:100%;background:var(--servico);border:4px solid #fff;border-radius:22px;padding:22px 24px;display:flex;flex-direction:column;box-shadow:0 0 0 6px var(--placa-d),0 0 0 8px rgba(255,255,255,.35)}
+.destinos-t{margin:0 0 6px;font-family:var(--font-d);font-weight:800;font-size:1.25rem;color:#fff}
+.destinos a{display:flex;justify-content:space-between;align-items:center;color:#fff;text-decoration:none;font-family:var(--font-d);font-weight:700;font-size:1.12rem;padding:11px 2px;border-top:1.5px solid rgba(255,255,255,.35)}
+.destinos a::after{content:"";width:0;height:0;border-left:11px solid var(--atencao);border-top:7px solid transparent;border-bottom:7px solid transparent;transition:transform .18s}
+.destinos a:hover{color:var(--atencao)}.destinos a:hover::after{transform:translateX(5px)}
+.page-hero{background:var(--placa);border-bottom:3px solid var(--atencao);padding:36px 0 32px}
+.page-hero h1{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.08;max-width:24ch}
+.page-hero p{color:#d9ece1}.crumbs,.crumbs a{color:#c6e0d2}
+.cat-hero{border-bottom-color:var(--cat,var(--atencao))}
+.badge{border-radius:6px}.hero .badge{display:none}
+
+section.block{padding:52px 0}
+section.block.alt{background:#fff;border-block:1px solid var(--fio)}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.1;margin-bottom:8px}
+.sub{font-size:1.05rem;max-width:60ch}
+
+.card{border-radius:8px;border:1px solid var(--fio);background:#fff;box-shadow:none!important;transition:border-color .15s}
+.card:hover{border-color:var(--placa)}
+.cat-card{border-top:1px solid var(--fio);border-left:8px solid var(--cat,var(--placa));border-radius:8px}
+.cat-card .ico{font-size:1.7rem}
+.cat-card h3{font-size:1.05rem}
+.cupom{border-left:8px solid var(--atencao)}
+.cupom-codigo code{background:#fff6d6;border:1.5px dashed #c99a00;color:#4a3700;padding:4px 10px;border-radius:6px}
+.btn{border-radius:6px;font-weight:700}
+.btn-primary{--bs-btn-bg:var(--servico);--bs-btn-border-color:var(--servico);--bs-btn-hover-bg:#0f3677;--bs-btn-hover-border-color:#0f3677;--bs-btn-active-bg:#0f3677;--bs-btn-disabled-bg:var(--servico)}
+.btn-outline-primary{--bs-btn-color:var(--servico);--bs-btn-border-color:var(--servico);--bs-btn-hover-bg:var(--servico);--bs-btn-hover-border-color:var(--servico)}
+.btn-warning{--bs-btn-bg:var(--atencao);--bs-btn-border-color:var(--atencao);--bs-btn-hover-bg:#ffd04a;--bs-btn-hover-border-color:#ffd04a;--bs-btn-color:#1b1500;--bs-btn-hover-color:#1b1500}
+.btn-success{--bs-btn-bg:var(--placa);--bs-btn-border-color:var(--placa);--bs-btn-hover-bg:var(--placa-d);--bs-btn-hover-border-color:var(--placa-d)}
+.text-bg-primary{background-color:var(--servico)!important}
+.text-bg-info{background-color:#e3ecfa!important;color:#0f3677!important}
+.text-bg-success{background-color:var(--placa)!important}
+.panel{border-radius:8px}
+.plan.feat{border:2px solid var(--servico)}
+.plan .price{font-size:2rem;color:var(--placa)}.plan .price small{font-size:.9rem;font-weight:600;color:var(--apagado)}
+.accordion{--bs-accordion-active-bg:#e3ecfa;--bs-accordion-active-color:#0f3677;--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(21,70,160,.25)}
+.chat-head{background:var(--placa)}.msg.user{background:var(--servico)}
+.notice{background:#fff7dc;border-color:#ecc94b;border-radius:6px}
+a{color:var(--servico)}a:hover{color:#0f3677}
+:focus-visible{outline:3px solid var(--atencao);outline-offset:2px}
+.site-footer{background:var(--placa-d);border-top:3px solid var(--atencao)}
+.site-footer h4{font-family:var(--font-d)}
+.card h3 a{color:var(--tinta)}
+
+@media(max-width:575px){.placa{padding:24px 20px}.destinos{padding:18px}.hero{padding:28px 0 34px}}
+@media(prefers-reduced-motion:reduce){.destinos a::after{transition:none}}
+
+/* cores por categoria (sem estilo inline por causa da CSP) */
+.c-onde-comer{--cat:#dc2626}
+.c-onde-comprar{--cat:#1e40af}
+.c-casamentos-festas{--cat:#db2777}
+.c-saude-beleza{--cat:#be185d}
+.c-casa-construcao{--cat:#b45309}
+.c-carro-moto{--cat:#374151}
+.c-assistencia-tecnica{--cat:#6366f1}
+.c-onde-ficar{--cat:#0f766e}
+.c-caes-gatos{--cat:#16a34a}
+.c-escolas-cursos{--cat:#1d4ed8}
+.c-transportes-locacao{--cat:#0891b2}
+.c-escritorios{--cat:#7c3aed}
+.card.plan.feat{border:2px solid var(--servico)}

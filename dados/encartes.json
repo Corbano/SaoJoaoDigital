@@ -1,0 +1,51 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-22",
+  "aviso": "Encartes de DEMONSTRAÇÃO (fictícios). Preços e validade reais devem ser informados pela empresa.",
+  "encartes": [
+    {
+      "slug": "ofertas-da-semana-casa-forte",
+      "empresa": "casa-forte-materiais-de-construcao",
+      "titulo": "Ofertas da semana — Casa Forte",
+      "resumo": "Cimento, tintas e ferramentas com preço especial até domingo.",
+      "data_inicio": "2026-11-20",
+      "data_fim": "2026-12-06",
+      "secoes": [
+        { "nome": "Básicos de obra", "itens": [
+          { "nome": "Cimento 50 kg", "preco": 36.9, "de": 41.9, "un": "saco" },
+          { "nome": "Areia lavada", "preco": 95, "de": null, "un": "m³" },
+          { "nome": "Tijolo baiano 8 furos", "preco": 1.05, "de": 1.2, "un": "unidade" }
+        ] },
+        { "nome": "Tintas e acabamento", "itens": [
+          { "nome": "Tinta acrílica branca 18 L", "preco": 229, "de": 259, "un": "lata" },
+          { "nome": "Rolo de lã 23 cm", "preco": 14.9, "de": null, "un": "unidade" }
+        ] },
+        { "nome": "Ferramentas", "itens": [
+          { "nome": "Furadeira de impacto 500 W", "preco": 189.9, "de": 219.9, "un": "unidade" },
+          { "nome": "Trena 5 m", "preco": 19.9, "de": null, "un": "unidade" }
+        ] }
+      ],
+      "demo": true
+    },
+    {
+      "slug": "semana-da-piscina-aqua-azul",
+      "empresa": "aqua-azul-piscinas",
+      "titulo": "Semana da Piscina — Aqua Azul",
+      "resumo": "Produtos de limpeza e tratamento para a temporada de verão.",
+      "data_inicio": "2026-11-18",
+      "data_fim": "2026-12-12",
+      "secoes": [
+        { "nome": "Tratamento", "itens": [
+          { "nome": "Cloro granulado 10 kg", "preco": 279, "de": 309, "un": "balde" },
+          { "nome": "Algicida 1 L", "preco": 32.9, "de": null, "un": "frasco" },
+          { "nome": "Clarificante 1 L", "preco": 29.9, "de": 34.9, "un": "frasco" }
+        ] },
+        { "nome": "Acessórios", "itens": [
+          { "nome": "Peneira de superfície", "preco": 24.9, "de": null, "un": "unidade" },
+          { "nome": "Mangueira flutuante 7 m", "preco": 89, "de": 99, "un": "unidade" }
+        ] }
+      ],
+      "demo": true
+    }
+  ]
+}

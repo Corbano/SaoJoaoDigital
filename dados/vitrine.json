@@ -1,0 +1,16 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-22",
+  "aviso": "Produtos de DEMONSTRAÇÃO (fictícios). Disponibilidade e preço devem ser confirmados com a loja.",
+  "produtos": [
+    { "id": "demo-vt-1", "empresa": "aqua-azul-piscinas", "nome": "Kit limpeza para piscina", "descricao": "Peneira, escova e mangueira para manutenção semanal.", "preco": 159.9, "emoji": "🏊", "categoria": "Piscinas", "demo": true },
+    { "id": "demo-vt-2", "empresa": "aqua-azul-piscinas", "nome": "Cloro granulado 10 kg", "descricao": "Tratamento de choque e manutenção.", "preco": 279, "emoji": "🧴", "categoria": "Piscinas", "demo": true },
+    { "id": "demo-vt-3", "empresa": "super-piscina-center", "nome": "Boia circular adulto", "descricao": "Boia resistente, 90 cm.", "preco": 39.9, "emoji": "🛟", "categoria": "Piscinas", "demo": true },
+    { "id": "demo-vt-4", "empresa": "casa-forte-materiais-de-construcao", "nome": "Furadeira de impacto 500 W", "descricao": "Com maleta e jogo de brocas.", "preco": 189.9, "emoji": "🔧", "categoria": "Ferramentas", "demo": true },
+    { "id": "demo-vt-5", "empresa": "casa-forte-materiais-de-construcao", "nome": "Tinta acrílica branca 18 L", "descricao": "Acabamento fosco, alto rendimento.", "preco": 229, "emoji": "🎨", "categoria": "Tintas", "demo": true },
+    { "id": "demo-vt-6", "empresa": "deposito-constrular", "nome": "Cimento 50 kg", "descricao": "Saco de 50 kg, uso geral.", "preco": 38.5, "emoji": "🧱", "categoria": "Construção", "demo": true },
+    { "id": "demo-vt-7", "empresa": "pet-amigo-casa-e-jardim", "nome": "Ração premium 10 kg", "descricao": "Ração para cães adultos de porte médio.", "preco": 149.9, "emoji": "🐕", "categoria": "Pet", "demo": true },
+    { "id": "demo-vt-8", "empresa": "pet-amigo-casa-e-jardim", "nome": "Caminha confortável M", "descricao": "Lavável, com base antiderrapante.", "preco": 89.9, "emoji": "🛏️", "categoria": "Pet", "demo": true },
+    { "id": "demo-vt-9", "empresa": "tecfix-assistencia-tecnica", "nome": "Película de vidro + instalação", "descricao": "Para os modelos mais comuns de celular.", "preco": 35, "emoji": "📱", "categoria": "Celulares", "demo": true }
+  ]
+}

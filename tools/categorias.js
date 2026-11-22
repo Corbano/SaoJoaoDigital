@@ -35,7 +35,7 @@ module.exports = function gerarCategorias(ctx) {
     ];
 
     const sec = (cond, titulo, html) => (cond ? `<section class="mb-4"><h2 class="h4">${titulo}</h2>${html}</section>` : '');
-    const body = `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}
+    const body = `<div class="container pg">${demoNotice({ demo: true })}
 <p class="lead">${esc(c.intro)}</p>
 <section class="mb-4"><h2 class="h5">Subcategorias</h2><ul class="list-inline subcats mb-0">${chips}</ul></section>
 ${sec(true, 'Empresas', emps.length ? grid(emps.map(cardEmpresa).join('')) : '<p>Ainda não há empresas cadastradas nesta categoria. <a href="/planos/">Cadastre a sua gratuitamente</a>.</p>')}
@@ -45,7 +45,7 @@ ${sec(evs.length, 'Eventos', grid(evs.map(cardEvento).join('')))}
 ${sec(nots.length, 'Notícias e guias', grid(nots.map(cardNoticia).join('')))}
 ${faqHtml('faq-' + c.slug, faq)}</div>`;
 
-    const hero = `<div class="page-hero" style="border-bottom:4px solid ${c.cor}"><div class="container"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <a href="/categorias/">Categorias</a> › <span>${esc(c.nome)}</span></nav><h1><span aria-hidden="true">${c.icone}</span> ${esc(c.nome)} em ${CIDADE}</h1><p>${esc(c.descricao)}</p></div></div>`;
+    const hero = `<div class="page-hero cat-hero c-${c.slug}"><div class="container"><nav class="crumbs" aria-label="Você está em"><a href="/">Início</a> › <a href="/categorias/">Categorias</a> › <span>${esc(c.nome)}</span></nav><h1><span aria-hidden="true">${c.icone}</span> ${esc(c.nome)} em ${CIDADE}</h1><p>${esc(c.descricao)}</p></div></div>`;
     write(`categorias/${c.slug}/index.html`, layout({
       title: `${c.nome} em ${CIDADE}`, desc: `${c.descricao} ${emps.length} ${emps.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'} em ${CIDADE} (SP).`,
       path: url, hero, body, scripts: CORE_JS,
@@ -63,7 +63,7 @@ ${faqHtml('faq-' + c.slug, faq)}</div>`;
         { p: `Quais ${sc.nome.toLowerCase()} há em ${CIDADE}?`, r: `Cadastrados no São João Digital: ${lista(se.map((e) => `<a href="/empresas/${e.slug}/">${esc(e.nome)}</a>`))}.` },
         { p: `Como encontro o contato de ${sc.nome.toLowerCase()}?`, r: 'Cada empresa tem página com telefone, WhatsApp, endereço e horário de funcionamento.' }
       ];
-      const sbody = `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}
+      const sbody = `<div class="container pg">${demoNotice({ demo: true })}
 <p class="lead">${esc(sc.nome)} em ${CIDADE}, dentro de <a href="${url}">${esc(c.nome)}</a>. ${se.length} ${se.length === 1 ? 'empresa cadastrada' : 'empresas cadastradas'}.</p>
 ${sec(true, 'Empresas', grid(se.map(cardEmpresa).join('')))}
 ${sec(sprods.length, 'Compare preços', grid(sprods.map(cardProduto).join('')))}

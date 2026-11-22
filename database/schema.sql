@@ -51,6 +51,26 @@ CREATE TABLE IF NOT EXISTS ofertas (
   CONSTRAINT fk_of_empresa FOREIGN KEY (empresa_slug) REFERENCES empresas(slug) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Cupons e ofertas da semana (equivale a dados/cupons.json).
+CREATE TABLE IF NOT EXISTS cupons (
+  id            INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ref           VARCHAR(80) DEFAULT NULL UNIQUE,
+  empresa_slug  VARCHAR(160) NOT NULL,
+  titulo        VARCHAR(160) NOT NULL,
+  descricao     VARCHAR(500) NOT NULL DEFAULT '',
+  codigo        VARCHAR(40) NOT NULL,
+  tipo          ENUM('percentual','valor','brinde') NOT NULL DEFAULT 'percentual',
+  valor         DECIMAL(10,2) NOT NULL DEFAULT 0,
+  semana        TINYINT(1) NOT NULL DEFAULT 0,
+  condicoes     VARCHAR(300) NOT NULL DEFAULT '',
+  data_inicio   DATE DEFAULT NULL,
+  data_fim      DATE DEFAULT NULL,
+  ativo         TINYINT(1) NOT NULL DEFAULT 1,
+  criado_em     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY idx_cp_empresa (empresa_slug),
+  CONSTRAINT fk_cp_empresa FOREIGN KEY (empresa_slug) REFERENCES empresas(slug) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Agendamentos recebidos pelo site (dados pessoais: LGPD — o cliente aceita o uso no formulário).
 CREATE TABLE IF NOT EXISTS agendamentos (
   id               INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

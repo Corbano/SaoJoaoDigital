@@ -8,7 +8,8 @@ function importar_json(): array
     $pdo = db();
     $emp = json_decode((string)file_get_contents(SJD_ROOT . '/dados/empresas.json'), true);
     $of = json_decode((string)file_get_contents(SJD_ROOT . '/dados/ofertas.json'), true);
-    $ne = $no = 0;
+    $cp = json_decode((string)file_get_contents(SJD_ROOT . '/dados/cupons.json'), true);
+    $ne = $no = $nc = 0;
 
     $pdo->beginTransaction();
     try {
@@ -36,12 +37,24 @@ function importar_json(): array
             ]);
             $no++;
         }
+        $uc = $pdo->prepare('INSERT INTO cupons (ref, empresa_slug, titulo, descricao, codigo, tipo, valor, semana, condicoes, data_inicio, data_fim, ativo)
+            VALUES (:ref,:emp,:tit,:desc,:cod,:tipo,:valor,:sem,:cond,:ini,:fim,1)
+            ON DUPLICATE KEY UPDATE empresa_slug=VALUES(empresa_slug), titulo=VALUES(titulo), descricao=VALUES(descricao), codigo=VALUES(codigo),
+              tipo=VALUES(tipo), valor=VALUES(valor), semana=VALUES(semana), condicoes=VALUES(condicoes), data_inicio=VALUES(data_inicio), data_fim=VALUES(data_fim)');
+        foreach ($cp['cupons'] as $c) {
+            $uc->execute([
+                ':ref' => $c['id'], ':emp' => $c['empresa'], ':tit' => $c['titulo'], ':desc' => $c['descricao'] ?? '', ':cod' => $c['codigo'],
+                ':tipo' => $c['tipo'] ?? 'percentual', ':valor' => $c['valor'] ?? 0, ':sem' => !empty($c['semana']) ? 1 : 0,
+                ':cond' => $c['condicoes'] ?? '', ':ini' => $c['data_inicio'] ?? null, ':fim' => $c['data_fim'] ?? null,
+            ]);
+            $nc++;
+        }
         $pdo->commit();
     } catch (Throwable $t) {
         $pdo->rollBack();
         throw $t;
     }
-    return ['empresas' => $ne, 'ofertas' => $no];
+    return ['empresas' => $ne, 'ofertas' => $no, 'cupons' => $nc];
 }
 
 /** Escreve dados/empresas.json e dados/ofertas.json a partir do banco (faz cópia .bak antes). */
@@ -69,10 +82,21 @@ function exportar_json(): array
     }
     $saidaO = ['versao' => $metaO['versao'] ?? '1.0', 'atualizado' => $hoje, 'aviso' => $metaO['aviso'] ?? '', 'ofertas' => $ofertas];
 
-    foreach (['empresas.json' => $saidaE, 'ofertas.json' => $saidaO] as $arq => $conteudo) {
+    $metaC = json_decode((string)file_get_contents($dir . 'cupons.json'), true);
+    $cupons = [];
+    foreach ($pdo->query('SELECT c.* FROM cupons c JOIN empresas e ON e.slug = c.empresa_slug AND e.ativa = 1 WHERE c.ativo = 1 ORDER BY c.id') as $r) {
+        $cupons[] = [
+            'id' => $r['ref'] ?: 'cp-' . $r['id'], 'empresa' => $r['empresa_slug'], 'titulo' => $r['titulo'], 'descricao' => $r['descricao'],
+            'codigo' => $r['codigo'], 'tipo' => $r['tipo'], 'valor' => (float)$r['valor'], 'semana' => (bool)$r['semana'],
+            'data_inicio' => $r['data_inicio'], 'data_fim' => $r['data_fim'], 'condicoes' => $r['condicoes'],
+        ];
+    }
+    $saidaC = ['versao' => $metaC['versao'] ?? '1.0', 'atualizado' => $hoje, 'aviso' => $metaC['aviso'] ?? '', 'cupons' => $cupons];
+
+    foreach (['empresas.json' => $saidaE, 'ofertas.json' => $saidaO, 'cupons.json' => $saidaC] as $arq => $conteudo) {
         @copy($dir . $arq, $dir . $arq . '.bak');
         $ok = file_put_contents($dir . $arq, json_encode($conteudo, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT), LOCK_EX);
         if ($ok === false) throw new RuntimeException("Sem permissão para gravar dados/{$arq}.");
     }
-    return ['empresas' => count($empresas), 'ofertas' => count($ofertas)];
+    return ['empresas' => count($empresas), 'ofertas' => count($ofertas), 'cupons' => count($cupons)];
 }
