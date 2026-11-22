@@ -13,6 +13,9 @@ return [
     // Chave pedida em /admin/instalar.php para criar o 1º administrador (apague o instalar.php depois).
     'install_key' => 'troque-esta-chave',
     'site_url'    => 'https://saojoaodigital.com.br',
+    // true = as páginas PHP pedem aos buscadores para NÃO indexar (use enquanto houver dados de demonstração).
+    // Troque para false quando publicar dados reais (e gere as páginas estáticas sem NOINDEX).
+    'noindex'     => true,
     // Limites por IP (requisições por janela de tempo)
     'limites' => [
         'api_max'    => 12,    // agendamentos/pedidos/cadastros

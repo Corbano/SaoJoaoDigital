@@ -154,7 +154,8 @@ function pagina_topo(array $o): void
     $desc = $o['desc'] ?? '';
     $path = $o['path'];
     $full = $titulo . ' | São João Digital';
-    $robots = !empty($o['noindex']) ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1';
+    $bloqueado = is_file(SJD_ROOT . '/config/config.php') && cfg('noindex', false);
+    $robots = (!empty($o['noindex']) || $bloqueado) ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1';
     header('Content-Type: text/html; charset=utf-8');
     header('Cache-Control: no-cache');
     $ld = '';
