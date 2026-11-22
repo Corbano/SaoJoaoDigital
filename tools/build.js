@@ -55,7 +55,7 @@ const urls = []; // para o sitemap
 const addUrl = (loc, lastmod, prio, freq) => urls.push({ loc, lastmod: lastmod || TODAY, prio, freq });
 
 /* ---------- imagens SVG (logos e fotos ilustrativas) ---------- */
-const paleta = (cat) => { const c = (catById[cat] || {}).cor || '#0e7c86'; return [c, c + 'aa']; };
+const paleta = () => ['#123456', '#ff7a1a'];
 const iniciais = (n) => n.split(/\s+/).filter((w) => w.length > 2).slice(0, 2).map((w) => w[0].toUpperCase()).join('') || n.slice(0, 2).toUpperCase();
 function logoSvg(e) {
   const [a, b] = paleta(e.categoria);
@@ -66,8 +66,8 @@ function fotoSvg(e, i) {
   const flip = i % 2 ? [b, a] : [a, b];
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de ${esc(e.nome)}"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${flip[0]}"/><stop offset="1" stop-color="${flip[1]}"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="${i % 2 ? 620 : 180}" cy="150" r="90" fill="#fff" opacity=".15"/><text x="400" y="320" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700" text-anchor="middle" fill="#fff">${esc(e.nome)}</text><text x="400" y="372" font-family="Arial,Helvetica,sans-serif" font-size="22" text-anchor="middle" fill="#fff" opacity=".85">Foto ilustrativa — substitua pela foto real</text></svg>`;
 }
-const BRAND_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="${SITE_NAME}"><rect width="64" height="64" rx="14" fill="#0a4d34"/><rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="32" cy="27" r="9" fill="none" stroke="#f5b800" stroke-width="4.5"/><path d="M32 49 22 35h20z" fill="#f5b800"/></svg>`;
-const OG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1730"/><stop offset="1" stop-color="#1b4a8a"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><text x="80" y="300" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" fill="#fff">São João <tspan fill="#ffb020">Digital</tspan></text><text x="80" y="380" font-family="Arial,Helvetica,sans-serif" font-size="38" fill="#cfe0f5">Base de conhecimento local de ${CIDADE}</text></svg>`;
+const BRAND_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="${SITE_NAME}"><rect width="64" height="64" rx="14" fill="#123456"/><rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="32" cy="27" r="9" fill="none" stroke="#ff7a1a" stroke-width="4.5"/><path d="M32 49 22 35h20z" fill="#ff7a1a"/></svg>`;
+const OG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123456"/><stop offset="1" stop-color="#0c2542"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><text x="80" y="300" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" fill="#fff">São João <tspan fill="#ff7a1a">Digital</tspan></text><text x="80" y="380" font-family="Arial,Helvetica,sans-serif" font-size="38" fill="#cfe0f5">Base de conhecimento local de ${CIDADE}</text></svg>`;
 
 /* ---------- layout compartilhado ---------- */
 const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['Serviços', [['/comparador/', 'Comparador de preços'], ['/cardapios/', 'Cardápios digitais'], ['/agendar/', 'Agendamento'], ['/cupons/', 'Cupons da semana'], ['/encartes/', 'Encartes'], ['/vitrine/', 'Vitrine virtual'], ['/guia-medico/', 'Guia médico'], ['/solucoes-digitais/', 'Soluções digitais']]], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/anuncie/', 'Anuncie']];
@@ -87,7 +87,7 @@ function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scr
 <meta name="robots" content="${robots}">
 <link rel="canonical" href="${abs(p)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#0a1730">
+<meta name="theme-color" content="#123456">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:type" content="${type}">
