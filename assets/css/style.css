@@ -451,3 +451,10 @@ section.block.alt{background:var(--cinza-1)}
 .accordion{--bs-accordion-active-bg:var(--cinza-1);--bs-accordion-border-color:var(--cinza-2)}
 .chat-log,.suggest{background:#f8f9fa}
 .review,.table>:not(caption)>*>*{border-color:var(--cinza-2)}
+
+/* ---- Verde limão leve (v5.2) ---- */
+:root{--laranja:#d6f08a;--laranja-d:#a3c93e;--laranja-t:#f7fbe6;--bs-primary:#d6f08a;--bs-primary-rgb:214,240,138}
+.navbar .nav-link.cta:hover{background:#e3f5ab}
+.btn-primary,.btn-warning{--bs-btn-hover-bg:#e3f5ab;--bs-btn-hover-border-color:#e3f5ab;--bs-btn-active-bg:#c4e46a;--bs-btn-active-border-color:#c4e46a}
+.notice{border-color:#e0efb0;color:#33440a}
+.cupom-codigo code{border-color:#b5d457}
