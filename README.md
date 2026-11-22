@@ -47,7 +47,7 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 
 ## Design
 
-Identidade premium: azul escuro `#123456`, verde limão leve, roxo, branco e cinza (visual limpo; limão em ações, roxo em destaques de apoio). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.
+Identidade premium: roxo escuro `#2e1a5c`, roxo `#6b46c1`, verde limão leve, branco e cinza (visual limpo; limão em ações). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.
 
 ## Back-end PHP + MySQL (opcional, camada dinâmica)
 

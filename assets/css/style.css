@@ -153,13 +153,13 @@ h3{margin:0 0 6px;font-size:1.1rem}
 @font-face{font-family:"Instrument Sans";font-weight:400;font-style:normal;font-display:swap;src:url(/assets/fonts/instrument-sans-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Instrument Sans";font-weight:600;font-style:normal;font-display:swap;src:url(/assets/fonts/instrument-sans-latin-600-normal.woff2) format("woff2")}
 :root{
-  --placa:#0a4d34; --placa-d:#073a28; --servico:#1546a0; --atencao:#f5b800; --pimenta:#c8352b;
+  --placa:#0a4d34; --placa-d:#1f1142; --servico:#1546a0; --atencao:#f5b800; --pimenta:#c8352b;
   --papel:#f1f4ef; --tinta:#13201a; --apagado:#4d5c53; --fio:#d3dbd2;
   --bg:var(--papel); --ink:var(--tinta); --muted:var(--apagado); --line:var(--fio);
-  --navy:var(--placa-d); --navy2:var(--placa); --brand:var(--servico); --brand-d:#0f3677; --accent:var(--atencao);
+  --navy:var(--placa-d); --navy2:var(--placa); --brand:var(--servico); --brand-d:#44287f; --accent:var(--atencao);
   --font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --font-d:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;
   --radius:8px; --shadow:none;
-  --bs-primary:#1546a0;--bs-primary-rgb:21,70,160;--bs-link-color:#1546a0;--bs-link-hover-color:#0f3677;--bs-body-font-family:var(--font);--bs-body-bg:var(--papel);--bs-body-color:var(--tinta);--bs-border-radius:6px
+  --bs-primary:#1546a0;--bs-primary-rgb:21,70,160;--bs-link-color:#1546a0;--bs-link-hover-color:#44287f;--bs-body-font-family:var(--font);--bs-body-bg:var(--papel);--bs-body-color:var(--tinta);--bs-border-radius:6px
 }
 body{font-size:1.03rem;line-height:1.65}
 h1,h2,h3,h4,.brand,.price{font-family:var(--font-d);font-weight:800;letter-spacing:-.015em}
@@ -209,20 +209,20 @@ h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.1;margin-bottom:8px}
 .cupom{border-left:8px solid var(--atencao)}
 .cupom-codigo code{background:#fff6d6;border:1.5px dashed #c99a00;color:#4a3700;padding:4px 10px;border-radius:6px}
 .btn{border-radius:6px;font-weight:700}
-.btn-primary{--bs-btn-bg:var(--servico);--bs-btn-border-color:var(--servico);--bs-btn-hover-bg:#0f3677;--bs-btn-hover-border-color:#0f3677;--bs-btn-active-bg:#0f3677;--bs-btn-disabled-bg:var(--servico)}
+.btn-primary{--bs-btn-bg:var(--servico);--bs-btn-border-color:var(--servico);--bs-btn-hover-bg:#44287f;--bs-btn-hover-border-color:#44287f;--bs-btn-active-bg:#44287f;--bs-btn-disabled-bg:var(--servico)}
 .btn-outline-primary{--bs-btn-color:var(--servico);--bs-btn-border-color:var(--servico);--bs-btn-hover-bg:var(--servico);--bs-btn-hover-border-color:var(--servico)}
 .btn-warning{--bs-btn-bg:var(--atencao);--bs-btn-border-color:var(--atencao);--bs-btn-hover-bg:#ffd04a;--bs-btn-hover-border-color:#ffd04a;--bs-btn-color:#1b1500;--bs-btn-hover-color:#1b1500}
 .btn-success{--bs-btn-bg:var(--placa);--bs-btn-border-color:var(--placa);--bs-btn-hover-bg:var(--placa-d);--bs-btn-hover-border-color:var(--placa-d)}
 .text-bg-primary{background-color:var(--servico)!important}
-.text-bg-info{background-color:#e3ecfa!important;color:#0f3677!important}
+.text-bg-info{background-color:#e3ecfa!important;color:#44287f!important}
 .text-bg-success{background-color:var(--placa)!important}
 .panel{border-radius:8px}
 .plan.feat{border:2px solid var(--servico)}
 .plan .price{font-size:2rem;color:var(--placa)}.plan .price small{font-size:.9rem;font-weight:600;color:var(--apagado)}
-.accordion{--bs-accordion-active-bg:#e3ecfa;--bs-accordion-active-color:#0f3677;--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(21,70,160,.25)}
+.accordion{--bs-accordion-active-bg:#e3ecfa;--bs-accordion-active-color:#44287f;--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(21,70,160,.25)}
 .chat-head{background:var(--placa)}.msg.user{background:var(--servico)}
 .notice{background:#fff7dc;border-color:#ecc94b;border-radius:6px}
-a{color:var(--servico)}a:hover{color:#0f3677}
+a{color:var(--servico)}a:hover{color:#44287f}
 :focus-visible{outline:3px solid var(--atencao);outline-offset:2px}
 .site-footer{background:var(--placa-d);border-top:3px solid var(--atencao)}
 .site-footer h4{font-family:var(--font-d)}
@@ -236,18 +236,18 @@ a{color:var(--servico)}a:hover{color:#0f3677}
 
 
 /* =====================================================================
-   Tema Premium (v3): marinho #123456, laranja e branco.
+   Tema Premium (v3): marinho #2e1a5c, laranja e branco.
    Laranja só como acento/ação (texto marinho sobre ele: contraste 4,9:1).
    ===================================================================== */
 :root{
-  --marinho:#123456; --marinho-d:#0c2542; --marinho-m:#1d4a78;
+  --marinho:#2e1a5c; --marinho-d:#1f1142; --marinho-m:#44287f;
   --laranja:#ff7a1a; --laranja-d:#e8650a; --laranja-t:#fff1e6;
   --placa:var(--marinho); --placa-d:var(--marinho-d); --servico:var(--laranja); --atencao:var(--laranja);
-  --papel:#ffffff; --tinta:#0f2237; --apagado:#52657b; --fio:#dde4ec; --suave:#f4f7fb;
+  --papel:#ffffff; --tinta:#1c1530; --apagado:#52657b; --fio:#dde4ec; --suave:#f4f7fb;
   --bg:#fff; --ink:var(--tinta); --muted:var(--apagado); --line:var(--fio);
   --navy:var(--marinho-d); --navy2:var(--marinho); --brand:var(--laranja); --brand-d:var(--marinho); --accent:var(--laranja);
-  --bs-primary:#ff7a1a;--bs-primary-rgb:255,122,26;--bs-link-color:#123456;--bs-link-hover-color:#e8650a;--bs-body-bg:#fff;--bs-body-color:#0f2237;
-  --sombra:0 14px 34px rgba(18,52,86,.12)
+  --bs-primary:#ff7a1a;--bs-primary-rgb:255,122,26;--bs-link-color:#2e1a5c;--bs-link-hover-color:#e8650a;--bs-body-bg:#fff;--bs-body-color:#1c1530;
+  --sombra:0 14px 34px rgba(46,26,92,.12)
 }
 body{background:#fff;color:var(--tinta);font-size:1.04rem}
 a{color:var(--marinho);text-decoration-color:var(--laranja);text-decoration-thickness:2px;text-underline-offset:3px}
@@ -277,7 +277,7 @@ a:hover{color:var(--laranja-d)}
 .chip:hover{background:var(--laranja);border-color:var(--laranja);color:var(--marinho)}
 .destinos{background:var(--laranja);border:0;border-radius:26px;box-shadow:none;padding:28px 28px 20px}
 .destinos-t{color:var(--marinho);font-size:1.35rem;margin-bottom:10px}
-.destinos a{color:var(--marinho);border-top:1.5px solid rgba(18,52,86,.28)}
+.destinos a{color:var(--marinho);border-top:1.5px solid rgba(46,26,92,.28)}
 .destinos a::after{border-left-color:var(--marinho)}
 .destinos a:hover{color:#fff}
 .page-hero{background:linear-gradient(165deg,var(--marinho) 0%,var(--marinho-d) 100%);border-bottom:0;position:relative;padding:44px 0 38px}
@@ -328,15 +328,15 @@ h2::after{content:"";display:block;width:44px;height:4px;border-radius:4px;backg
 
 
 /* =====================================================================
-   Tema Calmo (v4): azul #123456, branco e amarelo. Menos ornamento.
+   Tema Calmo (v4): azul #2e1a5c, branco e amarelo. Menos ornamento.
    Amarelo só em ação principal e em um destaque por tela.
    ===================================================================== */
 :root{
   --laranja:#ffc72c; --laranja-d:#e3a800; --laranja-t:#fff8de;
-  --bs-primary:#ffc72c;--bs-primary-rgb:255,199,44;--bs-link-hover-color:#0c2542;
+  --bs-primary:#ffc72c;--bs-primary-rgb:255,199,44;--bs-link-hover-color:#1f1142;
   --suave:#f6f8fb
 }
-a{text-decoration-color:rgba(18,52,86,.35);text-decoration-thickness:1px}
+a{text-decoration-color:rgba(46,26,92,.35);text-decoration-thickness:1px}
 a:hover{color:var(--marinho-m);text-decoration-color:var(--laranja)}
 :focus-visible{outline-color:var(--marinho)}
 
@@ -381,10 +381,10 @@ h2::after{display:none}
 /* botões e etiquetas */
 .btn-primary,.btn-warning{--bs-btn-hover-bg:#ffd75e;--bs-btn-hover-border-color:#ffd75e;--bs-btn-active-bg:var(--laranja-d);--bs-btn-active-border-color:var(--laranja-d)}
 .text-bg-primary,.text-bg-warning{background-color:var(--laranja)!important;color:var(--marinho)!important}
-.accordion{--bs-accordion-active-bg:var(--suave);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(18,52,86,.18)}
+.accordion{--bs-accordion-active-bg:var(--suave);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(46,26,92,.18)}
 .notice{background:var(--laranja-t);border-color:#f0d27a;color:#4a3a00}
 .sponsor-box{border-color:#cfa100;background:var(--laranja-t)}
-.form-control:focus,.form-select:focus{border-color:var(--marinho);box-shadow:0 0 0 .2rem rgba(18,52,86,.15)}
+.form-control:focus,.form-select:focus{border-color:var(--marinho);box-shadow:0 0 0 .2rem rgba(46,26,92,.15)}
 .stars{color:#c99700}
 
 /* ---- Azul claro como cor de apoio (v4.1) ---- */
@@ -415,7 +415,7 @@ section.block.alt{background:var(--celeste)}
 /* ---- Paleta verde limão, azul escuro e branco (v5) ---- */
 :root{
   --laranja:#b9f227; --laranja-d:#8fc400; --laranja-t:#f1fcd2;
-  --celeste:#f3f6fa; --celeste-m:#dbe3ee; --celeste-b:#1d4a78;
+  --celeste:#f3f6fa; --celeste-m:#dbe3ee; --celeste-b:#44287f;
   --bs-primary:#b9f227;--bs-primary-rgb:185,242,39;--suave:#f3f6fa
 }
 .navbar .nav-link.cta:hover{background:#cdf65c}
@@ -479,3 +479,4 @@ a:hover{color:var(--roxo)}
 .btn-outline-primary,.btn-outline-secondary{--bs-btn-hover-border-color:var(--roxo)}
 .msg.user{background:var(--roxo)}
 .chat-head{background:var(--marinho)}
+.row+p{margin-top:22px}
