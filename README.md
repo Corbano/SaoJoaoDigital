@@ -47,7 +47,7 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 
 ## Design
 
-Identidade premium: marinho `#123456`, laranja e branco (placa de indicação, laranja só como acento e ação). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.
+Identidade premium: azul `#123456`, branco e amarelo (visual limpo; amarelo só em ações e destaques). Fontes Bricolage Grotesque e Instrument Sans em `assets/fonts/` (licença OFL). Não há `style=""` inline (a CSP bloqueia); cores por categoria são classes `.c-<slug>` no CSS.
 
 ## Back-end PHP + MySQL (opcional, camada dinâmica)
 

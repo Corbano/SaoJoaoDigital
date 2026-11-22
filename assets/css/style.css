@@ -325,3 +325,64 @@ h2::after{content:"";display:block;width:44px;height:4px;border-radius:4px;backg
 .page-hero a,.hero a:not(.btn){color:#fff;text-decoration-color:var(--laranja)}
 .page-hero a:hover,.hero a:not(.btn):hover{color:var(--laranja)}
 .page-hero .btn-outline-primary,.page-hero .btn-outline-secondary{--bs-btn-color:#fff;--bs-btn-border-color:#fff;--bs-btn-hover-bg:#fff;--bs-btn-hover-color:var(--marinho)}
+
+
+/* =====================================================================
+   Tema Calmo (v4): azul #123456, branco e amarelo. Menos ornamento.
+   Amarelo só em ação principal e em um destaque por tela.
+   ===================================================================== */
+:root{
+  --laranja:#ffc72c; --laranja-d:#e3a800; --laranja-t:#fff8de;
+  --bs-primary:#ffc72c;--bs-primary-rgb:255,199,44;--bs-link-hover-color:#0c2542;
+  --suave:#f6f8fb
+}
+a{text-decoration-color:rgba(18,52,86,.35);text-decoration-thickness:1px}
+a:hover{color:var(--marinho-m);text-decoration-color:var(--laranja)}
+:focus-visible{outline-color:var(--marinho)}
+
+.site-header{box-shadow:none;border-bottom:0}
+.navbar .nav-link.cta{background:var(--laranja);color:var(--marinho)}
+.navbar .nav-link.cta:hover{background:#ffd75e;color:var(--marinho)}
+.site-footer{border-top:0}
+.site-footer a:hover{color:var(--laranja)}
+
+/* herói: plano, sem molduras */
+.hero{background:var(--marinho);padding:60px 0 64px}
+.placa{background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.hero h1{max-width:17ch}
+.ask{box-shadow:none}
+.ask input:focus{outline-color:var(--marinho)}
+.chip{border:1px solid rgba(255,255,255,.35)}
+.chip:hover{background:#fff;border-color:#fff;color:var(--marinho)}
+.destinos{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:24px 26px 14px}
+.destinos-t{color:#fff;font-size:1.15rem}
+.destinos a{color:#fff;border-top:1px solid rgba(255,255,255,.16);font-size:1.05rem}
+.destinos a::after{border-left-color:var(--laranja)}
+.destinos a:hover{color:var(--laranja)}
+.page-hero{background:var(--marinho);padding:40px 0 34px}
+.page-hero::after{display:none}
+.page-hero a,.hero a:not(.btn){text-decoration-color:rgba(255,255,255,.4)}
+.page-hero a:hover,.hero a:not(.btn):hover{color:var(--laranja)}
+
+/* seções: respiro no lugar de enfeite */
+section.block{padding:56px 0}
+h2::after{display:none}
+.sub{margin-top:6px}
+
+/* cartões: contorno fino, sem faixas nem elevação */
+.card{border-radius:10px;transition:border-color .15s}
+.card:hover{border-color:var(--marinho);box-shadow:none!important;transform:none}
+.cat-card,.cupom{border-top:1px solid var(--fio);border-left:1px solid var(--fio);border-radius:10px}
+.cat-card .ico{filter:grayscale(1);opacity:.8}
+.cupom-codigo code{background:var(--laranja-t);border:1px dashed #cfa100;color:var(--marinho)}
+.card.plan.feat{border:2px solid var(--marinho);box-shadow:none}
+.panel{border-radius:10px}
+
+/* botões e etiquetas */
+.btn-primary,.btn-warning{--bs-btn-hover-bg:#ffd75e;--bs-btn-hover-border-color:#ffd75e;--bs-btn-active-bg:var(--laranja-d);--bs-btn-active-border-color:var(--laranja-d)}
+.text-bg-primary,.text-bg-warning{background-color:var(--laranja)!important;color:var(--marinho)!important}
+.accordion{--bs-accordion-active-bg:var(--suave);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(18,52,86,.18)}
+.notice{background:var(--laranja-t);border-color:#f0d27a;color:#4a3a00}
+.sponsor-box{border-color:#cfa100;background:var(--laranja-t)}
+.form-control:focus,.form-select:focus{border-color:var(--marinho);box-shadow:0 0 0 .2rem rgba(18,52,86,.15)}
+.stars{color:#c99700}
