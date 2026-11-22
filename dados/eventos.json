@@ -1,0 +1,67 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-21",
+  "aviso": "Eventos de DEMONSTRAÇÃO. Datas e locais são fictícios.",
+  "eventos": [
+    {
+      "id": "demo-feira-gastronomica",
+      "slug": "feira-gastronomica-de-fim-de-ano",
+      "titulo": "Feira Gastronômica de Fim de Ano",
+      "inicio": "2026-12-05T17:00:00-03:00",
+      "fim": "2026-12-06T22:00:00-03:00",
+      "local": "Praça central (exemplo)",
+      "cidade": "São João da Boa Vista",
+      "categoria": "restaurantes",
+      "resumo": "Dois dias de gastronomia local com restaurantes, cafés e música ao vivo.",
+      "descricao": "Evento de demonstração que reúne estabelecimentos de alimentação da cidade, com degustações, música ao vivo e espaço infantil. Entrada gratuita.",
+      "gratuito": true,
+      "empresas": ["cantina-bella-serra"],
+      "demo": true
+    },
+    {
+      "id": "demo-mutirao-solidario",
+      "slug": "mutirao-solidario-agasalho",
+      "titulo": "Mutirão Solidário do Agasalho",
+      "inicio": "2026-12-12T09:00:00-03:00",
+      "fim": "2026-12-12T15:00:00-03:00",
+      "local": "Sede da associação (exemplo)",
+      "cidade": "São João da Boa Vista",
+      "categoria": "outros",
+      "resumo": "Arrecadação e triagem de agasalhos com voluntários.",
+      "descricao": "Evento de demonstração. Voluntários recebem e organizam doações de agasalhos e cobertores.",
+      "gratuito": true,
+      "empresas": ["associacao-amigos-do-bem"],
+      "demo": true
+    },
+    {
+      "id": "demo-aulao-verao",
+      "slug": "aulao-de-preparacao-para-o-verao",
+      "titulo": "Dia de Preparação da Piscina para o Verão",
+      "inicio": "2026-12-19T09:00:00-03:00",
+      "fim": "2026-12-19T12:00:00-03:00",
+      "local": "Loja Aqua Azul Piscinas (exemplo)",
+      "cidade": "São João da Boa Vista",
+      "categoria": "comercio",
+      "resumo": "Demonstração prática de tratamento da água e manutenção de filtros.",
+      "descricao": "Evento de demonstração com orientações técnicas sobre tratamento da água, escolha de filtros e cuidados de temporada.",
+      "gratuito": true,
+      "empresas": ["aqua-azul-piscinas"],
+      "demo": true
+    },
+    {
+      "id": "demo-semana-saude",
+      "slug": "semana-da-saude-e-bem-estar",
+      "titulo": "Semana da Saúde e Bem-Estar",
+      "inicio": "2027-01-18T08:00:00-03:00",
+      "fim": "2027-01-22T18:00:00-03:00",
+      "local": "Clínica Vida Plena (exemplo)",
+      "cidade": "São João da Boa Vista",
+      "categoria": "saude",
+      "resumo": "Palestras e avaliações gratuitas com profissionais de saúde.",
+      "descricao": "Evento de demonstração com palestras sobre nutrição, postura e saúde mental, além de avaliações rápidas.",
+      "gratuito": true,
+      "empresas": ["clinica-vida-plena"],
+      "demo": true
+    }
+  ]
+}

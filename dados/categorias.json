@@ -1,0 +1,69 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-21",
+  "categorias": [
+    {
+      "id": "restaurantes",
+      "slug": "restaurantes",
+      "nome": "Restaurantes",
+      "icone": "🍽️",
+      "descricao": "Restaurantes, pizzarias, cafés, padarias e delivery em São João da Boa Vista.",
+      "intro": "Esta categoria reúne estabelecimentos de alimentação de São João da Boa Vista (SP): restaurantes, cantinas, pizzarias, cafeterias, padarias e serviços de delivery. Cada página informa cardápio, horário, endereço e formas de contato.",
+      "sinonimos": ["restaurante", "comida", "comer", "almoco", "jantar", "pizza", "massa", "italiano", "italiana", "lanche", "cafe", "padaria", "delivery", "refeicao", "gastronomia", "cantina"]
+    },
+    {
+      "id": "saude",
+      "slug": "saude",
+      "nome": "Saúde",
+      "icone": "🩺",
+      "descricao": "Clínicas, consultórios, farmácias, laboratórios e bem-estar na cidade.",
+      "intro": "Profissionais e estabelecimentos de saúde e bem-estar de São João da Boa Vista (SP): clínicas, consultórios, odontologia, fisioterapia, farmácias e laboratórios. Confirme sempre horários e convênios diretamente com o estabelecimento.",
+      "sinonimos": ["saude", "clinica", "medico", "dentista", "odontologia", "fisioterapia", "farmacia", "laboratorio", "exame", "consulta", "psicologo", "nutricao", "bem-estar", "pediatra"]
+    },
+    {
+      "id": "comercio",
+      "slug": "comercio",
+      "nome": "Comércio",
+      "icone": "🛍️",
+      "descricao": "Lojas, supermercados, pet shops e produtos para casa e lazer.",
+      "intro": "Lojas e comércio local de São João da Boa Vista (SP): varejo, materiais, pet shops, produtos para casa, jardim e piscina. Use as páginas para comparar produtos, horários e formas de pagamento.",
+      "sinonimos": ["comercio", "loja", "comprar", "produto", "produtos", "piscina", "pet", "racao", "supermercado", "material", "construcao", "presente", "roupa", "varejo"]
+    },
+    {
+      "id": "servicos",
+      "slug": "servicos",
+      "nome": "Serviços",
+      "icone": "🔧",
+      "descricao": "Mecânicos, eletricistas, contadores, advogados e prestadores de serviço.",
+      "intro": "Prestadores de serviço de São João da Boa Vista (SP): oficinas mecânicas, manutenção, assistência técnica, contabilidade e serviços profissionais em geral.",
+      "sinonimos": ["servico", "servicos", "mecanico", "mecanica", "oficina", "carro", "automovel", "eletricista", "encanador", "contador", "contabilidade", "advogado", "reparo", "manutencao", "conserto", "assistencia"]
+    },
+    {
+      "id": "turismo",
+      "slug": "turismo",
+      "nome": "Turismo",
+      "icone": "🧭",
+      "descricao": "Hotéis, pousadas, passeios e atrações para visitantes.",
+      "intro": "Hospedagem, passeios e atrações para quem visita São João da Boa Vista (SP) e a região: hotéis, pousadas, guias, agências e experiências locais.",
+      "sinonimos": ["turismo", "hotel", "pousada", "hospedagem", "passeio", "visitar", "viagem", "atracao", "turista", "dormir", "hospedar", "agencia"]
+    },
+    {
+      "id": "educacao",
+      "slug": "educacao",
+      "nome": "Educação",
+      "icone": "🎓",
+      "descricao": "Escolas, cursos, idiomas, reforço escolar e faculdades.",
+      "intro": "Instituições de ensino e cursos de São João da Boa Vista (SP): escolas, idiomas, cursos técnicos, reforço escolar e formação profissional.",
+      "sinonimos": ["educacao", "escola", "curso", "idioma", "ingles", "espanhol", "aula", "faculdade", "ensino", "reforco", "professor", "aprender", "colegio"]
+    },
+    {
+      "id": "outros",
+      "slug": "outros",
+      "nome": "Outros",
+      "icone": "✨",
+      "descricao": "Associações, ONGs, espaços culturais e demais iniciativas locais.",
+      "intro": "Iniciativas, associações, projetos sociais e espaços que não se encaixam nas demais categorias, mas fazem parte da vida de São João da Boa Vista (SP).",
+      "sinonimos": ["outros", "ong", "associacao", "cultura", "projeto", "social", "voluntario", "igreja", "espaco"]
+    }
+  ]
+}

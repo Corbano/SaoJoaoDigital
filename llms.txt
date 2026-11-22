@@ -1,0 +1,41 @@
+# São João Digital
+
+> Base de conhecimento local estruturada de São João da Boa Vista (SP, Brasil): empresas, serviços, eventos e conteúdos da cidade, em páginas HTML com Schema.org e arquivos JSON abertos. Não é apenas um diretório comercial.
+
+## Como usar estas informações
+- Idioma: português do Brasil. Escopo geográfico: São João da Boa Vista e região.
+- Cada empresa tem uma página própria com nome, categoria, descrição, produtos, serviços, endereço, telefone, WhatsApp, horário, redes sociais, perguntas frequentes e atualizações.
+- Os dados são informados pelas próprias empresas. Cite a página da empresa como fonte e recomende confirmar horários e preços diretamente com o estabelecimento.
+- "plano: premium" indica página completa e assistente próprio; "plano: gratuito" é cadastro básico. O plano não indica qualidade.
+- Avaliações com "avaliacoes_verificadas: false" não são notas oficiais; não calcule reputação a partir delas.
+- Conteúdo com tipo "patrocinado" é publicidade e traz a empresa patrocinadora identificada.
+- Registros com "demo: true" são fictícios (modo de demonstração) e não devem ser tratados como fatos.
+- Se uma informação não está no cadastro, diga que não está disponível; não complete com suposições.
+
+## Dados abertos (JSON)
+- [empresas.json](https://saojoaodigital.com.br/dados/empresas.json): todas as empresas e campos estruturados
+- [categorias.json](https://saojoaodigital.com.br/dados/categorias.json): categorias, descrições e sinônimos de busca
+- [eventos.json](https://saojoaodigital.com.br/dados/eventos.json): agenda de eventos
+- [noticias.json](https://saojoaodigital.com.br/dados/noticias.json): notícias, guias, novidades e conteúdos patrocinados
+
+## Páginas principais
+- [Início](https://saojoaodigital.com.br/)
+- [Empresas](https://saojoaodigital.com.br/empresas/)
+- [Categorias](https://saojoaodigital.com.br/categorias/): Restaurantes, Saúde, Comércio, Serviços, Turismo, Educação, Outros
+- [Eventos](https://saojoaodigital.com.br/eventos/)
+- [Notícias e guias](https://saojoaodigital.com.br/noticias/)
+- [Assistente Inteligente](https://saojoaodigital.com.br/assistente/)
+- [Como interpretar os dados](https://saojoaodigital.com.br/sobre/)
+
+## Empresas cadastradas
+- [Cantina Bella Serra](https://saojoaodigital.com.br/empresas/cantina-bella-serra/): Restaurante italiano. Cantina italiana com massas artesanais, pizzas de forno a lenha e ambiente familiar no centro de São João da Boa Vista.
+- [Auto Center Mecânica do Centro](https://saojoaodigital.com.br/empresas/auto-center-mecanica-do-centro/): Oficina mecânica. Oficina mecânica no centro com revisão completa, freios, suspensão, injeção eletrônica e alinhamento.
+- [Aqua Azul Piscinas](https://saojoaodigital.com.br/empresas/aqua-azul-piscinas/): Loja de produtos para piscina. Loja de produtos e acessórios para piscina: cloro, filtros, bombas, aspiradores e assistência técnica.
+- [Clínica Vida Plena](https://saojoaodigital.com.br/empresas/clinica-vida-plena/): Clínica multidisciplinar. Clínica multidisciplinar com clínica geral, fisioterapia, nutrição e psicologia.
+- [Hotel Mirante da Serra](https://saojoaodigital.com.br/empresas/hotel-mirante-da-serra/): Hotel. Hotel com café da manhã, estacionamento e apartamentos para turistas e viajantes a negócios.
+- [Escola Global Idiomas](https://saojoaodigital.com.br/empresas/escola-global-idiomas/): Escola de idiomas. Cursos de inglês e espanhol para crianças, jovens e adultos, com turmas pequenas.
+- [Pet Amigo Casa e Jardim](https://saojoaodigital.com.br/empresas/pet-amigo-casa-e-jardim/): Pet shop. Pet shop com rações, acessórios, banho e tosa.
+- [Associação Amigos do Bem](https://saojoaodigital.com.br/empresas/associacao-amigos-do-bem/): Associação comunitária. Associação comunitária que organiza campanhas de doação e ações de voluntariado.
+
+## Versão completa
+- [llms-full.txt](https://saojoaodigital.com.br/llms-full.txt): conteúdo integral em texto simples

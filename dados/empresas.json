@@ -1,0 +1,332 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-21",
+  "aviso": "Dados de DEMONSTRAÇÃO. Empresas, telefones e avaliações são fictícios e servem apenas para testar a estrutura. Substitua por dados reais e verificados antes de publicar.",
+  "empresas": [
+    {
+      "id": "demo-cantina-bella-serra",
+      "slug": "cantina-bella-serra",
+      "nome": "Cantina Bella Serra",
+      "categoria": "restaurantes",
+      "subcategoria": "Restaurante italiano",
+      "tags": ["italiano", "massas", "pizza", "vinhos", "almoco", "jantar", "familia", "delivery"],
+      "plano": "premium",
+      "ia": true,
+      "destaque": true,
+      "demo": true,
+      "resumo": "Cantina italiana com massas artesanais, pizzas de forno a lenha e ambiente familiar no centro de São João da Boa Vista.",
+      "descricao": "A Cantina Bella Serra é um restaurante de culinária italiana que prepara massas frescas todos os dias, molhos de cozimento lento e pizzas assadas em forno a lenha. O ambiente é pensado para almoços de família, encontros de amigos e comemorações, com salão climatizado e área externa.",
+      "historia": "Fundada em 2009 por uma família apaixonada por cozinha italiana, a cantina começou com seis mesas e receitas passadas entre gerações. Hoje mantém o preparo artesanal e atende moradores e visitantes da cidade e da região.",
+      "produtos": [
+        { "nome": "Massas artesanais", "descricao": "Fettuccine, nhoque, lasanha e ravioli feitos diariamente.", "preco": "a partir de R$ 38" },
+        { "nome": "Pizzas de forno a lenha", "descricao": "Mais de 20 sabores, tradicionais e especiais.", "preco": "a partir de R$ 52" },
+        { "nome": "Carta de vinhos", "descricao": "Rótulos italianos, chilenos e nacionais.", "preco": "taça a partir de R$ 24" }
+      ],
+      "servicos": ["Almoço executivo", "Jantar à la carte", "Delivery", "Reserva para eventos"],
+      "diferenciais": ["Massas feitas no dia", "Forno a lenha", "Ambiente familiar e climatizado", "Opções vegetarianas", "Estacionamento próprio"],
+      "publico": "Famílias, grupos de amigos, casais, turistas e profissionais em horário de almoço.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "100", "bairro": "Centro", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13870-000", "referencia": "Próximo à praça central" },
+      "telefone": "(19) 99999-0001",
+      "whatsapp": "5519999990001",
+      "email": "contato@exemplo.invalid",
+      "site": "",
+      "redes": { "instagram": "https://www.instagram.com/exemplo-cantina", "facebook": "https://www.facebook.com/exemplo-cantina" },
+      "horario": [
+        { "dias": "Terça a sexta", "dow": ["Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "11:30", "fecha": "23:00" },
+        { "dias": "Sábado e domingo", "dow": ["Saturday", "Sunday"], "abre": "11:30", "fecha": "16:00" }
+      ],
+      "fechado": "Segunda-feira",
+      "pagamento": ["Dinheiro", "Pix", "Cartão de crédito", "Cartão de débito", "Vale-refeição"],
+      "faq": [
+        { "p": "A Cantina Bella Serra faz entregas?", "r": "Sim. O delivery atende o centro e bairros próximos; consulte a taxa pelo WhatsApp." },
+        { "p": "Precisa reservar mesa?", "r": "Recomendamos reservar para sextas à noite e domingos, pelo WhatsApp ou telefone." },
+        { "p": "Há opções vegetarianas?", "r": "Sim, há massas e pizzas vegetarianas no cardápio." }
+      ],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [
+        { "autor": "Cliente de exemplo", "nota": 5, "texto": "Massa no ponto e atendimento atencioso. (avaliação fictícia)", "data": "2026-10-12" },
+        { "autor": "Cliente de exemplo", "nota": 4, "texto": "Pizza ótima, vale reservar nos fins de semana. (avaliação fictícia)", "data": "2026-09-30" }
+      ],
+      "atualizacoes": [
+        { "data": "2026-11-15", "texto": "Novo menu de fim de ano com pratos sazonais." },
+        { "data": "2026-10-02", "texto": "Delivery ampliado para novos bairros." }
+      ],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-auto-center-mecanica",
+      "slug": "auto-center-mecanica-do-centro",
+      "nome": "Auto Center Mecânica do Centro",
+      "categoria": "servicos",
+      "subcategoria": "Oficina mecânica",
+      "tags": ["mecanico", "oficina", "carro", "freios", "suspensao", "revisao", "injecao", "centro", "alinhamento"],
+      "plano": "premium",
+      "ia": true,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Oficina mecânica no centro com revisão completa, freios, suspensão, injeção eletrônica e alinhamento.",
+      "descricao": "Oficina mecânica de carros nacionais e importados localizada na região central. Realiza diagnóstico com scanner, revisões preventivas, troca de óleo, freios, suspensão, alinhamento, balanceamento e manutenção de injeção eletrônica, sempre com orçamento prévio.",
+      "historia": "Atua desde 2003 no mesmo endereço, construindo a reputação com orçamento claro, peças com garantia e prazos combinados.",
+      "produtos": [
+        { "nome": "Peças e óleos", "descricao": "Peças originais e de linha paralela com nota fiscal e garantia." }
+      ],
+      "servicos": ["Revisão preventiva", "Troca de óleo e filtros", "Freios", "Suspensão e direção", "Alinhamento e balanceamento", "Diagnóstico com scanner", "Injeção eletrônica", "Ar-condicionado automotivo"],
+      "diferenciais": ["Orçamento antes do serviço", "Garantia por escrito", "Diagnóstico eletrônico", "Localização central"],
+      "publico": "Motoristas particulares, taxistas, motoristas de aplicativo e pequenas frotas.",
+      "endereco": { "rua": "Avenida Exemplo", "numero": "250", "bairro": "Centro", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13870-100", "referencia": "A poucos quarteirões da praça central" },
+      "telefone": "(19) 99999-0002",
+      "whatsapp": "5519999990002",
+      "email": "oficina@exemplo.invalid",
+      "site": "",
+      "redes": { "instagram": "https://www.instagram.com/exemplo-oficina" },
+      "horario": [
+        { "dias": "Segunda a sexta", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "08:00", "fecha": "18:00" },
+        { "dias": "Sábado", "dow": ["Saturday"], "abre": "08:00", "fecha": "12:00" }
+      ],
+      "fechado": "Domingo",
+      "pagamento": ["Dinheiro", "Pix", "Cartão de crédito em até 6x", "Cartão de débito"],
+      "faq": [
+        { "p": "A oficina atende carros importados?", "r": "Sim, nacionais e importados, conforme o serviço e a disponibilidade de peças." },
+        { "p": "O orçamento é cobrado?", "r": "Não. O orçamento é feito antes de qualquer serviço e só é executado com sua aprovação." },
+        { "p": "Tem garantia?", "r": "Sim, os serviços e as peças têm garantia informada por escrito." }
+      ],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [
+        { "autor": "Cliente de exemplo", "nota": 5, "texto": "Explicaram tudo antes de consertar. (avaliação fictícia)", "data": "2026-11-03" }
+      ],
+      "atualizacoes": [
+        { "data": "2026-11-10", "texto": "Promoção de revisão de fim de ano com checklist de 30 itens." }
+      ],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-aqua-piscinas",
+      "slug": "aqua-azul-piscinas",
+      "nome": "Aqua Azul Piscinas",
+      "categoria": "comercio",
+      "subcategoria": "Loja de produtos para piscina",
+      "tags": ["piscina", "cloro", "filtro", "bomba", "limpeza", "tratamento", "acessorios", "verao"],
+      "plano": "premium",
+      "ia": true,
+      "destaque": true,
+      "demo": true,
+      "resumo": "Loja de produtos e acessórios para piscina: cloro, filtros, bombas, aspiradores e assistência técnica.",
+      "descricao": "A Aqua Azul Piscinas vende produtos químicos, filtros, bombas, aspiradores, capas e acessórios para piscinas residenciais e de condomínios. Também faz análise gratuita da água e orienta o tratamento correto para cada estação.",
+      "historia": "Criada em 2014 por técnicos em tratamento de água, a loja cresceu atendendo famílias, chácaras e condomínios da região.",
+      "produtos": [
+        { "nome": "Cloro, algicida e balanceadores", "descricao": "Linha completa para tratamento da água." },
+        { "nome": "Filtros e bombas", "descricao": "Modelos para diferentes volumes de piscina." },
+        { "nome": "Aspiradores e escovas", "descricao": "Limpeza manual e automática." },
+        { "nome": "Acessórios e boias", "descricao": "Itens de lazer e segurança." }
+      ],
+      "servicos": ["Análise gratuita da água", "Instalação de bombas e filtros", "Assistência técnica", "Entrega local", "Consultoria de tratamento"],
+      "diferenciais": ["Análise de água gratuita", "Técnicos especializados", "Entrega na cidade", "Estoque o ano todo"],
+      "publico": "Proprietários de casas e chácaras, síndicos, hotéis e clubes.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "480", "bairro": "Jardim Exemplo", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13872-000", "referencia": "Próximo à avenida principal" },
+      "telefone": "(19) 99999-0003",
+      "whatsapp": "5519999990003",
+      "email": "loja@exemplo.invalid",
+      "site": "",
+      "redes": { "instagram": "https://www.instagram.com/exemplo-piscinas", "facebook": "" },
+      "horario": [
+        { "dias": "Segunda a sexta", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "08:30", "fecha": "18:00" },
+        { "dias": "Sábado", "dow": ["Saturday"], "abre": "08:30", "fecha": "13:00" }
+      ],
+      "fechado": "Domingo e feriados",
+      "pagamento": ["Dinheiro", "Pix", "Cartão de crédito", "Cartão de débito", "Boleto para empresas"],
+      "faq": [
+        { "p": "Vocês fazem análise da água?", "r": "Sim, gratuitamente. Leve uma amostra de cerca de 200 ml." },
+        { "p": "Entregam em chácaras?", "r": "Entregamos na cidade e consultamos a região conforme a distância." },
+        { "p": "Instalam bombas e filtros?", "r": "Sim, com equipe técnica própria." }
+      ],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [
+        { "autor": "Cliente de exemplo", "nota": 5, "texto": "Resolveram minha água verde em dois dias. (avaliação fictícia)", "data": "2026-11-05" }
+      ],
+      "atualizacoes": [
+        { "data": "2026-11-12", "texto": "Chegaram novos kits de início de temporada." }
+      ],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-clinica-vida-plena",
+      "slug": "clinica-vida-plena",
+      "nome": "Clínica Vida Plena",
+      "categoria": "saude",
+      "subcategoria": "Clínica multidisciplinar",
+      "tags": ["clinica", "medico", "fisioterapia", "nutricao", "psicologia", "consulta", "exames", "convenio"],
+      "plano": "premium",
+      "ia": true,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Clínica multidisciplinar com clínica geral, fisioterapia, nutrição e psicologia.",
+      "descricao": "A Clínica Vida Plena reúne várias especialidades em um só endereço: clínica geral, fisioterapia, nutrição e psicologia. O atendimento é feito com hora marcada, com foco em prevenção, acolhimento e acompanhamento contínuo.",
+      "historia": "Fundada em 2016 por um grupo de profissionais da saúde da região com a proposta de cuidado integrado.",
+      "produtos": [],
+      "servicos": ["Clínica geral", "Fisioterapia", "Nutrição", "Psicologia", "Atestados e check-ups"],
+      "diferenciais": ["Várias especialidades no mesmo local", "Atendimento com hora marcada", "Acessibilidade", "Estacionamento conveniado"],
+      "publico": "Adultos, idosos, adolescentes e crianças, conforme a especialidade.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "75", "bairro": "Centro", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13870-200", "referencia": "Região central" },
+      "telefone": "(19) 99999-0004",
+      "whatsapp": "5519999990004",
+      "email": "agenda@exemplo.invalid",
+      "site": "",
+      "redes": { "instagram": "https://www.instagram.com/exemplo-clinica" },
+      "horario": [
+        { "dias": "Segunda a sexta", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "07:30", "fecha": "19:00" }
+      ],
+      "fechado": "Sábado, domingo e feriados",
+      "pagamento": ["Particular", "Pix", "Cartão", "Alguns convênios (consulte)"],
+      "faq": [
+        { "p": "Como agendar uma consulta?", "r": "Pelo WhatsApp ou telefone, informando a especialidade desejada." },
+        { "p": "Aceitam convênios?", "r": "Alguns. Consulte a recepção para confirmar o seu plano." }
+      ],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [
+        { "data": "2026-11-08", "texto": "Novos horários de fisioterapia no período da noite." }
+      ],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-hotel-mirante-da-serra",
+      "slug": "hotel-mirante-da-serra",
+      "nome": "Hotel Mirante da Serra",
+      "categoria": "turismo",
+      "subcategoria": "Hotel",
+      "tags": ["hotel", "hospedagem", "cafe da manha", "turismo", "negocios", "familia", "estacionamento"],
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Hotel com café da manhã, estacionamento e apartamentos para turistas e viajantes a negócios.",
+      "descricao": "Hotel de porte médio com apartamentos standard e família, café da manhã incluso, Wi-Fi e estacionamento. Indicado para turistas, eventos e viagens a trabalho.",
+      "historia": "",
+      "produtos": [],
+      "servicos": ["Hospedagem", "Café da manhã", "Estacionamento", "Wi-Fi"],
+      "diferenciais": ["Café da manhã incluso", "Estacionamento gratuito"],
+      "publico": "Turistas, famílias e viajantes a negócios.",
+      "endereco": { "rua": "Avenida Exemplo", "numero": "900", "bairro": "Centro", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13870-300", "referencia": "" },
+      "telefone": "(19) 99999-0005",
+      "whatsapp": "5519999990005",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "horario": [
+        { "dias": "Todos os dias (recepção)", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "abre": "00:00", "fecha": "23:59" }
+      ],
+      "fechado": "",
+      "pagamento": ["Pix", "Cartão", "Dinheiro"],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-escola-global-idiomas",
+      "slug": "escola-global-idiomas",
+      "nome": "Escola Global Idiomas",
+      "categoria": "educacao",
+      "subcategoria": "Escola de idiomas",
+      "tags": ["ingles", "espanhol", "idiomas", "curso", "aulas", "conversacao", "criancas", "adultos"],
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Cursos de inglês e espanhol para crianças, jovens e adultos, com turmas pequenas.",
+      "descricao": "Escola de idiomas com turmas reduzidas de inglês e espanhol, foco em conversação e preparação para viagens e exames.",
+      "historia": "",
+      "produtos": [],
+      "servicos": ["Inglês", "Espanhol", "Conversação", "Aulas particulares"],
+      "diferenciais": ["Turmas pequenas", "Foco em conversação"],
+      "publico": "Crianças, jovens e adultos.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "30", "bairro": "Vila Exemplo", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13873-000", "referencia": "" },
+      "telefone": "(19) 99999-0006",
+      "whatsapp": "5519999990006",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "horario": [
+        { "dias": "Segunda a sexta", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "08:00", "fecha": "21:00" }
+      ],
+      "fechado": "Sábado e domingo",
+      "pagamento": ["Pix", "Boleto", "Cartão"],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-pet-amigo",
+      "slug": "pet-amigo-casa-e-jardim",
+      "nome": "Pet Amigo Casa e Jardim",
+      "categoria": "comercio",
+      "subcategoria": "Pet shop",
+      "tags": ["pet", "racao", "banho", "tosa", "cachorro", "gato", "jardim", "acessorios"],
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Pet shop com rações, acessórios, banho e tosa.",
+      "descricao": "Pet shop com rações das principais marcas, acessórios, produtos de jardinagem e serviço de banho e tosa com agendamento.",
+      "historia": "",
+      "produtos": [{ "nome": "Rações e petiscos", "descricao": "Cães, gatos e aves." }],
+      "servicos": ["Banho e tosa", "Entrega local"],
+      "diferenciais": ["Banho e tosa com agendamento"],
+      "publico": "Tutores de cães, gatos e aves.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "12", "bairro": "Jardim Exemplo", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13872-100", "referencia": "" },
+      "telefone": "(19) 99999-0007",
+      "whatsapp": "5519999990007",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "horario": [
+        { "dias": "Segunda a sábado", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "abre": "08:00", "fecha": "18:00" }
+      ],
+      "fechado": "Domingo",
+      "pagamento": ["Pix", "Cartão", "Dinheiro"],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21"
+    },
+    {
+      "id": "demo-associacao-amigos-do-bem",
+      "slug": "associacao-amigos-do-bem",
+      "nome": "Associação Amigos do Bem",
+      "categoria": "outros",
+      "subcategoria": "Associação comunitária",
+      "tags": ["ong", "voluntario", "doacao", "social", "comunidade", "campanha"],
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "resumo": "Associação comunitária que organiza campanhas de doação e ações de voluntariado.",
+      "descricao": "Associação sem fins lucrativos que organiza campanhas solidárias, arrecadação de alimentos e agasalhos e ações de voluntariado na cidade.",
+      "historia": "",
+      "produtos": [],
+      "servicos": ["Campanhas de doação", "Voluntariado"],
+      "diferenciais": ["Prestação de contas pública"],
+      "publico": "Famílias em vulnerabilidade e voluntários.",
+      "endereco": { "rua": "Rua Exemplo", "numero": "5", "bairro": "Centro", "cidade": "São João da Boa Vista", "uf": "SP", "cep": "13870-400", "referencia": "" },
+      "telefone": "(19) 99999-0008",
+      "whatsapp": "5519999990008",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "horario": [
+        { "dias": "Segunda a sexta", "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "abre": "09:00", "fecha": "16:00" }
+      ],
+      "fechado": "Sábado e domingo",
+      "pagamento": [],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21"
+    }
+  ]
+}

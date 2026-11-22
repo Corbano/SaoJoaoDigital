@@ -1,0 +1,77 @@
+{
+  "versao": "1.0",
+  "atualizado": "2026-11-21",
+  "aviso": "Conteúdos de DEMONSTRAÇÃO.",
+  "tipos": {
+    "noticia": "Notícia local",
+    "guia": "Guia da cidade",
+    "novidade": "Novidade de empresa",
+    "patrocinado": "Conteúdo patrocinado"
+  },
+  "noticias": [
+    {
+      "slug": "guia-onde-comer-no-centro",
+      "tipo": "guia",
+      "titulo": "Guia: onde comer bem no centro de São João da Boa Vista",
+      "data": "2026-11-18",
+      "autor": "Redação São João Digital",
+      "resumo": "Um roteiro para quem busca almoço, jantar e café na região central da cidade.",
+      "corpo": [
+        "O centro de São João da Boa Vista concentra boa parte dos restaurantes, cafés e padarias da cidade, o que facilita a escolha a pé.",
+        "Para almoço rápido, procure estabelecimentos com prato executivo. Para jantares em família, prefira reservar com antecedência nos fins de semana.",
+        "Este guia é de demonstração e será alimentado com estabelecimentos verificados na plataforma."
+      ],
+      "empresas": ["cantina-bella-serra"],
+      "categoria": "restaurantes",
+      "demo": true
+    },
+    {
+      "slug": "como-escolher-oficina-mecanica",
+      "tipo": "guia",
+      "titulo": "Como escolher uma oficina mecânica de confiança",
+      "data": "2026-11-14",
+      "autor": "Redação São João Digital",
+      "resumo": "Cinco critérios simples para avaliar uma oficina antes de deixar o carro.",
+      "corpo": [
+        "Peça sempre orçamento por escrito antes de autorizar qualquer serviço.",
+        "Confirme a garantia das peças e da mão de obra e exija nota fiscal.",
+        "Prefira oficinas que expliquem o problema e mostrem as peças trocadas."
+      ],
+      "empresas": ["auto-center-mecanica-do-centro"],
+      "categoria": "servicos",
+      "demo": true
+    },
+    {
+      "slug": "novo-menu-cantina-bella-serra",
+      "tipo": "novidade",
+      "titulo": "Cantina Bella Serra lança menu de fim de ano",
+      "data": "2026-11-15",
+      "autor": "Cantina Bella Serra",
+      "resumo": "Pratos sazonais e opções vegetarianas entram no cardápio.",
+      "corpo": [
+        "O restaurante apresentou um menu de fim de ano com pratos sazonais e novas opções vegetarianas.",
+        "Reservas podem ser feitas pelo WhatsApp informado na página da empresa."
+      ],
+      "empresas": ["cantina-bella-serra"],
+      "categoria": "restaurantes",
+      "demo": true
+    },
+    {
+      "slug": "piscina-limpa-no-verao-dicas",
+      "tipo": "patrocinado",
+      "titulo": "Piscina limpa no verão: 6 dicas de tratamento da água",
+      "data": "2026-11-12",
+      "autor": "Aqua Azul Piscinas",
+      "resumo": "Conteúdo patrocinado com orientações práticas para o início da temporada.",
+      "corpo": [
+        "Meça o pH semanalmente e mantenha-o entre 7,2 e 7,6.",
+        "Faça a filtragem pelo tempo recomendado pelo fabricante do filtro e retrolave quando necessário.",
+        "Em caso de água turva ou esverdeada, leve uma amostra para análise antes de aplicar produtos."
+      ],
+      "empresas": ["aqua-azul-piscinas"],
+      "categoria": "comercio",
+      "patrocinador": { "empresa": "aqua-azul-piscinas", "rotulo": "Patrocinado por Aqua Azul Piscinas" },
+      "demo": true
+    }
+  ]
+}
