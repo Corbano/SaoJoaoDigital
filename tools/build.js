@@ -116,7 +116,7 @@ ${hero}${body}
 <div class="col-12 col-md-6 col-lg-3"><h4>São João Digital</h4><p>Infraestrutura digital e base de conhecimento local de ${CIDADE} (SP), pensada para pessoas e para sistemas de inteligência artificial.</p></div>
 <div class="col-6 col-lg-3"><h4>Explorar</h4><ul><li><a href="/empresas/">Empresas</a></li><li><a href="/categorias/">Categorias</a></li><li><a href="/eventos/">Eventos</a></li><li><a href="/noticias/">Notícias e guias</a></li><li><a href="/assistente/">Assistente inteligente</a></li></ul></div>
 <div class="col-6 col-lg-3"><h4>Para IAs e buscadores</h4><ul><li><a href="/llms.txt">llms.txt</a></li><li><a href="/llms-full.txt">llms-full.txt</a></li><li><a href="/sitemap.xml">sitemap.xml</a></li><li><a href="/dados/empresas.json">Dados abertos (JSON)</a></li><li><a href="/sobre/">Como interpretar os dados</a></li></ul></div>
-<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/planos/">Planos gratuito e premium</a></li></ul></div>
+<div class="col-6 col-lg-3"><h4>Empresas</h4><ul><li><a href="/cadastrar/">Cadastrar minha empresa</a></li><li><a href="/planos/">Planos gratuito e premium</a></li><li><a href="/privacidade/">Privacidade</a></li></ul></div>
 </div>
 <p class="copy">© ${new Date().getFullYear()} ${SITE_NAME}. Informações cadastradas pelas próprias empresas; confirme dados importantes diretamente com o estabelecimento.</p>
 </div></footer>
@@ -347,7 +347,7 @@ ${tabelaOfertas(p)}
 
 function build() {
   // limpa saídas anteriores geradas (apenas pastas geradas)
-  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'cardapios', 'agendar', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
+  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'cardapios', 'agendar', 'cadastrar', 'privacidade', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
 
   write('assets/img/logo.svg', BRAND_SVG);
   write('assets/img/favicon.svg', BRAND_SVG);
@@ -426,7 +426,7 @@ function build() {
 
   /* Planos */
   const planos = `<div class="container" style="padding-top:26px;padding-bottom:40px"><div class="row g-3">
-<div class="col-md-6"><section class="plan card h-100"><div class="card-body"><h2>Gratuito</h2><p class="price">R$ 0</p><ul><li>Cadastro básico</li><li>Nome, categoria, contato e horário</li><li>Presença nos dados abertos da cidade</li></ul></div></section></div>
+<div class="col-md-6"><section class="plan card h-100"><div class="card-body"><h2>Gratuito</h2><p><a class="btn btn-primary" href="/cadastrar/">Cadastrar minha empresa</a></p><p class="price">R$ 0</p><ul><li>Cadastro básico</li><li>Nome, categoria, contato e horário</li><li>Presença nos dados abertos da cidade</li></ul></div></section></div>
 <div class="col-md-6"><section class="plan feat card h-100"><div class="card-body"><h2>Premium</h2><p class="price">Em breve</p><ul><li>Página completa com fotos, história e FAQ</li><li>Dados estruturados avançados (Schema.org)</li><li>Destaque nas buscas e categorias</li><li>Assistente de IA próprio da empresa</li><li>Conteúdos patrocinados identificados</li></ul></div></section></div></div>
 <p class="meta">Valores e contratação ainda não definidos. No código, o plano de cada empresa é o campo <code>plano</code> em <code>dados/empresas.json</code> e o assistente é ativado por <code>ia: true</code>.</p></div>`;
   write('planos/index.html', layout({ title: 'Planos para empresas: gratuito e premium', desc: `Cadastre sua empresa de ${CIDADE} gratuitamente ou ative o plano premium com página completa, destaque e assistente de IA.`, path: '/planos/', hero: pageHero([['/', 'Início'], ['/planos/', 'Planos']], 'Planos para empresas', 'Do cadastro básico ao assistente de IA próprio.'), body: planos, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/planos/', 'Planos']])] }));
@@ -441,7 +441,7 @@ function build() {
 
   const PROD = gerarComparador();
   require('./categorias')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, CIDADE, CATS, EMP, EVT, NOT, PROD, CARD, empBySlug, catById, cardEmpresa, cardEvento, cardNoticia, cardProduto, CORE_JS, TODAY });
-  require('./features')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, empBySlug, catById, CORE_JS, cardapios: cardapiosData.cardapios });
+  require('./features')({ esc, write, layout, pageHero, crumbLd, demoNotice, abs, addUrl, brl, CIDADE, EMP, empBySlug, catById, CORE_JS, CATS, cardapios: cardapiosData.cardapios });
 
   /* 404 */
   write('404.html', layout({ title: 'Página não encontrada', desc: 'A página procurada não existe.', path: '/404.html', noindex: true, hero: pageHero([['/', 'Início'], ['', 'Erro 404']], 'Página não encontrada', ''), body: '<div class="article"><p>Não encontramos essa página. Tente o <a href="/assistente/">assistente</a>, as <a href="/categorias/">categorias</a> ou volte ao <a href="/">início</a>.</p></div>', scripts: CORE_JS }));

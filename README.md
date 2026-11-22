@@ -40,6 +40,34 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 - **Agendamento:** campo `agendamento` da empresa (serviços, duração, passo, antecedência). Os horários livres saem do horário de funcionamento; a solicitação vai por WhatsApp e só vale após a confirmação da empresa.
 - **Categorias:** páginas com empresas, preços, cardápios/agendamento, eventos, notícias e FAQ; subcategorias com empresas ganham página própria.
 
+## Back-end PHP + MySQL (opcional, camada dinâmica)
+
+As páginas públicas continuam **estáticas** (velocidade e SEO). O PHP acrescenta o que precisa gravar dados:
+
+| Recurso | Arquivo | O que faz |
+|---|---|---|
+| Agendamento real | `api/agendamento.php`, `api/horarios.php` | Grava a solicitação, **bloqueia horário já ocupado** (inclusive sobreposição pela duração do serviço) e devolve o link do WhatsApp |
+| Pedidos do cardápio | `api/pedido.php` | Grava o pedido; o **preço é recalculado no servidor** a partir do cardápio |
+| Cadastro de empresas | `api/cadastro.php` + `/cadastrar/` | Entra como pendente até um admin aprovar |
+| Painel | `/admin/` | Login, agendamentos, pedidos, cadastros (aprovar/rejeitar), empresas, ofertas do comparador, importar/exportar JSON |
+
+Sem o back-end (hospedagem só estática) o site continua funcionando: agendamento e pedido caem para "só WhatsApp".
+
+### Instalação (phpMyAdmin / hospedagem compartilhada)
+
+1. No phpMyAdmin crie o banco (`utf8mb4_unicode_ci`) e **importe `database/schema.sql`**.
+2. Copie `config/config.example.php` para `config/config.php` e preencha banco, `segredo` (texto longo aleatório) e `install_key`. Esse arquivo não vai para o Git.
+3. Envie tudo para `public_html` (PHP 8.1+). As pastas `src/`, `config/` e `database/` são bloqueadas pelo `.htaccess`.
+4. Abra `/admin/instalar.php`, informe a `install_key` e crie o administrador (senha com 10+ caracteres, letras e números). **Apague `admin/instalar.php` depois.**
+5. Em `/admin/dados.php` clique em **Importar** para carregar empresas e ofertas dos JSON para o banco.
+6. Dê permissão de escrita à pasta `dados/` se quiser usar **Exportar** (banco → JSON); depois rode `node tools/build.js` e envie as páginas novas.
+
+Teste local rápido (XAMPP): `php -S localhost:8098 -t .` na raiz do projeto, com o MySQL do XAMPP ligado.
+
+### Segurança aplicada
+
+PDO com *prepared statements*; senhas com `password_hash`; sessão `HttpOnly` + `SameSite=Strict`; token CSRF em todo POST do painel; checagem de `Origin` e `Content-Type` nas APIs; limite de requisições por IP (IP guardado só como HMAC); campo isca anti-robô; consentimento (LGPD) obrigatório nos formulários; saída sempre escapada; sem JS/CSS inline (CSP restritiva); `/admin/` e `/api/` fora do `robots.txt` e do sitemap.
+
 ## Planos (preparado no código)
 
 - `plano: "gratuito"`: cadastro básico, páginas renderizam só os campos preenchidos.

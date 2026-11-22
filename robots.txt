@@ -2,6 +2,8 @@
 User-agent: *
 Allow: /
 Disallow: /tools/
+Disallow: /admin/
+Disallow: /api/
 
 # Rastreadores de IA (permitidos de forma explícita)
 User-agent: GPTBot
