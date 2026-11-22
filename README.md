@@ -35,9 +35,9 @@ Antes de publicar: ajuste o domínio em `robots.txt` (linha `Sitemap:`), troque 
 
 ## Recursos portados do projeto antigo (sem banco)
 
-- **Comparador:**  (, , , , , ). Produtos com o mesmo nome são agrupados; ofertas fora da vigência somem (no build e no navegador).
-- **Cardápio digital:**  (itens por categoria, cardápio do dia). O carrinho monta a mensagem e abre o WhatsApp da empresa; nada é armazenado.
-- **Agendamento:** campo  da empresa (serviços, duração, passo, antecedência). Os horários livres saem do horário de funcionamento; a solicitação vai por WhatsApp e só vale após a confirmação da empresa.
+- **Comparador:** `dados/ofertas.json` (`empresa`, `produto`, `preco`, `preco_promocional`, `data_inicio`, `data_fim`). Produtos com o mesmo nome são agrupados; ofertas fora da vigência somem (no build e no navegador).
+- **Cardápio digital:** `dados/cardapios.json` (itens por categoria, cardápio do dia). O carrinho monta a mensagem e abre o WhatsApp da empresa; nada é armazenado.
+- **Agendamento:** campo `agendamento` da empresa (serviços, duração, passo, antecedência). Os horários livres saem do horário de funcionamento; a solicitação vai por WhatsApp e só vale após a confirmação da empresa.
 - **Categorias:** páginas com empresas, preços, cardápios/agendamento, eventos, notícias e FAQ; subcategorias com empresas ganham página própria.
 
 ## Planos (preparado no código)
