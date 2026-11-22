@@ -145,7 +145,7 @@ function cardEmpresa(e) {
   const busca = [e.nome, e.subcategoria, (e.tags || []).join(' '), e.endereco.bairro, e.resumo].join(' ');
   return `<div class="col-12 col-md-6 col-lg-4" data-cat="${esc(e.categoria)}" data-busca="${esc(norm(busca))}"><article class="card h-100 shadow-sm"><div class="card-body">
 <img class="logo" src="${empLogo(e)}" width="54" height="54" alt="Logo ${esc(e.nome)}" loading="lazy">
-<div><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="badge text-bg-warning">Premium</span>' : ''}${e.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
+<div><span class="badge text-bg-info">${esc(catById[e.categoria].nome)}</span> ${e.plano === 'premium' ? '<span class="badge text-bg-primary">Premium</span>' : ''}${e.demo ? ' <span class="badge text-bg-secondary">Demo</span>' : ''}</div>
 <h3><a href="/empresas/${e.slug}/">${esc(e.nome)}</a></h3>
 <p class="meta">${esc(e.subcategoria)} · ${esc(e.endereco.bairro)}</p>
 <p class="mb-0">${esc(e.resumo)}</p></div></article></div>`;

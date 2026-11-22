@@ -458,3 +458,24 @@ section.block.alt{background:var(--cinza-1)}
 .btn-primary,.btn-warning{--bs-btn-hover-bg:#e3f5ab;--bs-btn-hover-border-color:#e3f5ab;--bs-btn-active-bg:#c4e46a;--bs-btn-active-border-color:#c4e46a}
 .notice{border-color:#e0efb0;color:#33440a}
 .cupom-codigo code{border-color:#b5d457}
+
+/* ---- Roxo como cor de apoio (v5.3) ---- */
+:root{--roxo:#6b46c1;--roxo-d:#553399;--roxo-t:#efeafa}
+.text-bg-primary{background-color:var(--roxo)!important;color:#fff!important}
+.cat-card .ico{background:var(--roxo-t)}
+a:hover{color:var(--roxo)}
+.card:hover{border-color:var(--roxo)}
+:focus-visible{outline-color:var(--roxo)}
+.destinos a::after{border-left-color:var(--roxo)}
+.destinos a:hover,.hero .destinos a:not(.btn):hover{color:var(--roxo)}
+.card.plan.feat{border:2px solid var(--roxo)}
+.plan .price{color:var(--roxo-d)}
+.cupom-codigo code{background:var(--roxo-t);border-color:var(--roxo);color:var(--roxo-d)}
+.chip:hover{background:#fff;border-color:#fff;color:var(--roxo-d)}
+.accordion{--bs-accordion-active-bg:var(--roxo-t);--bs-accordion-active-color:var(--roxo-d);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(107,70,193,.25)}
+.form-control:focus,.form-select:focus{border-color:var(--roxo);box-shadow:0 0 0 .2rem rgba(107,70,193,.2)}
+.form-check-input:checked{background-color:var(--roxo);border-color:var(--roxo)}
+.site-footer{border-top:3px solid var(--roxo)}
+.btn-outline-primary,.btn-outline-secondary{--bs-btn-hover-border-color:var(--roxo)}
+.msg.user{background:var(--roxo)}
+.chat-head{background:var(--marinho)}
