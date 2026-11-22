@@ -1168,6 +1168,291 @@
           "fecha": "17:30"
         }
       ]
+    },
+    {
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "historia": "",
+      "produtos": [],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "pagamento": [
+        "Pix",
+        "Cartão",
+        "Dinheiro"
+      ],
+      "fechado": "Segunda-feira",
+      "diferenciais": [
+        "Massa de fermentação lenta"
+      ],
+      "servicos": [
+        "Delivery",
+        "Salão",
+        "Retirada no balcão"
+      ],
+      "id": "demo-forno-de-ouro",
+      "slug": "pizzaria-forno-de-ouro",
+      "nome": "Pizzaria Forno de Ouro",
+      "categoria": "onde-comer",
+      "subcategoria_slug": "pizzarias",
+      "subcategoria": "Pizzaria",
+      "tags": [
+        "pizza",
+        "pizzaria",
+        "delivery",
+        "refrigerante",
+        "noite"
+      ],
+      "resumo": "Pizzaria com entrega e salão, aberta à noite.",
+      "descricao": "Pizzaria de bairro com massa de fermentação lenta, mais de 30 sabores e entrega rápida.",
+      "publico": "Famílias e grupos.",
+      "endereco": {
+        "rua": "Rua Exemplo",
+        "numero": "320",
+        "bairro": "Vila Exemplo",
+        "cidade": "São João da Boa Vista",
+        "uf": "SP",
+        "cep": "13873-100",
+        "referencia": ""
+      },
+      "telefone": "(19) 99999-0014",
+      "whatsapp": "5519999990014",
+      "horario": [
+        {
+          "dias": "Terça a domingo",
+          "dow": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "abre": "18:00",
+          "fecha": "23:30"
+        }
+      ]
+    },
+    {
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "historia": "",
+      "produtos": [],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "pagamento": [
+        "Pix",
+        "Cartão",
+        "Dinheiro"
+      ],
+      "fechado": "Domingo",
+      "diferenciais": [
+        "Sem hora marcada"
+      ],
+      "servicos": [
+        "Troca de óleo e filtros",
+        "Bateria",
+        "Auto elétrica"
+      ],
+      "id": "demo-pit-stop",
+      "slug": "mecanica-rapida-pit-stop",
+      "nome": "Mecânica Rápida Pit Stop",
+      "categoria": "carro-moto",
+      "subcategoria_slug": "auto-eletrica",
+      "subcategoria": "Auto elétrica e troca de óleo",
+      "tags": [
+        "oleo",
+        "filtro",
+        "bateria",
+        "auto eletrica",
+        "revisao"
+      ],
+      "resumo": "Troca de óleo, bateria e auto elétrica sem hora marcada.",
+      "descricao": "Serviço rápido de troca de óleo e filtros, bateria e parte elétrica, com atendimento sem hora marcada.",
+      "publico": "Motoristas particulares e de aplicativo.",
+      "endereco": {
+        "rua": "Avenida Exemplo",
+        "numero": "1200",
+        "bairro": "Jardim Exemplo",
+        "cidade": "São João da Boa Vista",
+        "uf": "SP",
+        "cep": "13872-200",
+        "referencia": ""
+      },
+      "telefone": "(19) 99999-0015",
+      "whatsapp": "5519999990015",
+      "horario": [
+        {
+          "dias": "Segunda a sábado",
+          "dow": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "abre": "08:00",
+          "fecha": "18:00"
+        }
+      ]
+    },
+    {
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "historia": "",
+      "produtos": [],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "pagamento": [
+        "Pix",
+        "Cartão",
+        "Dinheiro"
+      ],
+      "fechado": "Domingo",
+      "diferenciais": [
+        "Preço de atacado para condomínios"
+      ],
+      "servicos": [
+        "Venda para condomínios",
+        "Entrega"
+      ],
+      "id": "demo-piscina-center",
+      "slug": "super-piscina-center",
+      "nome": "Super Piscina Center",
+      "categoria": "onde-comprar",
+      "subcategoria_slug": "",
+      "subcategoria": "Loja de piscinas e lazer",
+      "tags": [
+        "piscina",
+        "cloro",
+        "filtro",
+        "lazer",
+        "boia"
+      ],
+      "resumo": "Loja de produtos para piscina e lazer de verão.",
+      "descricao": "Produtos químicos, filtros, boias e acessórios para piscinas, com preços de atacado para condomínios.",
+      "publico": "Moradores e condomínios.",
+      "endereco": {
+        "rua": "Rua Exemplo",
+        "numero": "640",
+        "bairro": "Jardim Exemplo",
+        "cidade": "São João da Boa Vista",
+        "uf": "SP",
+        "cep": "13872-300",
+        "referencia": ""
+      },
+      "telefone": "(19) 99999-0016",
+      "whatsapp": "5519999990016",
+      "horario": [
+        {
+          "dias": "Segunda a sábado",
+          "dow": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "abre": "08:00",
+          "fecha": "18:00"
+        }
+      ]
+    },
+    {
+      "plano": "gratuito",
+      "ia": false,
+      "destaque": false,
+      "demo": true,
+      "historia": "",
+      "produtos": [],
+      "faq": [],
+      "avaliacoes_verificadas": false,
+      "avaliacoes": [],
+      "atualizacoes": [],
+      "atualizado": "2026-11-21",
+      "email": "",
+      "site": "",
+      "redes": {},
+      "pagamento": [
+        "Pix",
+        "Cartão",
+        "Dinheiro"
+      ],
+      "fechado": "Domingo",
+      "diferenciais": [
+        "Preço fechado para obras"
+      ],
+      "servicos": [
+        "Entrega por caminhão"
+      ],
+      "id": "demo-constrular",
+      "slug": "deposito-constrular",
+      "nome": "Depósito Constrular",
+      "categoria": "casa-construcao",
+      "subcategoria_slug": "materiais-construcao",
+      "subcategoria": "Depósito de materiais",
+      "tags": [
+        "cimento",
+        "areia",
+        "tijolo",
+        "construcao",
+        "deposito"
+      ],
+      "resumo": "Depósito de materiais básicos de construção com entrega.",
+      "descricao": "Cimento, areia, brita e tijolos com entrega por caminhão e preço fechado para obras.",
+      "publico": "Construtores e moradores.",
+      "endereco": {
+        "rua": "Estrada Exemplo",
+        "numero": "Km 1",
+        "bairro": "Distrito Exemplo",
+        "cidade": "São João da Boa Vista",
+        "uf": "SP",
+        "cep": "13871-100",
+        "referencia": ""
+      },
+      "telefone": "(19) 99999-0017",
+      "whatsapp": "5519999990017",
+      "horario": [
+        {
+          "dias": "Segunda a sábado",
+          "dow": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "abre": "08:00",
+          "fecha": "18:00"
+        }
+      ]
     }
   ]
 }

@@ -233,6 +233,62 @@ Diferenciais: Atendimento por WhatsApp; Planos mensais fixos
 Pagamento: Pix, Boleto
 Atualizado em: 2026-11-21
 
+### Pizzaria Forno de Ouro
+URL: https://saojoaodigital.com.br/empresas/pizzaria-forno-de-ouro/
+Categoria: Onde Comer › Pizzaria
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Pizzaria de bairro com massa de fermentação lenta, mais de 30 sabores e entrega rápida.
+Público: Famílias e grupos.
+Endereço: Rua Exemplo, 320 - Vila Exemplo, São João da Boa Vista - SP, 13873-100
+Telefone: (19) 99999-0014 | WhatsApp: https://wa.me/5519999990014
+Horário: Terça a domingo 18:00-23:30 | Fechado: Segunda-feira
+Serviços: Delivery; Salão; Retirada no balcão
+Diferenciais: Massa de fermentação lenta
+Pagamento: Pix, Cartão, Dinheiro
+Atualizado em: 2026-11-21
+
+### Mecânica Rápida Pit Stop
+URL: https://saojoaodigital.com.br/empresas/mecanica-rapida-pit-stop/
+Categoria: Carro e Moto › Auto elétrica e troca de óleo
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Serviço rápido de troca de óleo e filtros, bateria e parte elétrica, com atendimento sem hora marcada.
+Público: Motoristas particulares e de aplicativo.
+Endereço: Avenida Exemplo, 1200 - Jardim Exemplo, São João da Boa Vista - SP, 13872-200
+Telefone: (19) 99999-0015 | WhatsApp: https://wa.me/5519999990015
+Horário: Segunda a sábado 08:00-18:00 | Fechado: Domingo
+Serviços: Troca de óleo e filtros; Bateria; Auto elétrica
+Diferenciais: Sem hora marcada
+Pagamento: Pix, Cartão, Dinheiro
+Atualizado em: 2026-11-21
+
+### Super Piscina Center
+URL: https://saojoaodigital.com.br/empresas/super-piscina-center/
+Categoria: Onde Comprar › Loja de piscinas e lazer
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Produtos químicos, filtros, boias e acessórios para piscinas, com preços de atacado para condomínios.
+Público: Moradores e condomínios.
+Endereço: Rua Exemplo, 640 - Jardim Exemplo, São João da Boa Vista - SP, 13872-300
+Telefone: (19) 99999-0016 | WhatsApp: https://wa.me/5519999990016
+Horário: Segunda a sábado 08:00-18:00 | Fechado: Domingo
+Serviços: Venda para condomínios; Entrega
+Diferenciais: Preço de atacado para condomínios
+Pagamento: Pix, Cartão, Dinheiro
+Atualizado em: 2026-11-21
+
+### Depósito Constrular
+URL: https://saojoaodigital.com.br/empresas/deposito-constrular/
+Categoria: Casa e Construção › Depósito de materiais
+Plano: gratuito | DADOS DE DEMONSTRAÇÃO
+Descrição: Cimento, areia, brita e tijolos com entrega por caminhão e preço fechado para obras.
+Público: Construtores e moradores.
+Endereço: Estrada Exemplo, Km 1 - Distrito Exemplo, São João da Boa Vista - SP, 13871-100
+Telefone: (19) 99999-0017 | WhatsApp: https://wa.me/5519999990017
+Horário: Segunda a sábado 08:00-18:00 | Fechado: Domingo
+Serviços: Entrega por caminhão
+Diferenciais: Preço fechado para obras
+Pagamento: Pix, Cartão, Dinheiro
+Atualizado em: 2026-11-21
+
 ## Eventos
 
 ### Feira Gastronômica de Fim de Ano
@@ -258,6 +314,36 @@ URL: https://saojoaodigital.com.br/eventos/semana-da-saude-e-bem-estar/
 Quando: 2027-01-18T08:00:00-03:00 até 2027-01-22T18:00:00-03:00
 Onde: Clínica Vida Plena (exemplo), São João da Boa Vista
 Evento de demonstração com palestras sobre nutrição, postura e saúde mental, além de avaliações rápidas.
+
+## Comparador de preços
+
+### Cimento CP-II 50 kg
+URL: https://saojoaodigital.com.br/comparador/cimento-cp-ii-50-kg/
+- Depósito Constrular: R$ 35,90 (de R$ 36,50) até 2026-11-30
+- Casa Forte Materiais de Construção: R$ 38,90
+
+### Cloro granulado 10 kg
+URL: https://saojoaodigital.com.br/comparador/cloro-granulado-10-kg/
+- Aqua Azul Piscinas: R$ 359,00 (de R$ 389,00) até 2026-12-31
+- Super Piscina Center: R$ 369,90
+
+### Pizza grande
+URL: https://saojoaodigital.com.br/comparador/pizza-grande/
+- Pizzaria Forno de Ouro: R$ 52,00
+- Cantina Bella Serra: R$ 54,90 (de R$ 59,90) até 2026-12-31
+
+### Troca de óleo e filtros
+URL: https://saojoaodigital.com.br/comparador/troca-de-oleo-e-filtros/
+- Mecânica Rápida Pit Stop: R$ 249,00
+- Auto Center Mecânica do Centro: R$ 259,00 (de R$ 289,00) até 2026-12-15
+
+### Banho e tosa (porte médio)
+URL: https://saojoaodigital.com.br/comparador/banho-e-tosa-porte-medio/
+- Pet Amigo Casa e Jardim: R$ 75,00
+
+### Troca de tela de celular (básico)
+URL: https://saojoaodigital.com.br/comparador/troca-de-tela-de-celular-basico/
+- TecFix Assistência Técnica: R$ 189,00
 
 ## Notícias, guias e novidades
 

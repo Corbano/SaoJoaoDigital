@@ -40,6 +40,7 @@ const empresasData = read('empresas.json');
 const categoriasData = read('categorias.json');
 const eventosData = read('eventos.json');
 const noticiasData = read('noticias.json');
+const ofertasData = read('ofertas.json');
 const EMP = empresasData.empresas;
 const CATS = categoriasData.categorias;
 const EVT = eventosData.eventos;
@@ -67,7 +68,7 @@ const BRAND_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" r
 const OG_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a1730"/><stop offset="1" stop-color="#1b4a8a"/></linearGradient></defs><rect width="1200" height="630" fill="url(#g)"/><text x="80" y="300" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="800" fill="#fff">São João <tspan fill="#ffb020">Digital</tspan></text><text x="80" y="380" font-family="Arial,Helvetica,sans-serif" font-size="38" fill="#cfe0f5">Base de conhecimento local de ${CIDADE}</text></svg>`;
 
 /* ---------- layout compartilhado ---------- */
-const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/planos/', 'Para empresas']];
+const NAV = [['/empresas/', 'Empresas'], ['/categorias/', 'Categorias'], ['/comparador/', 'Comparador'], ['/eventos/', 'Eventos'], ['/noticias/', 'Notícias'], ['/assistente/', 'Assistente IA'], ['/planos/', 'Para empresas']];
 
 function layout({ title, desc, path: p, jsonld = [], body, type = 'website', scripts = [], noindex = false, hero = '', image = '/assets/img/og-default.svg' }) {
   const fullTitle = p === '/' ? title : `${title} | ${SITE_NAME}`;
@@ -241,9 +242,108 @@ ${e.ia ? `<section class="chat" id="chat-empresa" data-slug="${e.slug}" aria-lab
   return layout({ title: `${e.nome} — ${e.subcategoria} em ${CIDADE}`, desc: `${e.resumo} Endereço, telefone, horário e perguntas frequentes.`, path: `/empresas/${e.slug}/`, jsonld: empresaLd(e), body, hero, scripts: e.ia ? AI_JS : CORE_JS, image: `/assets/img/empresas/${e.slug}/foto-1.svg` });
 }
 
+/* Comparador de preços (trecho incluído por build.js) */
+const slugify = (t) => norm(t).replace(/\s+/g, '-').replace(/-+/g, '-');
+const brl = (n) => 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const precoEf = (o) => (o.preco_promocional != null ? o.preco_promocional : o.preco);
+const vigente = (o) => o.ativo && (!o.data_inicio || o.data_inicio <= TODAY) && (!o.data_fim || o.data_fim >= TODAY);
+
+/** Agrupa ofertas vigentes por produto e ordena do menor para o maior preço efetivo. */
+function produtosComparador() {
+  const m = new Map();
+  ofertasData.ofertas.filter(vigente).filter((o) => empBySlug[o.empresa]).forEach((o) => {
+    const k = slugify(o.produto);
+    if (!m.has(k)) m.set(k, { slug: k, nome: o.produto, categoria: o.categoria, ofertas: [] });
+    m.get(k).ofertas.push(o);
+  });
+  return [...m.values()].map((p) => {
+    p.ofertas.sort((a, b) => precoEf(a) - precoEf(b));
+    const pr = p.ofertas.map(precoEf);
+    p.min = Math.min(...pr); p.max = Math.max(...pr); p.economia = +(p.max - p.min).toFixed(2);
+    return p;
+  }).sort((a, b) => b.ofertas.length - a.ofertas.length || a.nome.localeCompare(b.nome, 'pt-BR'));
+}
+
+const waLink = (e, texto) => (e.whatsapp ? `https://wa.me/${e.whatsapp}?text=${encodeURIComponent(texto)}` : '');
+
+function tabelaOfertas(p) {
+  const linhas = p.ofertas.map((o, i) => {
+    const e = empBySlug[o.empresa];
+    const wa = waLink(e, `Olá! Vi ${p.nome} no São João Digital. Ainda está disponível?`);
+    const preco = o.preco_promocional != null
+      ? `<s class="text-secondary small">${brl(o.preco)}</s><br><strong>${brl(o.preco_promocional)}</strong>`
+      : `<strong>${brl(o.preco)}</strong>`;
+    return `<tr${o.data_inicio ? ` data-inicio="${o.data_inicio}"` : ''}${o.data_fim ? ` data-fim="${o.data_fim}"` : ''}>
+<td>${i + 1}</td>
+<td><a href="/empresas/${e.slug}/">${esc(e.nome)}</a>${i === 0 && p.ofertas.length > 1 ? ' <span class="badge text-bg-success">Menor preço</span>' : ''}<br><small class="text-secondary">${esc(e.endereco.bairro)}</small></td>
+<td>${esc(o.descricao)}${o.data_fim ? `<br><small class="text-secondary">Válido até <time datetime="${o.data_fim}">${dataBR(o.data_fim + 'T12:00:00-03:00')}</time></small>` : ''}</td>
+<td class="text-end text-nowrap">${preco}</td>
+<td class="text-nowrap">${wa ? `<a class="btn btn-sm btn-success" rel="noopener nofollow" target="_blank" href="${wa}">WhatsApp</a>` : ''}</td></tr>`;
+  }).join('');
+  return `<div class="table-responsive"><table class="table table-hover align-middle bg-white mb-0"><caption class="visually-hidden">Preços de ${esc(p.nome)} por empresa, do menor para o maior</caption>
+<thead><tr><th scope="col">#</th><th scope="col">Empresa</th><th scope="col">Oferta</th><th scope="col" class="text-end">Preço</th><th scope="col">Contato</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
+}
+
+function cardProduto(p) {
+  const busca = norm(p.nome + ' ' + catById[p.categoria].nome + ' ' + p.ofertas.map((o) => empBySlug[o.empresa].nome).join(' '));
+  return `<div class="col-12 col-md-6 col-lg-4" data-cat="${p.categoria}" data-busca="${esc(busca)}"><article class="card h-100 shadow-sm"><div class="card-body">
+<span class="badge text-bg-info">${esc(catById[p.categoria].nome)}</span>
+<h3 class="h5 mt-2"><a href="/comparador/${p.slug}/">${esc(p.nome)}</a></h3>
+<p class="mb-1">A partir de <strong class="fs-5">${brl(p.min)}</strong></p>
+<p class="meta mb-0">${p.ofertas.length} ${p.ofertas.length === 1 ? 'oferta' : 'ofertas'}${p.economia > 0 ? ` · economia de até ${brl(p.economia)}` : ''}</p></div></article></div>`;
+}
+
+function gerarComparador() {
+  const PROD = produtosComparador();
+  const SCR = CORE_JS.concat('/assets/js/comparador.js');
+
+  PROD.forEach((p) => {
+    const cat = catById[p.categoria];
+    const url = `/comparador/${p.slug}/`;
+    const body = `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}
+<p>${p.ofertas.length > 1
+    ? `Comparamos <strong>${p.ofertas.length} ofertas</strong> de ${esc(p.nome)} em ${CIDADE}. A diferença entre a mais barata e a mais cara é de <strong>${brl(p.economia)}</strong>.`
+    : `Há <strong>1 oferta</strong> cadastrada para ${esc(p.nome)}. Quando outras empresas cadastrarem, a comparação aparece aqui.`}</p>
+${tabelaOfertas(p)}
+<p class="meta mt-3">Preços informados pelas empresas e sujeitos a alteração. Confirme com o estabelecimento antes de se deslocar. Categoria: <a href="/categorias/${cat.slug}/">${esc(cat.nome)}</a>.</p></div>`;
+    const ld = {
+      '@context': 'https://schema.org', '@type': 'Product', name: p.nome, category: cat.nome,
+      offers: {
+        '@type': 'AggregateOffer', priceCurrency: 'BRL', lowPrice: p.min.toFixed(2), highPrice: p.max.toFixed(2), offerCount: p.ofertas.length,
+        offers: p.ofertas.map((o) => {
+          const e = empBySlug[o.empresa];
+          return { '@type': 'Offer', price: precoEf(o).toFixed(2), priceCurrency: 'BRL', ...(o.data_fim && { priceValidUntil: o.data_fim }), availability: 'https://schema.org/InStock', url: abs(`/empresas/${e.slug}/`), description: o.descricao, seller: { '@type': 'Organization', name: e.nome, url: abs(`/empresas/${e.slug}/`) } };
+        })
+      }
+    };
+    write(`comparador/${p.slug}/index.html`, layout({
+      title: `Preço de ${p.nome} em ${CIDADE}: compare ${p.ofertas.length > 1 ? p.ofertas.length + ' lojas' : 'a oferta'}`,
+      desc: `Compare o preço de ${p.nome} em ${CIDADE} (SP): de ${brl(p.min)} a ${brl(p.max)} em ${p.ofertas.length} ${p.ofertas.length === 1 ? 'empresa' : 'empresas'}. Menor preço primeiro, com contato direto.`,
+      path: url, hero: pageHero([['/', 'Início'], ['/comparador/', 'Comparador'], [url, p.nome]], `${p.nome}: comparar preços`, `Menor preço atual: ${brl(p.min)}`),
+      body, scripts: SCR, jsonld: [ld, crumbLd([['/', 'Início'], ['/comparador/', 'Comparador'], [url, p.nome]])]
+    }));
+    addUrl(url, ofertasData.atualizado, '0.7', 'daily');
+  });
+
+  const catsComp = CATS.filter((c) => PROD.some((p) => p.categoria === c.id));
+  const body = `<div class="container" style="padding-top:26px;padding-bottom:40px">${demoNotice({ demo: true })}
+<div class="filters"><label class="visually-hidden" for="c-q">Buscar produto ou serviço</label><input class="form-control" id="c-q" type="search" placeholder="Ex.: pizza, troca de óleo, cimento…"><label class="visually-hidden" for="c-cat">Categoria</label><select class="form-select" id="c-cat"><option value="">Todas as categorias</option>${catsComp.map((c) => `<option value="${c.id}">${esc(c.nome)}</option>`).join('')}</select><span id="c-count" class="meta" aria-live="polite"></span></div>
+<p class="mb-2">Populares: ${PROD.slice(0, 6).map((p) => `<button type="button" class="btn btn-sm btn-outline-secondary chip-prod me-1 mb-1">${esc(p.nome)}</button>`).join('')}</p>
+<div class="row g-3" id="lista-produtos">${PROD.map(cardProduto).join('')}</div></div>`;
+  write('comparador/index.html', layout({
+    title: `Comparador de preços em ${CIDADE}`,
+    desc: `Compare preços de produtos e serviços entre empresas de ${CIDADE} (SP): menor preço primeiro, com economia calculada e contato direto.`,
+    path: '/comparador/', hero: pageHero([['/', 'Início'], ['/comparador/', 'Comparador']], 'Comparador de preços', 'Veja quem vende mais barato na cidade, do menor para o maior preço.'),
+    body, scripts: SCR,
+    jsonld: [{ '@context': 'https://schema.org', '@type': 'ItemList', name: `Comparador de preços de ${CIDADE}`, itemListElement: PROD.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/comparador/${p.slug}/`), name: p.nome })) }, crumbLd([['/', 'Início'], ['/comparador/', 'Comparador']])]
+  }));
+  addUrl('/comparador/', ofertasData.atualizado, '0.8', 'daily');
+  return PROD;
+}
+
 function build() {
   // limpa saídas anteriores geradas (apenas pastas geradas)
-  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
+  ['empresas', 'categorias', 'eventos', 'noticias', 'assistente', 'comparador', 'planos', 'sobre', path.join('assets', 'img', 'empresas')].forEach((d) => fs.rmSync(path.join(ROOT, d), { recursive: true, force: true }));
 
   write('assets/img/logo.svg', BRAND_SVG);
   write('assets/img/favicon.svg', BRAND_SVG);
@@ -341,6 +441,8 @@ function build() {
   write('sobre/index.html', layout({ title: 'Sobre e como interpretar os dados', desc: `O que é o ${SITE_NAME} e como interpretar empresas, planos, avaliações e conteúdo patrocinado.`, path: '/sobre/', hero: pageHero([['/', 'Início'], ['/sobre/', 'Sobre']], `Sobre o ${SITE_NAME}`, ''), body: sobre, scripts: CORE_JS, jsonld: [crumbLd([['/', 'Início'], ['/sobre/', 'Sobre']])] }));
   addUrl('/sobre/', TODAY, '0.5', 'monthly');
 
+  const PROD = gerarComparador();
+
   /* 404 */
   write('404.html', layout({ title: 'Página não encontrada', desc: 'A página procurada não existe.', path: '/404.html', noindex: true, hero: pageHero([['/', 'Início'], ['', 'Erro 404']], 'Página não encontrada', ''), body: '<div class="article"><p>Não encontramos essa página. Tente o <a href="/assistente/">assistente</a>, as <a href="/categorias/">categorias</a> ou volte ao <a href="/">início</a>.</p></div>', scripts: CORE_JS }));
 
@@ -367,6 +469,7 @@ function build() {
 - [categorias.json](${abs('/dados/categorias.json')}): categorias, descrições e sinônimos de busca
 - [eventos.json](${abs('/dados/eventos.json')}): agenda de eventos
 - [noticias.json](${abs('/dados/noticias.json')}): notícias, guias, novidades e conteúdos patrocinados
+- [ofertas.json](${abs('/dados/ofertas.json')}): preços do comparador (preco, preco_promocional, data_inicio, data_fim)
 
 ## Páginas principais
 - [Início](${abs('/')})
@@ -374,6 +477,7 @@ function build() {
 - [Categorias](${abs('/categorias/')}): ${CATS.map((c) => c.nome).join(', ')} (12 categorias, cada uma com subcategorias)
 - [Eventos](${abs('/eventos/')})
 - [Notícias e guias](${abs('/noticias/')})
+- [Comparador de preços](${abs('/comparador/')}): menor preço por produto/serviço entre empresas
 - [Assistente Inteligente](${abs('/assistente/')})
 - [Como interpretar os dados](${abs('/sobre/')})
 
@@ -396,7 +500,7 @@ Telefone: ${e.telefone}${e.whatsapp ? ` | WhatsApp: https://wa.me/${e.whatsapp}`
 Horário: ${e.horario.map((h) => `${h.dias} ${h.abre}-${h.fecha}`).join('; ')}${e.fechado ? ` | Fechado: ${e.fechado}` : ''}
 ${e.produtos.length ? `Produtos: ${e.produtos.map((p) => `${p.nome}${p.preco ? ` (${p.preco})` : ''}`).join('; ')}\n` : ''}${e.servicos.length ? `Serviços: ${e.servicos.join('; ')}\n` : ''}${e.diferenciais.length ? `Diferenciais: ${e.diferenciais.join('; ')}\n` : ''}${e.pagamento.length ? `Pagamento: ${e.pagamento.join(', ')}\n` : ''}${e.faq.length ? `Perguntas frequentes:\n${e.faq.map((f) => `  P: ${f.p}\n  R: ${f.r}`).join('\n')}\n` : ''}Atualizado em: ${e.atualizado}
 `;
-  write('llms-full.txt', `# ${SITE_NAME} — conteúdo completo\n\n> ${CIDADE} (SP). Dados informados pelas empresas; confirme informações críticas diretamente com elas. Registros marcados como demonstração são fictícios.\n\nGerado em ${TODAY}.\n\n## Categorias\n${CATS.map((c) => `- ${c.nome}: ${c.intro}`).join('\n')}\n\n## Empresas\n\n${EMP.map(emp).join('\n')}\n## Eventos\n\n${evOrd.map((v) => `### ${v.titulo}\nURL: ${abs(`/eventos/${v.slug}/`)}\nQuando: ${v.inicio} até ${v.fim}\nOnde: ${v.local}, ${v.cidade}\n${v.descricao}\n`).join('\n')}\n## Notícias, guias e novidades\n\n${notOrd.map((n) => `### ${n.titulo}\nURL: ${abs(`/noticias/${n.slug}/`)}\nTipo: ${TIPOS[n.tipo]}${n.patrocinador ? ` | ${n.patrocinador.rotulo}` : ''}\nData: ${n.data} | Autor: ${n.autor}\n${n.corpo.join('\n')}\n`).join('\n')}`);
+  write('llms-full.txt', `# ${SITE_NAME} — conteúdo completo\n\n> ${CIDADE} (SP). Dados informados pelas empresas; confirme informações críticas diretamente com elas. Registros marcados como demonstração são fictícios.\n\nGerado em ${TODAY}.\n\n## Categorias\n${CATS.map((c) => `- ${c.nome}: ${c.intro}`).join('\n')}\n\n## Empresas\n\n${EMP.map(emp).join('\n')}\n## Eventos\n\n${evOrd.map((v) => `### ${v.titulo}\nURL: ${abs(`/eventos/${v.slug}/`)}\nQuando: ${v.inicio} até ${v.fim}\nOnde: ${v.local}, ${v.cidade}\n${v.descricao}\n`).join('\n')}\n## Comparador de preços\n\n${PROD.map((p) => `### ${p.nome}\nURL: ${abs(`/comparador/${p.slug}/`)}\n${p.ofertas.map((o) => `- ${empBySlug[o.empresa].nome}: ${brl(precoEf(o))}${o.preco_promocional != null ? ` (de ${brl(o.preco)})` : ''}${o.data_fim ? ` até ${o.data_fim}` : ''}`).join('\n')}\n`).join('\n')}\n## Notícias, guias e novidades\n\n${notOrd.map((n) => `### ${n.titulo}\nURL: ${abs(`/noticias/${n.slug}/`)}\nTipo: ${TIPOS[n.tipo]}${n.patrocinador ? ` | ${n.patrocinador.rotulo}` : ''}\nData: ${n.data} | Autor: ${n.autor}\n${n.corpo.join('\n')}\n`).join('\n')}`);
 
   console.log(`OK: ${EMP.length} empresas, ${CATS.length} categorias, ${EVT.length} eventos, ${NOT.length} notícias, ${urls.length} URLs no sitemap. SITE_URL=${SITE_URL}`);
 }

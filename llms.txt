@@ -17,6 +17,7 @@
 - [categorias.json](https://saojoaodigital.com.br/dados/categorias.json): categorias, descrições e sinônimos de busca
 - [eventos.json](https://saojoaodigital.com.br/dados/eventos.json): agenda de eventos
 - [noticias.json](https://saojoaodigital.com.br/dados/noticias.json): notícias, guias, novidades e conteúdos patrocinados
+- [ofertas.json](https://saojoaodigital.com.br/dados/ofertas.json): preços do comparador (preco, preco_promocional, data_inicio, data_fim)
 
 ## Páginas principais
 - [Início](https://saojoaodigital.com.br/)
@@ -24,6 +25,7 @@
 - [Categorias](https://saojoaodigital.com.br/categorias/): Onde Comer, Onde Comprar, Casamentos e Festas, Saúde e Beleza, Casa e Construção, Carro e Moto, Assistência Técnica, Onde Ficar, Cães e Gatos, Escolas e Cursos, Transportes e Locação, Escritórios (12 categorias, cada uma com subcategorias)
 - [Eventos](https://saojoaodigital.com.br/eventos/)
 - [Notícias e guias](https://saojoaodigital.com.br/noticias/)
+- [Comparador de preços](https://saojoaodigital.com.br/comparador/): menor preço por produto/serviço entre empresas
 - [Assistente Inteligente](https://saojoaodigital.com.br/assistente/)
 - [Como interpretar os dados](https://saojoaodigital.com.br/sobre/)
 
@@ -40,6 +42,10 @@
 - [TecFix Assistência Técnica](https://saojoaodigital.com.br/empresas/tecfix-assistencia-tecnica/): Assistência técnica de celulares e computadores. Conserto de celulares, notebooks e computadores, com troca de tela, bateria e formatação.
 - [Rota Certa Locadora de Veículos](https://saojoaodigital.com.br/empresas/rota-certa-locadora-de-veiculos/): Locadora de veículos. Aluguel de carros e vans por diária ou mensal para moradores e visitantes.
 - [Prisma Contabilidade](https://saojoaodigital.com.br/empresas/prisma-contabilidade/): Escritório de contabilidade. Contabilidade para MEI, micro e pequenas empresas: abertura, impostos e folha de pagamento.
+- [Pizzaria Forno de Ouro](https://saojoaodigital.com.br/empresas/pizzaria-forno-de-ouro/): Pizzaria. Pizzaria com entrega e salão, aberta à noite.
+- [Mecânica Rápida Pit Stop](https://saojoaodigital.com.br/empresas/mecanica-rapida-pit-stop/): Auto elétrica e troca de óleo. Troca de óleo, bateria e auto elétrica sem hora marcada.
+- [Super Piscina Center](https://saojoaodigital.com.br/empresas/super-piscina-center/): Loja de piscinas e lazer. Loja de produtos para piscina e lazer de verão.
+- [Depósito Constrular](https://saojoaodigital.com.br/empresas/deposito-constrular/): Depósito de materiais. Depósito de materiais básicos de construção com entrega.
 
 ## Versão completa
 - [llms-full.txt](https://saojoaodigital.com.br/llms-full.txt): conteúdo integral em texto simples
